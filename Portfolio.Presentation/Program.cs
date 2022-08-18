@@ -11,6 +11,6 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new FrmLogin());
+        Application.Run(new @ref());
     }
 }
