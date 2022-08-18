@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP_PortfolioCinematografico854", "TP_PortfolioCinematografico854\TP_PortfolioCinematografico854.csproj", "{6F768467-3DBB-4184-85DD-7DC1565B14E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Presentation", "Portfolio.Presentation\Portfolio.Presentation.csproj", "{3221A866-925B-4781-A574-B1331F72069C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Domain", "Portfolio.Domain\Portfolio.Domain.csproj", "{DB8CD285-D318-4C8F-A8D1-8A5F54F1CB10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Services", "Portfolio.Services\Portfolio.Services.csproj", "{8B0B210D-7801-460E-9031-37444BB98E05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6F768467-3DBB-4184-85DD-7DC1565B14E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F768467-3DBB-4184-85DD-7DC1565B14E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F768467-3DBB-4184-85DD-7DC1565B14E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F768467-3DBB-4184-85DD-7DC1565B14E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3221A866-925B-4781-A574-B1331F72069C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3221A866-925B-4781-A574-B1331F72069C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3221A866-925B-4781-A574-B1331F72069C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3221A866-925B-4781-A574-B1331F72069C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8CD285-D318-4C8F-A8D1-8A5F54F1CB10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8CD285-D318-4C8F-A8D1-8A5F54F1CB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8CD285-D318-4C8F-A8D1-8A5F54F1CB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8CD285-D318-4C8F-A8D1-8A5F54F1CB10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0B210D-7801-460E-9031-37444BB98E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0B210D-7801-460E-9031-37444BB98E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0B210D-7801-460E-9031-37444BB98E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0B210D-7801-460E-9031-37444BB98E05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

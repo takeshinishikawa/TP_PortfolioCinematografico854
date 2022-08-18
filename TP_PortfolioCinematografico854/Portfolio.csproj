@@ -8,4 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Portfolio.Domain\Portfolio.Domain.csproj" />
+    <ProjectReference Include="..\Portfolio.Presentation\Portfolio.Presentation.csproj" />
+    <ProjectReference Include="..\Portfolio.Services\Portfolio.Services.csproj" />
+  </ItemGroup>
+
 </Project>
