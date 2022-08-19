@@ -58,7 +58,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUsername.ForeColor = System.Drawing.Color.Maroon;
+            this.lblUsername.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lblUsername.Location = new System.Drawing.Point(15, 50);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(155, 23);
@@ -70,7 +70,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPassword.ForeColor = System.Drawing.Color.Maroon;
+            this.lblPassword.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lblPassword.Location = new System.Drawing.Point(15, 125);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(62, 23);
@@ -138,7 +138,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(317, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(320, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(427, 247);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlLogin);
