@@ -11,10 +11,10 @@ namespace Portfolio.Domain.Enum
     {
         //U+2605 = ★
         //U+2606 = ☆
-        [Description("★☆☆☆☆")] *,
-        [Description("★★☆☆☆")] **,
-        [Description("★★★☆☆")] ***,
-        [Description("★★★★☆")] ****,
-        [Description("★★★★★")] *****,
+        [Description("★☆☆☆☆")] One,
+        [Description("★★☆☆☆")] Two,
+        [Description("★★★☆☆")] Three,
+        [Description("★★★★☆")] Four,
+        [Description("★★★★★")] Five,
     }
 }
