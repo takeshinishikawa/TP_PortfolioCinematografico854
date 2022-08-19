@@ -15,6 +15,35 @@ namespace Portfolio.Presentation
         public FrmHome()
         {
             InitializeComponent();
+            CustomizeDesign();
+        }
+
+        private void btnLogo_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(pnlSubMenu);
+        }
+
+        private void CustomizeDesign()
+        {
+            pnlSubMenu.Visible = false;
+        }
+        private void HideSubMenu()
+        {
+            if(pnlSubMenu.Visible == true)
+                pnlSubMenu.Visible = false;
+        }
+
+        private void ShowSubMenu(Panel subMenu)
+        {
+            if(subMenu.Visible == false)
+            {
+                HideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
         }
     }
 }

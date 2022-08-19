@@ -16,5 +16,15 @@ namespace Portfolio.Presentation
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lblNewAccount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

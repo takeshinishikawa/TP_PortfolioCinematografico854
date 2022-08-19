@@ -1,8 +1,10 @@
-﻿namespace Portfolio.Presentation;
+﻿using Portfolio.Domain;
+using Portfolio.Domain.Enum;
+
+namespace Portfolio.Presentation;
 
 static class Program
 {
-
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
@@ -11,8 +13,9 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new @ref());
-        
-        
+        //Application.Run(new @ref());
+        Application.Run(new FrmHome());
+
+
     }
 }
