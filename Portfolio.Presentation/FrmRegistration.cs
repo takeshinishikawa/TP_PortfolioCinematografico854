@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace Portfolio.Presentation
     {
         bool CadastroMostrarSenha = false;
         bool validName = false;
+        bool validUserName = false;
         bool validBirthDate = false;
         bool validPassword = false;
         public FrmRegistration()
@@ -46,6 +49,8 @@ namespace Portfolio.Presentation
         private void txbCadastroName_TextChanged(object sender, EventArgs e)
         {
             string input = txbCadastroName.Text;
+            lblCadastroNameValidation.Text = "";
+            validName = false;
             if (input == string.Empty)
             {
                 lblCadastroNameValidation.Text = "";
@@ -61,7 +66,8 @@ namespace Portfolio.Presentation
             else
             {
                 input = txbCadastroName.Text;
-                if (input != string.Empty && input[input.Length - 1] == ' ')
+                //if (input != string.Empty && input[input.Length - 1] == ' ')
+                if (input != string.Empty && input[^1] == ' ')
                 {
                     validName = false;
                     return;
@@ -74,11 +80,6 @@ namespace Portfolio.Presentation
                         lblCadastroNameValidation.Text = "Nome válido";
                         lblCadastroNameValidation.ForeColor = Color.Green;
                         validName = true;
-                    }
-                    else
-                    {
-                        lblCadastroNameValidation.Text = "";
-                        validName = false;
                     }
                 }
             }
@@ -107,6 +108,45 @@ namespace Portfolio.Presentation
                 {
                     lblCadastroBirthDateValidation.Text = "Data inválida";
                     lblCadastroBirthDateValidation.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        private void txbCadastroUserName_TextChanged(object sender, EventArgs e)
+        {
+            string input = txbCadastroUserName.Text;
+            lblCadastroUserNameValidation.Text = "";
+            validUserName = false;
+            if (input == string.Empty)
+            {
+                lblCadastroUserNameValidation.Text = "";
+                validUserName = false;
+            }
+            else if (input.Replace(" ", "") == "")
+            {
+                lblCadastroUserNameValidation.Text = "Nome inválido.";
+                lblCadastroUserNameValidation.ForeColor = Color.Red;
+                validUserName = false;
+                return;
+            }
+            else
+            {
+                input = lblCadastroUserNameValidation.Text;
+                //if (input != string.Empty && input[input.Length - 1] == ' ')
+                if (input != string.Empty && input[^1] == ' ')
+                {
+                    validUserName = false;
+                    return;
+                }
+                string[] names = input.Split(' ');
+                if (names.Length >= 2)
+                {
+                    if (names[1] != "")
+                    {
+                        lblCadastroUserNameValidation.Text = "Nome válido";
+                        lblCadastroUserNameValidation.ForeColor = Color.Green;
+                        validUserName = true;
+                    }
                 }
             }
         }

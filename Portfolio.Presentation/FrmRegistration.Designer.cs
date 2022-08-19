@@ -76,7 +76,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(832, 43);
             this.label2.TabIndex = 9;
-            this.label2.Text = " Aproveite as vantagens de ser um usuário da Portfólio Cinematográfico!";
+            this.label2.Text = " Aproveite as vantagens de ser um usuário do Portfólio Cinematográfico!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitleCadastro
@@ -126,6 +126,7 @@
             this.txbCadastroUserName.Name = "txbCadastroUserName";
             this.txbCadastroUserName.Size = new System.Drawing.Size(360, 27);
             this.txbCadastroUserName.TabIndex = 2;
+            this.txbCadastroUserName.TextChanged += new System.EventHandler(this.txbCadastroUserName_TextChanged);
             // 
             // lblCadastroUserName
             // 
@@ -192,9 +193,8 @@
             this.lblCadastroNameValidation.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroNameValidation.Location = new System.Drawing.Point(456, 245);
             this.lblCadastroNameValidation.Name = "lblCadastroNameValidation";
-            this.lblCadastroNameValidation.Size = new System.Drawing.Size(45, 14);
+            this.lblCadastroNameValidation.Size = new System.Drawing.Size(0, 14);
             this.lblCadastroNameValidation.TabIndex = 24;
-            this.lblCadastroNameValidation.Text = "label1";
             // 
             // lblCadastroBirthDateValidation
             // 
@@ -202,9 +202,8 @@
             this.lblCadastroBirthDateValidation.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroBirthDateValidation.Location = new System.Drawing.Point(456, 295);
             this.lblCadastroBirthDateValidation.Name = "lblCadastroBirthDateValidation";
-            this.lblCadastroBirthDateValidation.Size = new System.Drawing.Size(45, 14);
+            this.lblCadastroBirthDateValidation.Size = new System.Drawing.Size(0, 14);
             this.lblCadastroBirthDateValidation.TabIndex = 25;
-            this.lblCadastroBirthDateValidation.Text = "label1";
             // 
             // lblCadastroUserNameValidation
             // 
@@ -212,9 +211,8 @@
             this.lblCadastroUserNameValidation.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroUserNameValidation.Location = new System.Drawing.Point(456, 345);
             this.lblCadastroUserNameValidation.Name = "lblCadastroUserNameValidation";
-            this.lblCadastroUserNameValidation.Size = new System.Drawing.Size(45, 14);
+            this.lblCadastroUserNameValidation.Size = new System.Drawing.Size(0, 14);
             this.lblCadastroUserNameValidation.TabIndex = 26;
-            this.lblCadastroUserNameValidation.Text = "label3";
             // 
             // lblCadastroPasswordValidation
             // 
@@ -222,9 +220,8 @@
             this.lblCadastroPasswordValidation.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroPasswordValidation.Location = new System.Drawing.Point(456, 395);
             this.lblCadastroPasswordValidation.Name = "lblCadastroPasswordValidation";
-            this.lblCadastroPasswordValidation.Size = new System.Drawing.Size(45, 14);
+            this.lblCadastroPasswordValidation.Size = new System.Drawing.Size(0, 14);
             this.lblCadastroPasswordValidation.TabIndex = 27;
-            this.lblCadastroPasswordValidation.Text = "label4";
             // 
             // lblCadastroPasswordConfirmValidation
             // 
@@ -232,9 +229,8 @@
             this.lblCadastroPasswordConfirmValidation.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroPasswordConfirmValidation.Location = new System.Drawing.Point(456, 445);
             this.lblCadastroPasswordConfirmValidation.Name = "lblCadastroPasswordConfirmValidation";
-            this.lblCadastroPasswordConfirmValidation.Size = new System.Drawing.Size(45, 14);
+            this.lblCadastroPasswordConfirmValidation.Size = new System.Drawing.Size(0, 14);
             this.lblCadastroPasswordConfirmValidation.TabIndex = 28;
-            this.lblCadastroPasswordConfirmValidation.Text = "label5";
             // 
             // chbCadastroMostrarSenha
             // 
