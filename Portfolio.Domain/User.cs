@@ -22,17 +22,17 @@ namespace Portfolio.Domain
             this.Password = password;
         }
 
-        void ChangePassword(string password)
+        public void ChangePassword(string password)
         {
             this.Password = password;
         }
 
-        void ChangeName(string name)
+        public void ChangeName(string name)
         {
             this.Name = name;
         }
 
-        bool CheckPassword(string userInput)
+        public bool CheckPassword(string userInput)
         {
             return this.Password.Equals(userInput);
         }
