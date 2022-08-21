@@ -45,5 +45,20 @@ namespace Portfolio.Presentation
                 subMenu.Visible = false;
             }
         }
+
+        private void btnNewSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPortfolio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
