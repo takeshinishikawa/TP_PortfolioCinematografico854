@@ -16,17 +16,17 @@ namespace Portfolio.Services
             UserRegistry = new List<User>();
         }
 
-        void AddNewUser(User newUser)
+        public void AddNewUser(User newUser)
         {
             UserRegistry.Add(newUser);
         }
 
-        bool LookForUsername(string entryUsername)
+        public bool LookForUsername(string entryUsername)
         {
             return UserRegistry.Any(person => person.Username == entryUsername);
         }
 
-        bool IsValidPassword(string username, string entryPassword)
+        public bool IsValidPassword(string username, string entryPassword)
         {
             User user = UserRegistry.Single(person => person.Username == username);
             return user.CheckPassword(entryPassword);

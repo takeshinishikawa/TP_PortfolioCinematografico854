@@ -13,5 +13,15 @@ namespace Portfolio.Domain
         {
             new User("Admin", "admin", DateTime.Parse("13/06/1989"), "Batatinha123")
         };
+
+        public static bool CheckUserName(string username)
+        {
+            return Users.UserList.Where(x => x.Username == username).Any();
+        }
+        public static void AddUser(User newUser)
+        {
+            UserList.Add(newUser);
+            return ;
+        }
     }
 }

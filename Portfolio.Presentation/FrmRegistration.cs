@@ -9,6 +9,8 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Portfolio.Domain;
+using Portfolio.Services;
 
 namespace Portfolio.Presentation
 {
@@ -18,7 +20,6 @@ namespace Portfolio.Presentation
         bool validName = false;
         bool validUserName = false;
         bool validBirthDate = false;
-        bool validPassword = false;
         public FrmRegistration()
         {
             InitializeComponent();
@@ -37,12 +38,14 @@ namespace Portfolio.Presentation
                 CadastroMostrarSenha = true;
                 txbCadastroTypePassword.UseSystemPasswordChar = false;
                 txbCadastroConfirmPassword.UseSystemPasswordChar = false;
+                chbCadastroMostrarSenha.Text = "Esconder Senha";
             }
             else
             {
                 CadastroMostrarSenha = false;
                 txbCadastroTypePassword.UseSystemPasswordChar = true;
                 txbCadastroConfirmPassword.UseSystemPasswordChar = true;
+                chbCadastroMostrarSenha.Text = "Mostrar Senha";
             }
         }
 
@@ -54,62 +57,57 @@ namespace Portfolio.Presentation
             if (input == string.Empty)
             {
                 lblCadastroNameValidation.Text = "";
-                validName = false;
+                txbCadastroName.ForeColor = Color.Black;
             }
-            else if (input.Replace(" ", "") == "")
+            else if (input[0] == ' ' || input.Replace(" ", "") == "")
             {
+                txbCadastroName.ForeColor = Color.Red;
                 lblCadastroNameValidation.Text = "Nome inválido.";
                 lblCadastroNameValidation.ForeColor = Color.Red;
-                validName = false;
                 return;
             }
             else
             {
                 input = txbCadastroName.Text;
-                //if (input != string.Empty && input[input.Length - 1] == ' ')
-                if (input != string.Empty && input[^1] == ' ')
-                {
-                    validName = false;
-                    return;
-                }
                 string[] names = input.Split(' ');
-                if (names.Length >= 2)
+                if (names.Length >= 2 && names[1] != "")
                 {
-                    if (names[1] != "")
-                    {
-                        lblCadastroNameValidation.Text = "Nome válido";
-                        lblCadastroNameValidation.ForeColor = Color.Green;
-                        validName = true;
-                    }
+                    lblCadastroNameValidation.Text = "Nome válido";
+                    lblCadastroNameValidation.ForeColor = Color.Green;
+                    txbCadastroName.ForeColor = Color.Green;
+                    validName = true;
                 }
             }
+            EnableBtnEnviar();
         }
 
         private void mtxBirthDate_TextChanged(object sender, EventArgs e)
         {
+            validBirthDate = false;
             DateTime birthDate;
             string input = mtxBirthDate.Text;
             if (input == string.Empty || input.Length < 10)
-                lblCadastroBirthDateValidation.Text = "";
-            else if (input.Replace(" ", "") == "")
             {
-                lblCadastroBirthDateValidation.Text = "Data inválida.";
-                lblCadastroBirthDateValidation.ForeColor = Color.Red;
-                return;
+                lblCadastroBirthDateValidation.Text = "";
+                mtxBirthDate.ForeColor = Color.Black;
             }
             else
             {
                 if (DateTime.TryParse(input, out birthDate))
                 {
-                    lblCadastroBirthDateValidation.Text = "Data válida";
+                    lblCadastroBirthDateValidation.Text = "Data válida.";
                     lblCadastroBirthDateValidation.ForeColor = Color.Green;
+                    mtxBirthDate.ForeColor = Color.Green;
+                    validBirthDate = true;
                 }
                 else
                 {
-                    lblCadastroBirthDateValidation.Text = "Data inválida";
+                    lblCadastroBirthDateValidation.Text = "Data inválida.";
                     lblCadastroBirthDateValidation.ForeColor = Color.Red;
+                    mtxBirthDate.ForeColor = Color.Red;
                 }
             }
+            EnableBtnEnviar();
         }
 
         private void txbCadastroUserName_TextChanged(object sender, EventArgs e)
@@ -118,37 +116,176 @@ namespace Portfolio.Presentation
             lblCadastroUserNameValidation.Text = "";
             validUserName = false;
             if (input == string.Empty)
-            {
                 lblCadastroUserNameValidation.Text = "";
-                validUserName = false;
-            }
             else if (input.Replace(" ", "") == "")
             {
-                lblCadastroUserNameValidation.Text = "Nome inválido.";
+                lblCadastroUserNameValidation.Text = "Nome de usuário inválido.";
                 lblCadastroUserNameValidation.ForeColor = Color.Red;
-                validUserName = false;
+                txbCadastroUserName.ForeColor = Color.Red;
+            }
+            else
+            {
+                input = txbCadastroUserName.Text;
+
+                if (input != string.Empty && input[^1] == ' ')
+                    return;
+                string[] names = input.Split(' ');
+                if (names.Length > 1)
+                {
+                    lblCadastroUserNameValidation.Text = "Seu nome de usuário não pode conter mais que uma palavra ou iniciar com espaço.";
+                    lblCadastroUserNameValidation.ForeColor = Color.Red;
+                    txbCadastroUserName.ForeColor = Color.Red;
+                }
+                //else if (!Users.CheckUserName(input))
+                else if (!Users.CheckUserName(input))
+                {
+                    lblCadastroUserNameValidation.Text = "Nome válido";
+                    lblCadastroUserNameValidation.ForeColor = Color.Green;
+                    txbCadastroUserName.ForeColor = Color.Green;
+                    validUserName = true;
+                }
+                else
+                {
+                    lblCadastroUserNameValidation.Text = "Este usuário já está cadastrado.";
+                    lblCadastroUserNameValidation.ForeColor = Color.Red;
+                    txbCadastroUserName.ForeColor = Color.Red;
+                }
+            }
+            EnableBtnEnviar();
+        }
+        private void txbCadastroTypePassword_TextChanged(object sender, EventArgs e)
+        {
+            string input = txbCadastroTypePassword.Text;
+            lblCadastroPasswordValidation.Text = "";
+            if (input == string.Empty)
+            {
+                lblCadastroPasswordValidation.Text = "";
+                return;
+            }
+            CheckPasswordStrenght verifica = new CheckPasswordStrenght();
+            CheckPasswordStrenght.PasswordStrenght forca;
+            forca = verifica.GetPasswordStrenght(txbCadastroTypePassword.Text);
+            lblCadastroPasswordValidation.Text = Extensions.GetEnumDescription(forca);
+
+            if (lblCadastroPasswordValidation.Text == "Inaceitável" || lblCadastroPasswordValidation.Text == "Fraca")
+                lblCadastroPasswordValidation.ForeColor = Color.Red;
+            else if (lblCadastroPasswordValidation.Text == "Aceitável")
+                lblCadastroPasswordValidation.ForeColor = Color.Blue;
+            else if (lblCadastroPasswordValidation.Text == "Forte" || lblCadastroPasswordValidation.Text == "Segura")
+                lblCadastroPasswordValidation.ForeColor = Color.Green;
+            EnableBtnEnviar();
+        }
+        private void txbCadastroConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            EnableBtnEnviar();
+        }
+
+        private void EnableBtnEnviar()
+        {
+            if (validName && validUserName && validBirthDate &&
+                (lblCadastroPasswordValidation.Text == "Aceitável" ||
+                lblCadastroPasswordValidation.Text == "Forte" ||
+                    lblCadastroPasswordValidation.Text == "Segura")
+                && txbCadastroConfirmPassword.Text != "")
+                btnCadastroEnviar.Enabled = true;
+            else
+                btnCadastroEnviar.Enabled = false;
+        }
+
+        private void txbCadastroName_Leave(object sender, EventArgs e)
+        {
+            string input = txbCadastroName.Text;
+            lblCadastroNameValidation.Text = "";
+            validName = false;
+            if (input == string.Empty || input.Replace(" ", "") == "")
+                return;
+            else if (input.Replace(" ", "") == "")
+            {
+                lblCadastroNameValidation.Text = "Informe um nome válido";
+                lblCadastroNameValidation.ForeColor = Color.Red;
                 return;
             }
             else
             {
-                input = lblCadastroUserNameValidation.Text;
-                //if (input != string.Empty && input[input.Length - 1] == ' ')
-                if (input != string.Empty && input[^1] == ' ')
+                input = txbCadastroName.Text;
+                if (input != string.Empty && (input[0] == ' ' || input[^1] == ' '))
                 {
-                    validUserName = false;
+                    lblCadastroNameValidation.Text = "Nome inválido. Existe um espaço no início ou no final do nome.";
+                    lblCadastroNameValidation.ForeColor = Color.Red;
+                    txbCadastroName.ForeColor = Color.Red;
                     return;
                 }
                 string[] names = input.Split(' ');
-                if (names.Length >= 2)
+                if (names.Length < 2)
+                {
+                    lblCadastroNameValidation.Text = "Nome inválido.";
+                    lblCadastroNameValidation.ForeColor = Color.Red;
+                    txbCadastroName.ForeColor = Color.Red;
+                }
+                else
                 {
                     if (names[1] != "")
                     {
-                        lblCadastroUserNameValidation.Text = "Nome válido";
-                        lblCadastroUserNameValidation.ForeColor = Color.Green;
-                        validUserName = true;
+                        lblCadastroNameValidation.Text = "Nome válido";
+                        lblCadastroNameValidation.ForeColor = Color.Green;
+                        txbCadastroName.ForeColor = Color.Green;
+                        validName = true;
                     }
                 }
             }
+        }
+
+        private void mtxBirthDate_Leave(object sender, EventArgs e)
+        {
+            DateTime birthDate;
+            string input = mtxBirthDate.Text.Replace("/", "").Replace(" ", "");
+            if (input != string.Empty && input.Length < 8)
+            {
+                lblCadastroBirthDateValidation.Text = "Informe uma data válida";
+                lblCadastroBirthDateValidation.ForeColor = Color.Red;
+                mtxBirthDate.ForeColor = Color.Red;
+                validBirthDate = false;
+            }
+        }
+        //string input = txbCadastroConfirmPassword.Text;
+        //lblCadastroPasswordConfirmValidation.Text = "";
+        //    validPassword = false;
+        //    if (input == string.Empty)
+        //    {
+        //        lblCadastroPasswordConfirmValidation.Text = "";
+        //        return;
+        //    }
+        //    else if (txbCadastroTypePassword == txbCadastroConfirmPassword)
+        //        validPassword = true;
+        //    else
+        //    {
+        //        lblCadastroPasswordConfirmValidation.Text = "As senhas não são iguais. Tente novamente.";
+        //        txbCadastroConfirmPassword.Text = "";
+        //        txbCadastroConfirmPassword.Focus();
+        //    }
+        private void btnCadastroEnviar_Click(object sender, EventArgs e)
+        {
+            if (txbCadastroConfirmPassword.Text != txbCadastroTypePassword.Text)
+            {
+                txbCadastroConfirmPassword.Text = "";
+                txbCadastroConfirmPassword.Focus();
+                lblCadastroPasswordConfirmValidation.Text = "As senhas não são iguais. Tente novamente.";
+                lblCadastroPasswordConfirmValidation.ForeColor = Color.Red;
+                btnCadastroEnviar.Enabled = false;
+            }
+            else
+            {
+                DateTime birthDate = DateTime.Parse(mtxBirthDate.Text);
+
+                User newUser = new User(txbCadastroName.Text,
+                                        txbCadastroUserName.Text,
+                                        DateTime.Parse(mtxBirthDate.Text),
+                                        txbCadastroTypePassword.Text);
+                Users.AddUser(newUser);
+            }
+            //abrir uma dialog box para informar que o usuário foi cadastrado com sucesso
+            //fechar este form e abrir o form de login
+
         }
     }
 }

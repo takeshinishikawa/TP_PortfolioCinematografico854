@@ -58,6 +58,7 @@
             this.txbCadastroName.Size = new System.Drawing.Size(360, 27);
             this.txbCadastroName.TabIndex = 0;
             this.txbCadastroName.TextChanged += new System.EventHandler(this.txbCadastroName_TextChanged);
+            this.txbCadastroName.Leave += new System.EventHandler(this.txbCadastroName_Leave);
             // 
             // lblCadastroName
             // 
@@ -98,6 +99,7 @@
             this.btnCadastroEnviar.TabIndex = 6;
             this.btnCadastroEnviar.Text = "Enviar";
             this.btnCadastroEnviar.UseVisualStyleBackColor = true;
+            this.btnCadastroEnviar.Click += new System.EventHandler(this.btnCadastroEnviar_Click);
             // 
             // btnCadastroVoltar
             // 
@@ -146,6 +148,7 @@
             this.txbCadastroTypePassword.Size = new System.Drawing.Size(360, 27);
             this.txbCadastroTypePassword.TabIndex = 3;
             this.txbCadastroTypePassword.UseSystemPasswordChar = true;
+            this.txbCadastroTypePassword.TextChanged += new System.EventHandler(this.txbCadastroTypePassword_TextChanged);
             // 
             // lblCadastroTypePassword
             // 
@@ -167,6 +170,7 @@
             this.mtxBirthDate.TabIndex = 1;
             this.mtxBirthDate.ValidatingType = typeof(System.DateTime);
             this.mtxBirthDate.TextChanged += new System.EventHandler(this.mtxBirthDate_TextChanged);
+            this.mtxBirthDate.Leave += new System.EventHandler(this.mtxBirthDate_Leave);
             // 
             // txbCadastroConfirmPassword
             // 
@@ -176,6 +180,7 @@
             this.txbCadastroConfirmPassword.Size = new System.Drawing.Size(360, 27);
             this.txbCadastroConfirmPassword.TabIndex = 4;
             this.txbCadastroConfirmPassword.UseSystemPasswordChar = true;
+            this.txbCadastroConfirmPassword.TextChanged += new System.EventHandler(this.txbCadastroConfirmPassword_TextChanged);
             // 
             // lblCadastroConfirmPassword
             // 
