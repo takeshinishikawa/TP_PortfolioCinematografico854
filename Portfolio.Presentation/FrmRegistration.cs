@@ -177,6 +177,7 @@ namespace Portfolio.Presentation
         }
         private void txbCadastroConfirmPassword_TextChanged(object sender, EventArgs e)
         {
+            lblCadastroPasswordConfirmValidation.Text = "";
             EnableBtnEnviar();
         }
 
@@ -282,10 +283,19 @@ namespace Portfolio.Presentation
                                         DateTime.Parse(mtxBirthDate.Text),
                                         txbCadastroTypePassword.Text);
                 Users.AddUser(newUser);
+
+                //retirar depois dos testes
+                FrmAccount f = new FrmAccount(newUser);
+                f.Show();
             }
             //abrir uma dialog box para informar que o usuário foi cadastrado com sucesso
             //fechar este form e abrir o form de login
 
+        }
+
+        private void btnCadastroVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

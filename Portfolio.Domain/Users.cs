@@ -23,5 +23,9 @@ namespace Portfolio.Domain
             UserList.Add(newUser);
             return ;
         }
+        public static bool CheckUserPassword(string username, string password)
+        {
+            return Users.UserList.Where(x => x.Username == username && x.CheckPassword(password) == true).Any();
+        }
     }
 }

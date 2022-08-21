@@ -110,6 +110,7 @@
             this.btnCadastroVoltar.TabIndex = 7;
             this.btnCadastroVoltar.Text = "Voltar";
             this.btnCadastroVoltar.UseVisualStyleBackColor = true;
+            this.btnCadastroVoltar.Click += new System.EventHandler(this.btnCadastroVoltar_Click);
             // 
             // lblCadastroBirthDate
             // 

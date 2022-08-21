@@ -14,9 +14,7 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new @ref());
-        //Application.Run(new FrmRegistration());
-
-
+        //Application.Run(new @ref());
+        Application.Run(new FrmRegistration());
     }
 }
