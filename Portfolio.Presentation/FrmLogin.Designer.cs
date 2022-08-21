@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            this.lblProjectTitle = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txbUsername = new System.Windows.Forms.TextBox();
@@ -41,18 +40,6 @@
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblProjectTitle
-            // 
-            this.lblProjectTitle.AutoSize = true;
-            this.lblProjectTitle.Font = new System.Drawing.Font("Georgia", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblProjectTitle.ForeColor = System.Drawing.Color.Maroon;
-            this.lblProjectTitle.Location = new System.Drawing.Point(289, 608);
-            this.lblProjectTitle.Name = "lblProjectTitle";
-            this.lblProjectTitle.Size = new System.Drawing.Size(520, 43);
-            this.lblProjectTitle.TabIndex = 0;
-            this.lblProjectTitle.Text = "Portfólio Cinematográfico";
-            this.lblProjectTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUsername
             // 
@@ -80,7 +67,9 @@
             // 
             // txbUsername
             // 
+            this.txbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.txbUsername.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbUsername.ForeColor = System.Drawing.Color.White;
             this.txbUsername.Location = new System.Drawing.Point(15, 85);
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(400, 27);
@@ -97,14 +86,14 @@
             // 
             // pnlLogin
             // 
-            this.pnlLogin.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.pnlLogin.BackColor = System.Drawing.Color.Transparent;
             this.pnlLogin.Controls.Add(this.lblNewAccount);
             this.pnlLogin.Controls.Add(this.txbUsername);
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Controls.Add(this.txbPassword);
             this.pnlLogin.Controls.Add(this.lblUsername);
             this.pnlLogin.Controls.Add(this.lblPassword);
-            this.pnlLogin.Location = new System.Drawing.Point(317, 265);
+            this.pnlLogin.Location = new System.Drawing.Point(622, 159);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(430, 315);
             this.pnlLogin.TabIndex = 5;
@@ -113,7 +102,7 @@
             // 
             this.lblNewAccount.AutoSize = true;
             this.lblNewAccount.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNewAccount.ForeColor = System.Drawing.Color.Maroon;
+            this.lblNewAccount.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lblNewAccount.Location = new System.Drawing.Point(162, 268);
             this.lblNewAccount.Name = "lblNewAccount";
             this.lblNewAccount.Size = new System.Drawing.Size(107, 18);
@@ -124,10 +113,12 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btnLogin.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.ForeColor = System.Drawing.Color.Maroon;
-            this.btnLogin.Location = new System.Drawing.Point(15, 200);
+            this.btnLogin.BackColor = System.Drawing.Color.White;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.btnLogin.Location = new System.Drawing.Point(15, 216);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(400, 45);
             this.btnLogin.TabIndex = 0;
@@ -137,10 +128,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(320, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(881, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(427, 247);
+            this.pictureBox1.Size = new System.Drawing.Size(171, 141);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -150,10 +142,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
+            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlLogin);
-            this.Controls.Add(this.lblProjectTitle);
+            this.DoubleBuffered = true;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Login";
@@ -161,13 +155,10 @@
             this.pnlLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label lblProjectTitle;
         private Label lblUsername;
         private Label lblPassword;
         private TextBox txbUsername;

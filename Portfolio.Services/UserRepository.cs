@@ -31,5 +31,6 @@ namespace Portfolio.Services
             User user = UserRegistry.Single(person => person.Username == username);
             return user.CheckPassword(entryPassword);
         }
+
     }
 }
