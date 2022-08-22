@@ -37,6 +37,7 @@
             this.lblCallNewUser = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lklAbout = new System.Windows.Forms.LinkLabel();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -153,6 +154,20 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // lklAbout
+            // 
+            this.lklAbout.AutoSize = true;
+            this.lklAbout.BackColor = System.Drawing.Color.Transparent;
+            this.lklAbout.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lklAbout.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lklAbout.Location = new System.Drawing.Point(877, 622);
+            this.lklAbout.Name = "lklAbout";
+            this.lklAbout.Size = new System.Drawing.Size(147, 18);
+            this.lklAbout.TabIndex = 8;
+            this.lklAbout.TabStop = true;
+            this.lklAbout.Text = "Sobre o Projeto";
+            this.lklAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklAbout_LinkClicked);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -161,9 +176,12 @@
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.lklAbout);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlLogin);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Login";
@@ -171,6 +189,7 @@
             this.pnlLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -184,5 +203,6 @@
         private PictureBox pictureBox1;
         private Label lblCallNewUser;
         private LinkLabel lklNewAccount;
+        private LinkLabel lklAbout;
     }
 }

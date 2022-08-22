@@ -27,8 +27,11 @@ namespace Portfolio.Presentation
 
             bool validLogin = _userRepository.ValidateLogin(username, password);
 
+
+
             if (validLogin)
             {
+                
                 FrmHome formHome = new FrmHome();
                 Hide();
                 formHome.Show();
@@ -46,6 +49,13 @@ namespace Portfolio.Presentation
             FrmRegistration formRegistration = new FrmRegistration();
             Hide();
             formRegistration.Show();
+        }
+
+        private void lklAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmAbout formAbout = new FrmAbout(this);
+            Hide();
+            formAbout.Show();
         }
     }
 }
