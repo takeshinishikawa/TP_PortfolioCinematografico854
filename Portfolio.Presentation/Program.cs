@@ -29,7 +29,8 @@ static class Program
         Application.SetCompatibleTextRenderingDefault(false);
         //Application.Run(new @ref());
         //Application.Run(new FrmRegistration());
-        Application.Run(new FrmLogin(bdUsers));     
+        Application.Run(new FrmLogin(bdUsers));
+        //Application.Run(new FrmAbout());
 
     }
 

@@ -28,13 +28,18 @@ namespace Portfolio.Services
 
         public bool ValidateLogin(string entryUsername, string entryPassword)
         {            
-            User validUser = UserRegistry.SingleOrDefault(person => person.Username == entryUsername);
+            User validUser = GetUser(entryUsername);
             if (validUser is not null)
             {
                 return validUser.CheckPassword(entryPassword);
             }
 
             return false;
+        }
+
+        public User GetUser(string username)
+        {
+            return UserRegistry.SingleOrDefault(person => person.Username == username);
         }
 
     }

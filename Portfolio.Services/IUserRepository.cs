@@ -12,5 +12,6 @@ namespace Portfolio.Services
         public void AddNewUser(User newUser);
         public bool LookForUsername(string entryUsername);
         public bool ValidateLogin(string entryUsername, string entryPassword);
+        public User GetUser(string username);
     }
 }

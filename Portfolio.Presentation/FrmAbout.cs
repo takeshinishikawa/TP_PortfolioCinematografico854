@@ -12,10 +12,17 @@ namespace Portfolio.Presentation
 {
     public partial class FrmAbout : Form
     {
-        public FrmAbout()
+        Form Login;
+        public FrmAbout(Form login)
         {
-            InitializeComponent();
+            Login = login;
+            InitializeComponent();            
         }
-       
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Close();
+            Login.Show();
+        }
     }
 }
