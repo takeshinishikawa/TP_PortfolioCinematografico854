@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Services
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private List<User> UserRegistry { get; set; }
 
@@ -26,10 +26,15 @@ namespace Portfolio.Services
             return UserRegistry.Any(person => person.Username == entryUsername);
         }
 
-        public bool IsValidPassword(string username, string entryPassword)
-        {
-            User user = UserRegistry.Single(person => person.Username == username);
-            return user.CheckPassword(entryPassword);
+        public bool ValidateLogin(string entryUsername, string entryPassword)
+        {            
+            User validUser = UserRegistry.SingleOrDefault(person => person.Username == entryUsername);
+            if (validUser is not null)
+            {
+                return validUser.CheckPassword(entryPassword);
+            }
+
+            return false;
         }
 
     }
