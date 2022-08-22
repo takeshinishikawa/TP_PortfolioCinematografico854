@@ -13,6 +13,7 @@ namespace Portfolio.Presentation
     public partial class FrmAbout : Form
     {
         Form previousForm;
+
         public FrmAbout(Form form)
         {
             previousForm = form;

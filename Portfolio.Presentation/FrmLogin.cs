@@ -14,7 +14,7 @@ namespace Portfolio.Presentation
 {
     public partial class FrmLogin : Form
     {
-        private readonly IUserRepository _userRepository;
+        private IUserRepository _userRepository;
         public FrmLogin(IUserRepository userRepository)
         {
             _userRepository = userRepository;
@@ -27,8 +27,6 @@ namespace Portfolio.Presentation
             string password = txbPassword.Text;
 
             bool validLogin = _userRepository.ValidateLogin(username, password);
-
-
 
             if (validLogin)
             {
@@ -47,7 +45,7 @@ namespace Portfolio.Presentation
 
         private void lklNewAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmRegistration formRegistration = new FrmRegistration();
+            FrmRegistration formRegistration = new FrmRegistration(_userRepository, this);
             Hide();
             formRegistration.Show();
         }
@@ -58,5 +56,6 @@ namespace Portfolio.Presentation
             Hide();
             formAbout.Show();
         }
+
     }
 }

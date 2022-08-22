@@ -15,8 +15,6 @@ static class Program
     //[STAThread]
     static void Main()
     {
-        
-        
 
         ServiceCollection services = new();
         ConfigureServices(services);
