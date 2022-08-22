@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -107,6 +108,19 @@ namespace Portfolio.Services
                 return PasswordStrenght.Forte;
             else
                 return PasswordStrenght.Segura;
+        }
+    }
+
+    public static class InitBD
+    {
+        public static void NewUsers(IUserRepository userRepository)
+        {           
+            User newUser1 = new("Luiza Campello", "luizacampello", DateTime.Parse("19/04/1996"), "123");
+            userRepository.AddNewUser(newUser1);
+            
+            User newUser2 = new("Severo Snape", "halfBloodPrince", DateTime.Parse("09/01/1960"), "LilianEvans");
+            userRepository.AddNewUser(newUser2);
+
         }
     }
 }

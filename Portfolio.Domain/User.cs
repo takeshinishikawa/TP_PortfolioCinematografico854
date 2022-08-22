@@ -16,25 +16,25 @@ namespace Portfolio.Domain
 
         public User(string name, string username, DateTime birthDate, string password)
         {
-            this.Name = name;
-            this.Username = username;
-            this.BirthDate = birthDate;
-            this.Password = password;
+            Name = name;
+            Username = username;
+            BirthDate = birthDate;
+            Password = password;
         }
 
         public void ChangePassword(string password)
         {
-            this.Password = password;
+            Password = password;
         }
 
         public void ChangeName(string name)
         {
-            this.Name = name;
+            Name = name;
         }
 
         public bool CheckPassword(string userInput)
         {
-            return this.Password.Equals(userInput);
+            return Password.Equals(userInput);
         }
     }
 }

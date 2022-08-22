@@ -33,7 +33,7 @@
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.lblNewUser = new System.Windows.Forms.Label();
+            this.lklNewAccount = new System.Windows.Forms.LinkLabel();
             this.lblCallNewUser = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -91,7 +91,7 @@
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLogin.Controls.Add(this.lblNewUser);
+            this.pnlLogin.Controls.Add(this.lklNewAccount);
             this.pnlLogin.Controls.Add(this.lblCallNewUser);
             this.pnlLogin.Controls.Add(this.txbUsername);
             this.pnlLogin.Controls.Add(this.btnLogin);
@@ -103,16 +103,18 @@
             this.pnlLogin.Size = new System.Drawing.Size(430, 315);
             this.pnlLogin.TabIndex = 5;
             // 
-            // lblNewUser
+            // lklNewAccount
             // 
-            this.lblNewUser.AutoSize = true;
-            this.lblNewUser.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.lblNewUser.ForeColor = System.Drawing.Color.Teal;
-            this.lblNewUser.Location = new System.Drawing.Point(213, 272);
-            this.lblNewUser.Name = "lblNewUser";
-            this.lblNewUser.Size = new System.Drawing.Size(132, 18);
-            this.lblNewUser.TabIndex = 6;
-            this.lblNewUser.Text = "Crie sua conta!";
+            this.lklNewAccount.AutoSize = true;
+            this.lklNewAccount.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lklNewAccount.LinkColor = System.Drawing.Color.Teal;
+            this.lklNewAccount.Location = new System.Drawing.Point(212, 272);
+            this.lklNewAccount.Name = "lklNewAccount";
+            this.lklNewAccount.Size = new System.Drawing.Size(132, 18);
+            this.lklNewAccount.TabIndex = 7;
+            this.lklNewAccount.TabStop = true;
+            this.lklNewAccount.Text = "Crie sua conta!";
+            this.lklNewAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklNewAccount_LinkClicked);
             // 
             // lblCallNewUser
             // 
@@ -180,7 +182,7 @@
         private Panel pnlLogin;
         private Button btnLogin;
         private PictureBox pictureBox1;
-        private Label lblNewUser;
         private Label lblCallNewUser;
+        private LinkLabel lklNewAccount;
     }
 }
