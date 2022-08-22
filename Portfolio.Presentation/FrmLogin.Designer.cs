@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.lblNewAccount = new System.Windows.Forms.Label();
+            this.lblNewUser = new System.Windows.Forms.Label();
+            this.lblCallNewUser = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlLogin.SuspendLayout();
@@ -44,11 +44,11 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUsername.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblUsername.Location = new System.Drawing.Point(15, 50);
+            this.lblUsername.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.lblUsername.Location = new System.Drawing.Point(15, 59);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(155, 23);
+            this.lblUsername.Size = new System.Drawing.Size(147, 18);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Nome de usuário";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -56,67 +56,81 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPassword.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblPassword.Location = new System.Drawing.Point(15, 125);
+            this.lblPassword.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.lblPassword.Location = new System.Drawing.Point(15, 130);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(62, 23);
+            this.lblPassword.Size = new System.Drawing.Size(58, 18);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Senha";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txbUsername
             // 
-            this.txbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.txbUsername.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbUsername.ForeColor = System.Drawing.Color.White;
+            this.txbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(215)))), ((int)(((byte)(181)))));
+            this.txbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbUsername.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.txbUsername.Location = new System.Drawing.Point(15, 85);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(400, 27);
+            this.txbUsername.Size = new System.Drawing.Size(400, 24);
             this.txbUsername.TabIndex = 3;
             // 
             // txbPassword
             // 
-            this.txbPassword.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbPassword.Location = new System.Drawing.Point(15, 160);
+            this.txbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(215)))), ((int)(((byte)(181)))));
+            this.txbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbPassword.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.txbPassword.Location = new System.Drawing.Point(15, 156);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(400, 27);
+            this.txbPassword.Size = new System.Drawing.Size(400, 24);
             this.txbPassword.TabIndex = 4;
             this.txbPassword.UseSystemPasswordChar = true;
             // 
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLogin.Controls.Add(this.lblNewAccount);
+            this.pnlLogin.Controls.Add(this.lblNewUser);
+            this.pnlLogin.Controls.Add(this.lblCallNewUser);
             this.pnlLogin.Controls.Add(this.txbUsername);
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Controls.Add(this.txbPassword);
             this.pnlLogin.Controls.Add(this.lblUsername);
             this.pnlLogin.Controls.Add(this.lblPassword);
-            this.pnlLogin.Location = new System.Drawing.Point(622, 159);
+            this.pnlLogin.Location = new System.Drawing.Point(594, 190);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(430, 315);
             this.pnlLogin.TabIndex = 5;
             // 
-            // lblNewAccount
+            // lblNewUser
             // 
-            this.lblNewAccount.AutoSize = true;
-            this.lblNewAccount.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNewAccount.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblNewAccount.Location = new System.Drawing.Point(162, 268);
-            this.lblNewAccount.Name = "lblNewAccount";
-            this.lblNewAccount.Size = new System.Drawing.Size(107, 18);
-            this.lblNewAccount.TabIndex = 5;
-            this.lblNewAccount.Text = "Crie sua conta";
-            this.lblNewAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNewAccount.Click += new System.EventHandler(this.lblNewAccount_Click);
+            this.lblNewUser.AutoSize = true;
+            this.lblNewUser.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.lblNewUser.ForeColor = System.Drawing.Color.Teal;
+            this.lblNewUser.Location = new System.Drawing.Point(213, 272);
+            this.lblNewUser.Name = "lblNewUser";
+            this.lblNewUser.Size = new System.Drawing.Size(132, 18);
+            this.lblNewUser.TabIndex = 6;
+            this.lblNewUser.Text = "Crie sua conta!";
+            // 
+            // lblCallNewUser
+            // 
+            this.lblCallNewUser.AutoSize = true;
+            this.lblCallNewUser.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCallNewUser.ForeColor = System.Drawing.Color.Teal;
+            this.lblCallNewUser.Location = new System.Drawing.Point(85, 272);
+            this.lblCallNewUser.Name = "lblCallNewUser";
+            this.lblCallNewUser.Size = new System.Drawing.Size(131, 18);
+            this.lblCallNewUser.TabIndex = 5;
+            this.lblCallNewUser.Text = "Novo por aqui?";
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.btnLogin.Location = new System.Drawing.Point(15, 216);
             this.btnLogin.Name = "btnLogin";
@@ -129,10 +143,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(881, 12);
+            this.pictureBox1.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
+            this.pictureBox1.Location = new System.Drawing.Point(838, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(171, 141);
+            this.pictureBox1.Size = new System.Drawing.Size(186, 172);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -164,8 +178,9 @@
         private TextBox txbUsername;
         private TextBox txbPassword;
         private Panel pnlLogin;
-        private Label lblNewAccount;
         private Button btnLogin;
         private PictureBox pictureBox1;
+        private Label lblNewUser;
+        private Label lblCallNewUser;
     }
 }
