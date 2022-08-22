@@ -16,27 +16,31 @@ namespace Portfolio.Presentation
 {
     public partial class FrmHome : Form
     {
-        
+        User LoggedUser { get; set; }
+        Form login;
 
-        public FrmHome(User loggedUser)
+        public FrmHome(User loggedUser, Form loginForm)
         {
-            var admin = Users.UserList[0];
+
+            LoggedUser = loggedUser;
+            login = loginForm;
 
             InitializeComponent();
             CustomizeDesign();
-            CreateResume(admin);
+            CreateResume(loggedUser);
         }
 
-        private void CreateResume(Domain.User user)
+        private void CreateResume(User loggedUser)
         {
-            string username = user.Username;
+            string username = loggedUser.Username;
 
             decimal filmBank = MovieRegister.MovieList.Count();
 
 
-            int filmCategory = 0, filmNextLevel;
+            int filmCategory = 0; //filme que a pessoa viu dessa categoria
             decimal filmPort = 2m;
             decimal percentView = (filmPort/filmBank) * 100;
+
             percentView = Math.Round(percentView, 1);
             string categoryView;
             var categoryName = Category.Romance;
@@ -102,19 +106,15 @@ namespace Portfolio.Presentation
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmLogin login = new FrmLogin();
+            Close();
             login.Show();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Portfólio Cinematográfico\nTécnicas de Programação" +
-                "\n\n" +
-                "Autores:\n" +
-                "- Luiza Campelo\n" +
-                "- Marília Castro\n" +
-                "- Robson Nishikawa", "Sobre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FrmAbout about = new FrmAbout(this);
+            this.Hide();
+            about.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

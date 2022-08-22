@@ -54,9 +54,7 @@ namespace Portfolio.Presentation
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmLogin login = new FrmLogin();
-            login.Show();
+
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
