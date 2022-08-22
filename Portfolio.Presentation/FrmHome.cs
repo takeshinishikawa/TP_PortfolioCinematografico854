@@ -124,7 +124,7 @@ namespace Portfolio.Presentation
 
             if (answer == DialogResult.Yes)
             {
-                base.Close();
+                Application.Exit();
             }
         }
 

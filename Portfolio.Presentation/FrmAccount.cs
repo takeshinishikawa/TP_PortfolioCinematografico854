@@ -20,9 +20,11 @@ namespace Portfolio.Presentation
         bool validName = false;
         bool validPassword = false;
         User user;
+        Form previousForm;
         //public FrmAccount(User user)
-        public FrmAccount(User user)
+        public FrmAccount(User user, Form form)
         {
+            previousForm = form;
             this.user = user;
             InitializeComponent();
             lblContaNameValidation.Text = "";
@@ -186,6 +188,7 @@ namespace Portfolio.Presentation
         private void btnContaVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+            previousForm.Show();
         }
 
         private void btnContaSalvar_Click(object sender, EventArgs e)

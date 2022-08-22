@@ -20,8 +20,12 @@ namespace Portfolio.Presentation
         bool validName = false;
         bool validUserName = false;
         bool validBirthDate = false;
-        public FrmRegistration()
+        IUserRepository _userRepository;
+        Form previousForm;
+
+        public FrmRegistration(IUserRepository usersR, Form previousForm)
         {
+            _userRepository = usersR;
             InitializeComponent();
             lblCadastroNameValidation.Text = "";
             lblCadastroBirthDateValidation.Text = "";
@@ -29,6 +33,7 @@ namespace Portfolio.Presentation
             lblCadastroPasswordValidation.Text = "";
             lblCadastroPasswordConfirmValidation.Text = "";
             btnCadastroEnviar.Enabled = false;
+            this.previousForm = previousForm;
         }
 
         private void chbCadastroMostrarSenha_CheckedChanged(object sender, EventArgs e)
@@ -282,11 +287,13 @@ namespace Portfolio.Presentation
                                         txbCadastroUserName.Text,
                                         DateTime.Parse(mtxBirthDate.Text),
                                         txbCadastroTypePassword.Text);
-                Users.AddUser(newUser);
+                _userRepository.AddNewUser(newUser);
+                Close();
+                previousForm.Show();
 
                 //retirar depois dos testes
-                FrmAccount f = new FrmAccount(newUser);
-                f.Show();
+                //FrmAccount f = new FrmAccount(newUser);
+                //f.Show();
             }
             //abrir uma dialog box para informar que o usuário foi cadastrado com sucesso
             //fechar este form e abrir o form de login
@@ -296,6 +303,7 @@ namespace Portfolio.Presentation
         private void btnCadastroVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+            previousForm.Show();
         }
     }
 }
