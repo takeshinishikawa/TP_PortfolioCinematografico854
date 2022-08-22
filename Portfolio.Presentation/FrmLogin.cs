@@ -1,4 +1,5 @@
-﻿using Portfolio.Services;
+﻿using Portfolio.Domain;
+using Portfolio.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,8 +32,8 @@ namespace Portfolio.Presentation
 
             if (validLogin)
             {
-                
-                FrmHome formHome = new FrmHome();
+                User loggedUser = _userRepository.GetUser(username);
+                FrmHome formHome = new FrmHome(loggedUser, this);
                 Hide();
                 formHome.Show();
                 

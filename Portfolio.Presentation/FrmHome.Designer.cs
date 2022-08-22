@@ -45,7 +45,6 @@
             this.lblTitleMinPort = new System.Windows.Forms.Label();
             this.lvwPortfolio = new System.Windows.Forms.ListView();
             this.clnTitle = new System.Windows.Forms.ColumnHeader("(none)");
-            this.clnYear = new System.Windows.Forms.ColumnHeader();
             this.clnScore = new System.Windows.Forms.ColumnHeader();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
@@ -233,11 +232,11 @@
             this.lblTitleMinPort.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleMinPort.Font = new System.Drawing.Font("Georgia", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.lblTitleMinPort.Location = new System.Drawing.Point(282, 32);
+            this.lblTitleMinPort.Location = new System.Drawing.Point(326, 32);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
-            this.lblTitleMinPort.Size = new System.Drawing.Size(471, 43);
+            this.lblTitleMinPort.Size = new System.Drawing.Size(382, 43);
             this.lblTitleMinPort.TabIndex = 6;
-            this.lblTitleMinPort.Text = "Top 5 | Melhores Scores";
+            this.lblTitleMinPort.Text = "Ultimas Avaliações";
             this.lblTitleMinPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lvwPortfolio
@@ -246,7 +245,6 @@
             this.lvwPortfolio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvwPortfolio.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clnTitle,
-            this.clnYear,
             this.clnScore});
             this.lvwPortfolio.Font = new System.Drawing.Font("Georgia", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lvwPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
@@ -261,11 +259,6 @@
             // 
             this.clnTitle.Text = "Título";
             this.clnTitle.Width = 450;
-            // 
-            // clnYear
-            // 
-            this.clnYear.Text = "Ano de Lançamento";
-            this.clnYear.Width = 220;
             // 
             // clnScore
             // 
@@ -319,7 +312,6 @@
         private Panel pnlPortfolioMin;
         private ListView lvwPortfolio;
         private ColumnHeader clnTitle;
-        private ColumnHeader clnYear;
         private ColumnHeader clnScore;
         private Label lblTitleMinPort;
         private Label lblResume;
