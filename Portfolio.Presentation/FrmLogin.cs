@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,20 +13,39 @@ namespace Portfolio.Presentation
 {
     public partial class FrmLogin : Form
     {
-        public FrmLogin()
+        private readonly IUserRepository _userRepository;
+        public FrmLogin(IUserRepository userRepository)
         {
+            _userRepository = userRepository;
             InitializeComponent();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            string username = txbUsername.Text;
+            string password = txbPassword.Text;
+
+            bool validLogin = _userRepository.ValidateLogin(username, password);
+
+            if (validLogin)
+            {
+                FrmHome formHome = new FrmHome();
+                Hide();
+                formHome.Show();
+                
+            }
+            else 
+            { 
+                MessageBox.Show("Não foi possível realizar seu login. Usuário ou senha inválidos.", "Erro no Login", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+
         }
 
-        private void lblNewAccount_Click(object sender, EventArgs e)
+        private void lklNewAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            FrmRegistration formRegistration = new FrmRegistration();
+            Hide();
+            formRegistration.Show();
         }
-
     }
 }

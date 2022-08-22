@@ -1,5 +1,8 @@
-﻿using Portfolio.Domain;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Portfolio.Domain;
 using Portfolio.Domain.Enum;
+using Portfolio.Services;
+using System;
 
 
 namespace Portfolio.Presentation;
@@ -12,9 +15,27 @@ static class Program
     //[STAThread]
     static void Main()
     {
+        
+        
+
+        ServiceCollection services = new();
+        ConfigureServices(services);
+
+        var serviceProvider = services.BuildServiceProvider();
+        var bdUsers = serviceProvider.GetService<IUserRepository>();
+        InitBD.NewUsers(bdUsers);
+
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         //Application.Run(new @ref());
-        Application.Run(new FrmHome());
+        //Application.Run(new FrmRegistration());
+        Application.Run(new FrmLogin(bdUsers));     
+
+    }
+
+    public static void ConfigureServices(IServiceCollection services)
+    {
+        services
+            .AddScoped<IUserRepository, UserRepository>();
     }
 }
