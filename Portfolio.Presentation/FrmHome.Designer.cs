@@ -42,11 +42,11 @@
             this.pnlPerson = new System.Windows.Forms.Panel();
             this.lblResume = new System.Windows.Forms.Label();
             this.pnlPortfolioMin = new System.Windows.Forms.Panel();
+            this.lblTitleMinPort = new System.Windows.Forms.Label();
             this.lvwPortfolio = new System.Windows.Forms.ListView();
             this.clnTitle = new System.Windows.Forms.ColumnHeader("(none)");
             this.clnYear = new System.Windows.Forms.ColumnHeader();
             this.clnScore = new System.Windows.Forms.ColumnHeader();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
             this.pnlPerson.SuspendLayout();
@@ -93,6 +93,7 @@
             this.btnExit.Text = "Sair";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnAbout
             // 
@@ -107,6 +108,7 @@
             this.btnAbout.Text = "Sobre";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // btnLogOut
             // 
@@ -121,6 +123,7 @@
             this.btnLogOut.Text = "Desconectar";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnMyAccount
             // 
@@ -135,6 +138,7 @@
             this.btnMyAccount.Text = "Minha Conta";
             this.btnMyAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMyAccount.UseVisualStyleBackColor = true;
+            this.btnMyAccount.Click += new System.EventHandler(this.btnMyAccount_Click);
             // 
             // btnLogo
             // 
@@ -205,27 +209,36 @@
             // 
             // lblResume
             // 
-            this.lblResume.BackColor = System.Drawing.Color.Transparent;
-            this.lblResume.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblResume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblResume.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.lblResume.Location = new System.Drawing.Point(3, 73);
+            this.lblResume.Location = new System.Drawing.Point(3, 65);
             this.lblResume.Name = "lblResume";
-            this.lblResume.Size = new System.Drawing.Size(985, 104);
+            this.lblResume.Size = new System.Drawing.Size(1029, 116);
             this.lblResume.TabIndex = 4;
-            this.lblResume.Text = resources.GetString("lblResume.Text");
-            this.lblResume.Click += new System.EventHandler(this.label1_Click);
+            this.lblResume.Text = "Mini Resumo";
             // 
             // pnlPortfolioMin
             // 
             this.pnlPortfolioMin.BackColor = System.Drawing.Color.White;
+            this.pnlPortfolioMin.Controls.Add(this.lblTitleMinPort);
             this.pnlPortfolioMin.Controls.Add(this.lvwPortfolio);
-            this.pnlPortfolioMin.Controls.Add(this.label1);
             this.pnlPortfolioMin.Location = new System.Drawing.Point(166, 349);
             this.pnlPortfolioMin.Name = "pnlPortfolioMin";
             this.pnlPortfolioMin.Size = new System.Drawing.Size(1035, 318);
             this.pnlPortfolioMin.TabIndex = 6;
+            // 
+            // lblTitleMinPort
+            // 
+            this.lblTitleMinPort.AutoSize = true;
+            this.lblTitleMinPort.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitleMinPort.Font = new System.Drawing.Font("Georgia", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lblTitleMinPort.Location = new System.Drawing.Point(282, 32);
+            this.lblTitleMinPort.Name = "lblTitleMinPort";
+            this.lblTitleMinPort.Size = new System.Drawing.Size(471, 43);
+            this.lblTitleMinPort.TabIndex = 6;
+            this.lblTitleMinPort.Text = "Top 5 | Melhores Scores";
+            this.lblTitleMinPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lvwPortfolio
             // 
@@ -260,19 +273,6 @@
             this.clnScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clnScore.Width = 200;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Georgia", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.label1.Location = new System.Drawing.Point(300, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(471, 43);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Top 5 | Melhores Scores";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -288,7 +288,9 @@
             this.Controls.Add(this.pnlPerson);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
             this.Name = "FrmHome";
             this.Text = "FrmHome";
             this.pnlMenuPanel.ResumeLayout(false);
@@ -315,11 +317,11 @@
         private Label lblNameOrUsername;
         private Panel pnlPerson;
         private Panel pnlPortfolioMin;
-        private Label lblResume;
-        private Label label1;
         private ListView lvwPortfolio;
         private ColumnHeader clnTitle;
         private ColumnHeader clnYear;
         private ColumnHeader clnScore;
+        private Label lblTitleMinPort;
+        private Label lblResume;
     }
 }

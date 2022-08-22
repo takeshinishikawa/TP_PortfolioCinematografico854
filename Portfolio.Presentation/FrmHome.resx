@@ -690,14 +690,6 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="lblResume.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ex quis ligula vulputate ornare. Mauris vitae tristique sem. 
-Vestibulum iaculis lacus ut nisi luctus consectetur. Sed aliquet dui et elit tincidunt sodales id sed nunc. 
-Aenean fringilla at eros a consectetur. Suspendisse potenti. Nam enim nibh, pellentesque at leo ut, condimentum lacinia sapien.
-Nullam nec ultricies leo.
-
-</value>
-  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABDgAAALQCAYAAAB118BaAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
