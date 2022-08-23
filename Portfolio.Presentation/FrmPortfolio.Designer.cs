@@ -37,9 +37,11 @@
             this.pnlSubMenu = new System.Windows.Forms.Panel();
             this.pnlMenuPanel = new System.Windows.Forms.Panel();
             this.btnNewSearch = new System.Windows.Forms.Button();
-            this.btnPortfolio = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.pnlSubMenu.SuspendLayout();
             this.pnlMenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogo
@@ -151,7 +153,7 @@
             this.btnNewSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewSearch.ForeColor = System.Drawing.Color.Snow;
-            this.btnNewSearch.Location = new System.Drawing.Point(601, 5);
+            this.btnNewSearch.Location = new System.Drawing.Point(757, 5);
             this.btnNewSearch.Name = "btnNewSearch";
             this.btnNewSearch.Size = new System.Drawing.Size(150, 45);
             this.btnNewSearch.TabIndex = 4;
@@ -159,20 +161,31 @@
             this.btnNewSearch.UseVisualStyleBackColor = false;
             this.btnNewSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
             // 
-            // btnPortfolio
+            // btnHome
             // 
-            this.btnPortfolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.btnPortfolio.FlatAppearance.BorderSize = 0;
-            this.btnPortfolio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPortfolio.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnPortfolio.ForeColor = System.Drawing.Color.Snow;
-            this.btnPortfolio.Location = new System.Drawing.Point(757, 5);
-            this.btnPortfolio.Name = "btnPortfolio";
-            this.btnPortfolio.Size = new System.Drawing.Size(150, 45);
-            this.btnPortfolio.TabIndex = 3;
-            this.btnPortfolio.Text = "Portfólio";
-            this.btnPortfolio.UseVisualStyleBackColor = false;
-            this.btnPortfolio.Click += new System.EventHandler(this.btnPortfolio_Click);
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHome.ForeColor = System.Drawing.Color.Snow;
+            this.btnHome.Location = new System.Drawing.Point(601, 5);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(150, 45);
+            this.btnHome.TabIndex = 5;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // ptbLogo
+            // 
+            this.ptbLogo.BackColor = System.Drawing.Color.Transparent;
+            this.ptbLogo.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
+            this.ptbLogo.Location = new System.Drawing.Point(12, 8);
+            this.ptbLogo.Name = "ptbLogo";
+            this.ptbLogo.Size = new System.Drawing.Size(43, 43);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbLogo.TabIndex = 8;
+            this.ptbLogo.TabStop = false;
             // 
             // FrmPortfolio
             // 
@@ -181,14 +194,17 @@
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.ptbLogo);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnNewSearch);
-            this.Controls.Add(this.btnPortfolio);
             this.Controls.Add(this.pnlMenuPanel);
             this.DoubleBuffered = true;
             this.Name = "FrmPortfolio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPortfolio";
             this.pnlSubMenu.ResumeLayout(false);
             this.pnlMenuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,6 +219,7 @@
         private Panel pnlSubMenu;
         private Panel pnlMenuPanel;
         private Button btnNewSearch;
-        private Button btnPortfolio;
+        private Button btnHome;
+        private PictureBox ptbLogo;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using Portfolio.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,18 @@ using System.Windows.Forms;
 
 namespace Portfolio.Presentation
 {
+
     public partial class FrmPortfolio : Form
     {
-        public FrmPortfolio()
+        User LoggedUser { get; set; }
+        Form loginForm;
+
+        public FrmPortfolio(Form login, User loggedUser)
         {
+            loginForm = login;
+            LoggedUser = loggedUser;
             InitializeComponent();
+            CustomizeDesign();
         }
 
         private void btnLogo_Click(object sender, EventArgs e)
@@ -54,17 +63,15 @@ namespace Portfolio.Presentation
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-
+            Close();
+            loginForm.Show();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Portfólio Cinematográfico\nTécnicas de Programação" +
-                "\n\n" +
-                "Autores:\n" +
-                "- Luiza Campelo\n" +
-                "- Marília Castro\n" +
-                "- Robson Nishikawa", "Sobre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FrmAbout about = new FrmAbout(this);
+            this.Hide();
+            about.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -74,22 +81,22 @@ namespace Portfolio.Presentation
 
             if (answer == DialogResult.Yes)
             {
-                base.Close();
+                Application.Exit();
             }
-        }
-
-        private void btnPortfolio_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmPortfolio portfolio = new FrmPortfolio();
-            portfolio.Show();
         }
 
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             FrmSearch search = new FrmSearch();
             search.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmHome home = new FrmHome(LoggedUser, loginForm);
+            home.Show();
         }
     }
 }
