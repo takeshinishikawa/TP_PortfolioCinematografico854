@@ -40,6 +40,7 @@
             this.btnNewSearch = new System.Windows.Forms.Button();
             this.lblNameOrUsername = new System.Windows.Forms.Label();
             this.pnlPerson = new System.Windows.Forms.Panel();
+            this.lklSearchFilter = new System.Windows.Forms.LinkLabel();
             this.lblResume = new System.Windows.Forms.Label();
             this.pnlPortfolioMin = new System.Windows.Forms.Panel();
             this.lblMovieScorePort = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.lblLatestMoviesTitle = new System.Windows.Forms.Label();
             this.lblTitleMinPort = new System.Windows.Forms.Label();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
-            this.lklSearchFilter = new System.Windows.Forms.LinkLabel();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
             this.pnlPerson.SuspendLayout();
@@ -211,6 +211,21 @@
             this.pnlPerson.Size = new System.Drawing.Size(750, 226);
             this.pnlPerson.TabIndex = 5;
             // 
+            // lklSearchFilter
+            // 
+            this.lklSearchFilter.AutoSize = true;
+            this.lklSearchFilter.DisabledLinkColor = System.Drawing.Color.OrangeRed;
+            this.lklSearchFilter.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lklSearchFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
+            this.lklSearchFilter.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
+            this.lklSearchFilter.Location = new System.Drawing.Point(29, 183);
+            this.lklSearchFilter.Name = "lklSearchFilter";
+            this.lklSearchFilter.Size = new System.Drawing.Size(29, 17);
+            this.lklSearchFilter.TabIndex = 5;
+            this.lklSearchFilter.TabStop = true;
+            this.lklSearchFilter.Text = "---";
+            this.lklSearchFilter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
+            // 
             // lblResume
             // 
             this.lblResume.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -236,18 +251,18 @@
             // 
             // lblMovieScorePort
             // 
-            this.lblMovieScorePort.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMovieScorePort.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMovieScorePort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.lblMovieScorePort.Location = new System.Drawing.Point(598, 73);
             this.lblMovieScorePort.Name = "lblMovieScorePort";
             this.lblMovieScorePort.Size = new System.Drawing.Size(125, 27);
             this.lblMovieScorePort.TabIndex = 10;
-            this.lblMovieScorePort.Text = "Nota ";
+            this.lblMovieScorePort.Text = "Nota   ";
             this.lblMovieScorePort.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblMovieTitlePor
             // 
-            this.lblMovieTitlePor.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMovieTitlePor.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMovieTitlePor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.lblMovieTitlePor.Location = new System.Drawing.Point(27, 73);
             this.lblMovieTitlePor.Name = "lblMovieTitlePor";
@@ -260,7 +275,7 @@
             this.lblLatestMoviesScore.BackColor = System.Drawing.Color.Transparent;
             this.lblLatestMoviesScore.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLatestMoviesScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
-            this.lblLatestMoviesScore.Location = new System.Drawing.Point(598, 115);
+            this.lblLatestMoviesScore.Location = new System.Drawing.Point(598, 100);
             this.lblLatestMoviesScore.Name = "lblLatestMoviesScore";
             this.lblLatestMoviesScore.Size = new System.Drawing.Size(125, 121);
             this.lblLatestMoviesScore.TabIndex = 8;
@@ -272,7 +287,7 @@
             this.lblLatestMoviesTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblLatestMoviesTitle.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLatestMoviesTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
-            this.lblLatestMoviesTitle.Location = new System.Drawing.Point(27, 115);
+            this.lblLatestMoviesTitle.Location = new System.Drawing.Point(27, 100);
             this.lblLatestMoviesTitle.Name = "lblLatestMoviesTitle";
             this.lblLatestMoviesTitle.Size = new System.Drawing.Size(506, 121);
             this.lblLatestMoviesTitle.TabIndex = 7;
@@ -284,7 +299,7 @@
             this.lblTitleMinPort.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleMinPort.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.lblTitleMinPort.Location = new System.Drawing.Point(27, 0);
+            this.lblTitleMinPort.Location = new System.Drawing.Point(27, 27);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
             this.lblTitleMinPort.Size = new System.Drawing.Size(308, 35);
             this.lblTitleMinPort.TabIndex = 6;
@@ -300,20 +315,6 @@
             this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbLogo.TabIndex = 7;
             this.ptbLogo.TabStop = false;
-            // 
-            // lklSearchFilter
-            // 
-            this.lklSearchFilter.AutoSize = true;
-            this.lklSearchFilter.DisabledLinkColor = System.Drawing.Color.OrangeRed;
-            this.lklSearchFilter.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lklSearchFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
-            this.lklSearchFilter.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
-            this.lklSearchFilter.Location = new System.Drawing.Point(29, 183);
-            this.lklSearchFilter.Name = "lklSearchFilter";
-            this.lklSearchFilter.Size = new System.Drawing.Size(29, 17);
-            this.lklSearchFilter.TabIndex = 5;
-            this.lklSearchFilter.TabStop = true;
-            this.lklSearchFilter.Text = "---";
             // 
             // FrmHome
             // 
@@ -331,7 +332,7 @@
             this.Controls.Add(this.pnlPerson);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.Name = "FrmHome";

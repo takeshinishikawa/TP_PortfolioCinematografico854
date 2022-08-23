@@ -16,19 +16,21 @@ namespace Portfolio.Presentation
 
     public partial class FrmPortfolio : Form
     {
-        private User LoggedUser { get; set; }
+        private User loggedUser;
         private Form loginForm;
         private IPortfolioService _portfolioService;
 
-        public FrmPortfolio(IPortfolioService portfolioService, Form login, User loggedUser)
+        public FrmPortfolio(IPortfolioService portfolioService, Form login, User user)
         {
             _portfolioService = portfolioService;
             loginForm = login;
-            LoggedUser = loggedUser;
+            loggedUser = user;
             InitializeComponent();
             CustomizeDesign();
         }
 
+
+        #region Header
         private void btnLogo_Click(object sender, EventArgs e)
         {
             ShowSubMenu(pnlSubMenu);
@@ -91,15 +93,19 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch();
+            FrmSearch search = new FrmSearch(loginForm, loggedUser);
             search.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(_portfolioService, LoggedUser, loginForm);
+            FrmHome home = new FrmHome(_portfolioService, loggedUser, loginForm);
             home.Show();
         }
+        #endregion
+
+        //
+
     }
 }

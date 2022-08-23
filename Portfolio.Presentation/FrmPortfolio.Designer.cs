@@ -139,7 +139,8 @@
             this.pnlMenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenuPanel.Controls.Add(this.pnlSubMenu);
             this.pnlMenuPanel.Controls.Add(this.btnLogo);
-            this.pnlMenuPanel.Location = new System.Drawing.Point(914, 1);
+            this.pnlMenuPanel.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.pnlMenuPanel.Location = new System.Drawing.Point(914, 3);
             this.pnlMenuPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlMenuPanel.Name = "pnlMenuPanel";
             this.pnlMenuPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -153,7 +154,7 @@
             this.btnNewSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewSearch.ForeColor = System.Drawing.Color.Snow;
-            this.btnNewSearch.Location = new System.Drawing.Point(757, 5);
+            this.btnNewSearch.Location = new System.Drawing.Point(757, 8);
             this.btnNewSearch.Name = "btnNewSearch";
             this.btnNewSearch.Size = new System.Drawing.Size(150, 45);
             this.btnNewSearch.TabIndex = 4;
@@ -168,7 +169,7 @@
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnHome.ForeColor = System.Drawing.Color.Snow;
-            this.btnHome.Location = new System.Drawing.Point(601, 5);
+            this.btnHome.Location = new System.Drawing.Point(601, 8);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(150, 45);
             this.btnHome.TabIndex = 5;
@@ -199,6 +200,7 @@
             this.Controls.Add(this.btnNewSearch);
             this.Controls.Add(this.pnlMenuPanel);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPortfolio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPortfolio";
