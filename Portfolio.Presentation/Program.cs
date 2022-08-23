@@ -21,13 +21,16 @@ static class Program
 
         var serviceProvider = services.BuildServiceProvider();
         var bdUsers = serviceProvider.GetService<IUserRepository>();
-        InitBD.NewUsers(bdUsers);
+        var portService = serviceProvider.GetService<IPortfolioService>();
+        var movieLibrary = serviceProvider.GetService<IPortfolioService>();
+
+        InitDB.NewUsers(bdUsers);
 
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         //Application.Run(new @ref());
         //Application.Run(new FrmRegistration());
-        Application.Run(new FrmLogin(bdUsers));
+        Application.Run(new FrmLogin(bdUsers, portService));
         //Application.Run(new FrmAbout());
 
     }
@@ -35,6 +38,7 @@ static class Program
     public static void ConfigureServices(IServiceCollection services)
     {
         services
-            .AddScoped<IUserRepository, UserRepository>();
+            .AddScoped<IUserRepository, UserRepository>()
+            .AddScoped<IPortfolioService, PortfolioService>();
     }
 }

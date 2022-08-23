@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Services
 {
-    public class Portfolio
+    public interface IPortfolioService
     {
-
+        
     }
 }

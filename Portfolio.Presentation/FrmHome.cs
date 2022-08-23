@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic.ApplicationServices;
 using Portfolio.Domain;
 using User = Portfolio.Domain.User;
+using Portfolio.Services;
 
 namespace Portfolio.Presentation
 {
@@ -19,11 +20,11 @@ namespace Portfolio.Presentation
         User LoggedUser { get; set; }
         Form previousForm;
 
-        public FrmHome(User loggedUser, Form previousForm) //Esperando a interface do portfólio.
+        public FrmHome(IPortfolioService _portfolioService, User loggedUser, Form loginForm)
         {
 
             LoggedUser = loggedUser;
-            this.previousForm = previousForm;
+            previousForm = loginForm;
 
             InitializeComponent();
             CustomizeDesign();

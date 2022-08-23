@@ -76,6 +76,7 @@
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(400, 24);
             this.txbUsername.TabIndex = 3;
+            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
             // 
             // txbPassword
             // 
