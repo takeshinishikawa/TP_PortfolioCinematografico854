@@ -17,55 +17,59 @@ namespace Portfolio.Presentation
     public partial class FrmHome : Form
     {
         User LoggedUser { get; set; }
-        Form login;
+        Form previousForm;
 
-        public FrmHome(User loggedUser, Form loginForm)
+        public FrmHome(User loggedUser, Form previousForm) //Esperando a interface do portfólio.
         {
 
             LoggedUser = loggedUser;
-            login = loginForm;
+            this.previousForm = previousForm;
 
             InitializeComponent();
             CustomizeDesign();
             CreateResume(loggedUser);
+            CreatePortfolioResume(loggedUser);
         }
 
         private void CreateResume(User loggedUser)
         {
-            string username = loggedUser.Username;
+            string name = loggedUser.Name;
+            lblNameOrUsername.Text = name;
 
             decimal filmBank = MovieRegister.MovieList.Count();
-
-
-            int filmCategory = 0; //filme que a pessoa viu dessa categoria
-            decimal filmPort = 2m;
+            decimal filmPort = 0m;
             decimal percentView = (filmPort/filmBank) * 100;
-
             percentView = Math.Round(percentView, 1);
-            string categoryView;
-            var categoryName = Category.Romance;
+
+            int filmCategory = 0; //filme que a pessoa viu dessa categoria, esperando método
+            string categoryView = ""; //Esperando método de categoria mais vista
+
             string t1 = "Olá";
 
-            lblNameOrUsername.Text = username;
-            var text1 = $"Até o presente momento você já viu {filmPort} filmes. A categoria mais assistida por você é a {categoryName}. E uau, você já assistiu {filmCategory} filmes dela.";
+            var text1 = $"Até o presente momento você já viu {filmPort} filmes. A categoria mais assistida por você é a {categoryView}. E uau, você já assistiu {filmCategory} filmes dela.";
             //var text2 = $"A categoria de filmes mais assistida por você é a {categoryName}. Uau, você já assistiu {filmCategory} filmes dela.\n";
-            var text2 = $"{username}, dentre todos os filmes registrados aqui sabia que você já assistiu {percentView}% deles? Talvez uma olhadinha na nossa coleção te inspire a conhecer algum novo filme e" +
+            var text2 = $"{name}, dentre todos os filmes registrados aqui sabia que você já assistiu {percentView}% deles? Talvez uma olhadinha na nossa coleção te inspire a conhecer algum novo filme e" +
                 $" se encantar. O universo cinematografico está aqui para fazer os mais loucos sonhos se tornarem possíveis e reais.";
-            var text3 = $"Parabéns {username}!!! Você parece conhecer tudo sobre filmes e ter um repertório bastante amplo, já viu {percentView} dos filmes disponíveis aqui.\n";
+            var text3 = $"Parabéns {name}!!! Você parece conhecer tudo sobre filmes e ter um repertório bastante amplo, já viu {percentView} dos filmes disponíveis aqui.\n";
             var text4 = " Descubra quais filmes você ainda não viu clicando aqui.";
+            
 
             if (percentView < 100)
             {
-                lblResume.Text = text1 + "\n\n" + text2 + text4;
+                lblResume.Text = text1 + "\n\n" + text2;
             } else
             {
                 lblResume.Text = text1 + "\n\n" + text3;
             }
 
+            lklSearchFilter.Text = text4;
+
         }
-        private void CreatePortfolioResume()
+        private void CreatePortfolioResume(User loggedUser)
         {
-            
+            //Esperando o método do port
+            lblLatestMoviesTitle.Text = ""; //Top 5 ultimos filmes vistos - titulo
+            lblLatestMoviesScore.Text = ""; //Top 5 ultimos filmes vistos - score
         }
 
         private void btnLogo_Click(object sender, EventArgs e)
@@ -107,7 +111,7 @@ namespace Portfolio.Presentation
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Close();
-            login.Show();
+            previousForm.Show();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -137,8 +141,8 @@ namespace Portfolio.Presentation
 
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmPortfolio portfolio = new FrmPortfolio();
+            this.Close();
+            FrmPortfolio portfolio = new FrmPortfolio(previousForm, LoggedUser);
             portfolio.Show();
         }
 
