@@ -34,10 +34,12 @@ namespace Portfolio.Presentation
             if (validLogin)
             {
                 User loggedUser = _userRepository.GetUser(username);
-                FrmHome formHome = new FrmHome(portfolioService, loggedUser, this);
+
+
+
+                FrmHome formHome = new FrmHome(_portfolioService, loggedUser, this);
                 Hide();
-                formHome.Show();
-                
+                formHome.Show();                
             }
             else 
             { 
@@ -62,7 +64,17 @@ namespace Portfolio.Presentation
 
         private void txbUsername_TextChanged(object sender, EventArgs e)
         {
+            txbUsername.Text = txbUsername.Text.Trim();
+        }
 
+        private void lklExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DialogResult answer = MessageBox.Show("Você tem certeza que deseja sair?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (answer == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

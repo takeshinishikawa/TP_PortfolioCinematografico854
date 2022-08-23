@@ -10,19 +10,26 @@ namespace Portfolio.Domain
     public class Score
     {
         public Movie Movie { get; private set; }
-        public Star Star { get; private set; }
-        public string Comments { get; set; }//Deixar sem o private para não exigir passar pelo construtor, logo, pode ser deixada em branco.
+        public Star Value { get; private set; }
+        public string Comments { get; set; }
+
+        public Score(Movie movie, Star stars)
+        {
+            Movie = movie;
+            Value = stars;
+            Comments = "";
+        }
 
         public Score(Movie movie, Star stars, string comments)
         {
             Movie = movie;
-            Star = stars;
+            Value = stars;
             Comments = comments;
         }
 
-        void ChangeScore(Star newStars)
+        void ChangeScore(Star newValue)
         {
-            Star = newStars;
+            Value = newValue;
         }
 
         void ChangeComments(string newComments)

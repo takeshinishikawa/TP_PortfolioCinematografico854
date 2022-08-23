@@ -22,7 +22,7 @@ static class Program
         var serviceProvider = services.BuildServiceProvider();
         var bdUsers = serviceProvider.GetService<IUserRepository>();
         var portService = serviceProvider.GetService<IPortfolioService>();
-        var movieLibrary = serviceProvider.GetService<IPortfolioService>();
+        //var movieLibrary = serviceProvider.GetService<IPortfolioService>();
 
         InitDB.NewUsers(bdUsers);
 

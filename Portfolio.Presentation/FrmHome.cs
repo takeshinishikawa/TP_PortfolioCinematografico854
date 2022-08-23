@@ -17,12 +17,13 @@ namespace Portfolio.Presentation
 {
     public partial class FrmHome : Form
     {
-        User LoggedUser { get; set; }
-        Form previousForm;
+        private User LoggedUser { get; set; }
+        public Form previousForm;
+        private IPortfolioService _portfolioService;
 
-        public FrmHome(IPortfolioService _portfolioService, User loggedUser, Form loginForm)
+        public FrmHome(IPortfolioService portfolioService, User loggedUser, Form loginForm)
         {
-
+            _portfolioService = portfolioService;
             LoggedUser = loggedUser;
             previousForm = loginForm;
 
@@ -143,7 +144,7 @@ namespace Portfolio.Presentation
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(previousForm, LoggedUser);
+            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, previousForm, LoggedUser);
             portfolio.Show();
         }
 
