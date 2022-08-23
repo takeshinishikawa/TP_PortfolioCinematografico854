@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using Portfolio.Domain;
+using Portfolio.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,13 @@ namespace Portfolio.Presentation
 
     public partial class FrmPortfolio : Form
     {
-        User LoggedUser { get; set; }
-        Form loginForm;
+        private User LoggedUser { get; set; }
+        private Form loginForm;
+        private IPortfolioService _portfolioService;
 
-        public FrmPortfolio(Form login, User loggedUser)
+        public FrmPortfolio(IPortfolioService portfolioService, Form login, User loggedUser)
         {
+            _portfolioService = portfolioService;
             loginForm = login;
             LoggedUser = loggedUser;
             InitializeComponent();
@@ -95,7 +98,7 @@ namespace Portfolio.Presentation
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(LoggedUser, loginForm);
+            FrmHome home = new FrmHome(_portfolioService, LoggedUser, loginForm);
             home.Show();
         }
     }

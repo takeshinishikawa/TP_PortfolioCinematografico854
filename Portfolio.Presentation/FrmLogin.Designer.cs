@@ -38,6 +38,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lklAbout = new System.Windows.Forms.LinkLabel();
+            this.lklExit = new System.Windows.Forms.LinkLabel();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +77,7 @@
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(400, 24);
             this.txbUsername.TabIndex = 3;
+            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
             // 
             // txbPassword
             // 
@@ -159,14 +161,28 @@
             this.lklAbout.AutoSize = true;
             this.lklAbout.BackColor = System.Drawing.Color.Transparent;
             this.lklAbout.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lklAbout.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.lklAbout.Location = new System.Drawing.Point(877, 622);
+            this.lklAbout.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.lklAbout.Location = new System.Drawing.Point(815, 622);
             this.lklAbout.Name = "lklAbout";
             this.lklAbout.Size = new System.Drawing.Size(147, 18);
             this.lklAbout.TabIndex = 8;
             this.lklAbout.TabStop = true;
             this.lklAbout.Text = "Sobre o Projeto";
             this.lklAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklAbout_LinkClicked);
+            // 
+            // lklExit
+            // 
+            this.lklExit.AutoSize = true;
+            this.lklExit.BackColor = System.Drawing.Color.Transparent;
+            this.lklExit.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lklExit.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.lklExit.Location = new System.Drawing.Point(982, 622);
+            this.lklExit.Name = "lklExit";
+            this.lklExit.Size = new System.Drawing.Size(42, 18);
+            this.lklExit.TabIndex = 9;
+            this.lklExit.TabStop = true;
+            this.lklExit.Text = "Sair";
+            this.lklExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklExit_LinkClicked);
             // 
             // FrmLogin
             // 
@@ -176,11 +192,12 @@
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.lklExit);
             this.Controls.Add(this.lklAbout);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlLogin);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -204,5 +221,6 @@
         private Label lblCallNewUser;
         private LinkLabel lklNewAccount;
         private LinkLabel lklAbout;
+        private LinkLabel lklExit;
     }
 }

@@ -12,7 +12,7 @@ namespace Portfolio.Domain
         public string Username { get; private set; }
         public DateTime BirthDate { get; private set; }
         private string Password { get; set; }
-
+        public List<Score> Portfolio { get; set; }
 
         public User(string name, string username, DateTime birthDate, string password)
         {
