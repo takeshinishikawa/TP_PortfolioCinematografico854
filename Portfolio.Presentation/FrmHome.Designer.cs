@@ -196,7 +196,7 @@
             this.lblNameOrUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblNameOrUsername.Location = new System.Drawing.Point(27, 19);
             this.lblNameOrUsername.Name = "lblNameOrUsername";
-            this.lblNameOrUsername.Size = new System.Drawing.Size(237, 43);
+            this.lblNameOrUsername.Size = new System.Drawing.Size(192, 35);
             this.lblNameOrUsername.TabIndex = 3;
             this.lblNameOrUsername.Text = "Teatrologa,";
             // 
@@ -225,6 +225,7 @@
             this.lklSearchFilter.TabStop = true;
             this.lklSearchFilter.Text = "---";
             this.lklSearchFilter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
+
             // 
             // lblResume
             // 
@@ -301,7 +302,7 @@
             this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblTitleMinPort.Location = new System.Drawing.Point(27, 27);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
-            this.lblTitleMinPort.Size = new System.Drawing.Size(308, 35);
+            this.lblTitleMinPort.Size = new System.Drawing.Size(245, 29);
             this.lblTitleMinPort.TabIndex = 6;
             this.lblTitleMinPort.Text = "Ultimas Avaliações";
             // 
@@ -318,7 +319,7 @@
             // 
             // FrmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -338,6 +339,7 @@
             this.Name = "FrmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHome";
+            this.Load += new System.EventHandler(this.FrmHome_Load);
             this.pnlMenuPanel.ResumeLayout(false);
             this.pnlSubMenu.ResumeLayout(false);
             this.pnlPerson.ResumeLayout(false);
