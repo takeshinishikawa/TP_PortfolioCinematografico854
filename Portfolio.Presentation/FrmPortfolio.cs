@@ -93,7 +93,7 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(loginForm, loggedUser);
+            FrmSearch search = new FrmSearch(_portfolioService, loginForm, loggedUser);
             search.Show();
         }
 

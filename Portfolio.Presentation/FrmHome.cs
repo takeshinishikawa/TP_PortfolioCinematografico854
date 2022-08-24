@@ -116,20 +116,26 @@ namespace Portfolio.Presentation
             string name = user.Name;
             lblNameOrUsername.Text = name;
 
-            decimal filmBank = MovieRegister.MovieList.Count();
-            decimal filmPort = 0m;
-            decimal percentView = (filmPort / filmBank) * 100;
+            decimal movieBank = MovieRegister.MovieList.Count();
+            decimal moviePort = 0m;
+            decimal percentView = (moviePort / movieBank) * 100;
             percentView = Math.Round(percentView, 1);
 
-            int filmCategory = 0; //filme que a pessoa viu dessa categoria, esperando método
-            string categoryView = ""; //Esperando método de categoria mais vista
+            int numberCategory = 0; //filme que a pessoa viu dessa categoria, esperando método
+            string watchedCategory = ""; //Esperando método de categoria mais vista
+
+            decimal percentCategory = (numberCategory / moviePort) * 100;
+            percentCategory = Math.Round(percentCategory, 1);
 
 
-            var text1 = $"Até o presente momento você já viu {filmPort} filmes. A categoria mais assistida por você é a {categoryView}. E uau, você já assistiu {filmCategory} filmes dela.";
-            //var text2 = $"A categoria de filmes mais assistida por você é a {categoryName}. Uau, você já assistiu {filmCategory} filmes dela.\n";
+            var text1 = $"Até o presente momento você adicionou {moviePort} filmes no seu portfólio. A categoria mais assistida dentre os filmes é a {watchedCategory}. E uau, você já assistiu {numberCategory} filmes dela." +
+                $" Ou seja, {percentCategory}% do seu portfólio.";
+           
             var text2 = $"{name}, dentre todos os filmes registrados aqui sabia que você já assistiu {percentView}% deles? Talvez uma olhadinha na nossa coleção te inspire a conhecer algum novo filme e" +
                 $" se encantar. O universo cinematografico está aqui para fazer os mais loucos sonhos se tornarem possíveis e reais.";
+            
             var text3 = $"Parabéns {name}!!! Você parece conhecer tudo sobre filmes e ter um repertório bastante amplo, já viu {percentView} dos filmes disponíveis aqui.\n";
+            
             var text4 = "Descubra quais filmes você ainda não viu clicando aqui.";
 
 
@@ -181,7 +187,7 @@ namespace Portfolio.Presentation
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(loginForm, LoggedUser);
+            FrmSearch search = new FrmSearch(_portfolioService, loginForm, LoggedUser);
             search.Show();
         }
 
