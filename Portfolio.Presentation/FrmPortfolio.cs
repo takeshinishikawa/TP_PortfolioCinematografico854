@@ -19,14 +19,17 @@ namespace Portfolio.Presentation
         private User loggedUser;
         private Form loginForm;
         private IPortfolioService _portfolioService;
+        private IMovieRepository _movieList;
 
-        public FrmPortfolio(IPortfolioService portfolioService, Form login, User user)
+        public FrmPortfolio(IPortfolioService portfolioService, Form login, User loggedUser, IMovieRepository movieList)
         {
             _portfolioService = portfolioService;
             loginForm = login;
-            loggedUser = user;
+            LoggedUser = loggedUser;
+            _movieList = movieList;
             InitializeComponent();
             CustomizeDesign();
+            _movieList = movieList;
         }
 
 
@@ -100,7 +103,7 @@ namespace Portfolio.Presentation
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(_portfolioService, loggedUser, loginForm);
+            FrmHome home = new FrmHome(_portfolioService, LoggedUser, _movieList, loginForm);
             home.Show();
         }
         #endregion

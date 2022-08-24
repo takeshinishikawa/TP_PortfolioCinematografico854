@@ -20,18 +20,19 @@ namespace Portfolio.Presentation
         private User LoggedUser { get; set; }
         public Form loginForm;
         private IPortfolioService _portfolioService;
+        private IMovieRepository _movieList;
 
-        public FrmHome(IPortfolioService portfolioService, User loggedUser, Form login)
+        public FrmHome(IPortfolioService portfolioService, User loggedUser, IMovieRepository movieList, Form loginForm)
         {
             _portfolioService = portfolioService;
             LoggedUser = loggedUser;
-            this.loginForm = login;
+            _movieList = movieList;
+            previousForm = loginForm;
 
             InitializeComponent();
             CustomizeDesign();
-
-            //CreateResume(loggedUser);
-            CrateResumeNewUser(loggedUser);
+            CreateResume(loggedUser);
+            CreatePortfolioResume(loggedUser);
         }
 
         #region Header
@@ -67,9 +68,9 @@ namespace Portfolio.Presentation
 
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //FrmAccount account = new FrmAccount(username);
-            //account.Show();
+            this.Close();
+            FrmAccount account = new FrmAccount(LoggedUser, this.GetType().ToString(), previousForm, _portfolioService, _movieList);
+            account.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -106,14 +107,14 @@ namespace Portfolio.Presentation
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, loginForm, LoggedUser);
+            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, previousForm, LoggedUser, _movieList);
             portfolio.Show();
         }
         #endregion
 
-        private void CreateResume(User user)
+        private void CreateResume(User loggedUser)
         {
-            string name = user.Name;
+            string name = loggedUser.Name;
             lblNameOrUsername.Text = name;
 
             decimal movieBank = MovieRegister.MovieList.Count();
@@ -192,5 +193,9 @@ namespace Portfolio.Presentation
         }
 
 
+        private void FrmHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
