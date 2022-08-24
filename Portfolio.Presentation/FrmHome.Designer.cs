@@ -39,7 +39,6 @@
             this.btnPortfolio = new System.Windows.Forms.Button();
             this.btnNewSearch = new System.Windows.Forms.Button();
             this.lblNameOrUsername = new System.Windows.Forms.Label();
-            this.pnlPerson = new System.Windows.Forms.Panel();
             this.lklSearchFilter = new System.Windows.Forms.LinkLabel();
             this.lblResume = new System.Windows.Forms.Label();
             this.lblMovieScorePort = new System.Windows.Forms.Label();
@@ -196,24 +195,9 @@
             this.lblNameOrUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblNameOrUsername.Location = new System.Drawing.Point(34, 26);
             this.lblNameOrUsername.Name = "lblNameOrUsername";
-            this.lblNameOrUsername.Size = new System.Drawing.Size(192, 35);
+            this.lblNameOrUsername.Size = new System.Drawing.Size(237, 43);
             this.lblNameOrUsername.TabIndex = 3;
             this.lblNameOrUsername.Text = "Teatrologa,";
-            // 
-            // lklSearchFilter
-            // 
-            this.lklSearchFilter.AutoSize = true;
-            this.lklSearchFilter.DisabledLinkColor = System.Drawing.Color.OrangeRed;
-            this.lklSearchFilter.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lklSearchFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
-            this.lklSearchFilter.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
-            this.lklSearchFilter.Location = new System.Drawing.Point(34, 184);
-            this.lklSearchFilter.Name = "lklSearchFilter";
-            this.lklSearchFilter.Size = new System.Drawing.Size(29, 17);
-            this.lklSearchFilter.TabIndex = 5;
-            this.lklSearchFilter.TabStop = true;
-            this.lklSearchFilter.Text = "---";
-            this.lklSearchFilter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
             // 
             // lklSearchFilter
             // 
@@ -229,7 +213,6 @@
             this.lklSearchFilter.TabStop = true;
             this.lklSearchFilter.Text = "---";
             this.lklSearchFilter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
-
             // 
             // lblResume
             // 
@@ -271,7 +254,7 @@
             this.lblMovieTitlePor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.lblMovieTitlePor.Location = new System.Drawing.Point(71, 316);
             this.lblMovieTitlePor.Name = "lblMovieTitlePor";
-            this.lblMovieTitlePor.Size = new System.Drawing.Size(191, 27);
+            this.lblMovieTitlePor.Size = new System.Drawing.Size(480, 27);
             this.lblMovieTitlePor.TabIndex = 9;
             this.lblMovieTitlePor.Text = "Título do filme";
             // 
@@ -294,7 +277,7 @@
             this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblTitleMinPort.Location = new System.Drawing.Point(34, 262);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
-            this.lblTitleMinPort.Size = new System.Drawing.Size(245, 29);
+            this.lblTitleMinPort.Size = new System.Drawing.Size(308, 35);
             this.lblTitleMinPort.TabIndex = 6;
             this.lblTitleMinPort.Text = "Ultimas Avaliações";
             // 
@@ -338,7 +321,7 @@
             // 
             // FrmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
