@@ -18,10 +18,11 @@ namespace Portfolio.Presentation
         public Form loginForm;
         private IPortfolioService _portfolioService;
 
-        public FrmSearch(Form login, User user)
+        public FrmSearch(IPortfolioService portfolioService, Form login, User user)
         {
             loggedUser = user;
             loginForm = login;
+            _portfolioService = portfolioService;
 
             InitializeComponent();
             CustomizeDesign();
