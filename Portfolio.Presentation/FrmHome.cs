@@ -17,22 +17,22 @@ namespace Portfolio.Presentation
 {
     public partial class FrmHome : Form
     {
-        private User loggedUser;
-        public Form loginForm;
+        private User _loggedUser;
+        public Form _loginForm;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmHome(IPortfolioService portfolioService, User user, IMovieRepository movieList, Form form)
+        public FrmHome(IPortfolioService portfolioService, User loggedUser, IMovieRepository movieList, Form loginForm)
         {
             _portfolioService = portfolioService;
-            loggedUser = user;
+            _loggedUser = loggedUser;
             _movieList = movieList;
-            loginForm = form;
+            _loginForm = loginForm;
 
             InitializeComponent();
             CustomizeDesign();
-            CreateResume(user);
-            CreatePortfolioResume(user);
+            CrateResumeNewUser(loggedUser);
+            CreatePortfolioResumeNewUser(loggedUser);
         }
 
         #region Header
@@ -69,14 +69,14 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(loggedUser, this.GetType().ToString(), loginForm, _portfolioService, _movieList);
+            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList);
             account.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Close();
-            loginForm.Show();
+            _loginForm.Show();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -100,14 +100,14 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_movieList, _portfolioService, loginForm, loggedUser);
+            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
             search.Show();
         }
 
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, loginForm, loggedUser, _movieList);
+            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, _loginForm, _loggedUser, _movieList);
             portfolio.Show();
         }
         #endregion
@@ -188,7 +188,7 @@ namespace Portfolio.Presentation
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_movieList, _portfolioService, loginForm, loggedUser);
+            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
             search.Show();
         }
 

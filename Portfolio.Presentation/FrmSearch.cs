@@ -14,15 +14,15 @@ namespace Portfolio.Presentation
 {
     public partial class FrmSearch : Form
     {
-        private User loggedUser;
-        public Form loginForm;
+        private User _loggedUser;
+        public Form _loginForm; 
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmSearch(IMovieRepository movieList, IPortfolioService portfolioService, Form login, User user)
+        public FrmSearch(IMovieRepository movieList, IPortfolioService portfolioService, Form loginForm, User loggedUser)
         {
-            loggedUser = user;
-            loginForm = login;
+            _loggedUser = loggedUser;
+            _loginForm = loginForm;
             _portfolioService = portfolioService;
             _movieList = movieList;
 
@@ -71,7 +71,7 @@ namespace Portfolio.Presentation
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Close();
-            loginForm.Show();
+            _loginForm.Show();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -95,14 +95,14 @@ namespace Portfolio.Presentation
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, loginForm, loggedUser, _movieList);
+            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, _loginForm, _loggedUser, _movieList);
             portfolio.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(_portfolioService, loggedUser, _movieList, loginForm);
+            FrmHome home = new FrmHome(_portfolioService, _loggedUser, _movieList, _loginForm);
             home.Show();
         }
 

@@ -16,16 +16,16 @@ namespace Portfolio.Presentation
 
     public partial class FrmPortfolio : Form
     {
-        private User loggedUser;
-        private Form loginForm;
+        private User _loggedUser;
+        private Form _loginForm;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmPortfolio(IPortfolioService portfolioService, Form login, User user, IMovieRepository movieList)
+        public FrmPortfolio(IPortfolioService portfolioService, Form loginForm, User loggedUser, IMovieRepository movieList)
         {
             _portfolioService = portfolioService;
-            loginForm = login;
-            loggedUser = user;
+            _loginForm = loginForm;
+            _loggedUser = loggedUser;
             _movieList = movieList;
        
             InitializeComponent();
@@ -65,14 +65,14 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(loggedUser, this.GetType().ToString(), loginForm, _portfolioService, _movieList);
+            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList);
             account.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Close();
-            loginForm.Show();
+            _loginForm.Show();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -96,14 +96,14 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_movieList, _portfolioService, loginForm, loggedUser);
+            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
             search.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(_portfolioService, loggedUser, _movieList, loginForm);
+            FrmHome home = new FrmHome(_portfolioService, _loggedUser, _movieList, _loginForm);
             home.Show();
         }
         #endregion
