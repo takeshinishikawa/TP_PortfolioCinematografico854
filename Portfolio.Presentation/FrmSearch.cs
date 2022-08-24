@@ -28,6 +28,9 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
+            BuscarLista(_movieList);
+
+
         }
 
         #region Header
@@ -106,9 +109,74 @@ namespace Portfolio.Presentation
             home.Show();
         }
 
+
         #endregion
 
-        //
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            VerLista(_movieList);
+        }
+
+        private void BuscarLista(IMovieRepository _movieList)
+        {
+            string option = ccbSearchOptions.Text;
+            switch (option)
+            {
+                case "Titulo":
+                    if (txbSearchTitle.Visible == false)
+                    {
+                        txbSearchTitle.Visible = true;
+                    }
+                    break;
+                case "Gênero":
+                    cbbCategory.Visible = true;
+                    break;
+                case "Estúdio":
+                    break;
+
+            }
+        }
+
+        private void VerLista(IMovieRepository movieList)
+        {
+            List<Movie> listadefilmes = movieList.GetMovieList();
+
+            foreach (var m in listadefilmes)
+            {
+                string[] item = new string[4];
+                item[0] = m.Title;
+                item[1] = m.ReleaseYear.ToString();
+                item[2] = m.Category.ToString();
+                item[3] = m.Studio.ToString();
+
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
+   
+        }
+
+        private void SearchTitle()
+        {
+
+        }
+
+        private void SearchCategory()
+        {
+
+        }
+
+        private void SearchStudio()
+        {
+
+        }
     }
 }

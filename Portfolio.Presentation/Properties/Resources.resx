@@ -121,16 +121,19 @@
   <data name="2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logotipo-do-filme_10250-3708(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logotipo-do-filme_10250-3708(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="4 - Home + Portfolio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4 - Home + Portfolio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Portfólio Cinematográfico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Portfólio Cinematográfico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logotipo-do-filme_10250-3708(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logotipo-do-filme_10250-3708(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="4 - Home + Portfolio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4 - Home + Portfolio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="5 - Portfolio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5 - Portfolio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
