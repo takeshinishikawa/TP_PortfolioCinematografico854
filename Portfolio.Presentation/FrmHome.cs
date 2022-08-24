@@ -17,22 +17,22 @@ namespace Portfolio.Presentation
 {
     public partial class FrmHome : Form
     {
-        private User LoggedUser { get; set; }
+        private User loggedUser;
         public Form loginForm;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmHome(IPortfolioService portfolioService, User loggedUser, IMovieRepository movieList, Form loginForm)
+        public FrmHome(IPortfolioService portfolioService, User user, IMovieRepository movieList, Form form)
         {
             _portfolioService = portfolioService;
-            LoggedUser = loggedUser;
+            loggedUser = user;
             _movieList = movieList;
-            previousForm = loginForm;
+            loginForm = form;
 
             InitializeComponent();
             CustomizeDesign();
-            CreateResume(loggedUser);
-            CreatePortfolioResume(loggedUser);
+            CreateResume(user);
+            CreatePortfolioResume(user);
         }
 
         #region Header
@@ -69,7 +69,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(LoggedUser, this.GetType().ToString(), previousForm, _portfolioService, _movieList);
+            FrmAccount account = new FrmAccount(loggedUser, this.GetType().ToString(), loginForm, _portfolioService, _movieList);
             account.Show();
         }
 
@@ -100,14 +100,14 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(loginForm, LoggedUser);
+            FrmSearch search = new FrmSearch(_movieList, _portfolioService, loginForm, loggedUser);
             search.Show();
         }
 
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, previousForm, LoggedUser, _movieList);
+            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, loginForm, loggedUser, _movieList);
             portfolio.Show();
         }
         #endregion
@@ -117,7 +117,7 @@ namespace Portfolio.Presentation
             string name = loggedUser.Name;
             lblNameOrUsername.Text = name;
 
-            decimal movieBank = MovieRegister.MovieList.Count();
+            decimal movieBank = _movieList.Count();
             decimal moviePort = 0m;
             decimal percentView = (moviePort / movieBank) * 100;
             percentView = Math.Round(percentView, 1);
@@ -158,7 +158,7 @@ namespace Portfolio.Presentation
             string name = user.Name;
             lblNameOrUsername.Text = name;
 
-            int numberOfMovies = MovieRegister.MovieList.Count();
+            int numberOfMovies = _movieList.Count();
 
             string welcome = $"Seja bem vindo ao maravilhoso universo que une cinema e organização. Aqui você vai conseguir criar e organizar" +
                 $" seu próprio portfólio de filmes que você já assistiu, atribuindo a eles notas e comentários." +
@@ -188,7 +188,7 @@ namespace Portfolio.Presentation
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_portfolioService, loginForm, LoggedUser);
+            FrmSearch search = new FrmSearch(_movieList, _portfolioService, loginForm, loggedUser);
             search.Show();
         }
 
