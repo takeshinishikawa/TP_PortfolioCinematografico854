@@ -16,19 +16,24 @@ namespace Portfolio.Presentation
 
     public partial class FrmPortfolio : Form
     {
-        private User LoggedUser { get; set; }
+        private User loggedUser;
         private Form loginForm;
         private IPortfolioService _portfolioService;
+        private IMovieRepository _movieList;
 
-        public FrmPortfolio(IPortfolioService portfolioService, Form login, User loggedUser)
+        public FrmPortfolio(IPortfolioService portfolioService, Form login, User user, IMovieRepository movieList)
         {
             _portfolioService = portfolioService;
             loginForm = login;
-            LoggedUser = loggedUser;
+            loggedUser = user;
+            _movieList = movieList;
+       
             InitializeComponent();
             CustomizeDesign();
         }
 
+
+        #region Header
         private void btnLogo_Click(object sender, EventArgs e)
         {
             ShowSubMenu(pnlSubMenu);
@@ -59,9 +64,9 @@ namespace Portfolio.Presentation
 
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //FrmAccount account = new FrmAccount(username);
-            //account.Show();
+            this.Close();
+            FrmAccount account = new FrmAccount(loggedUser, this.GetType().ToString(), loginForm, _portfolioService, _movieList);
+            account.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -91,15 +96,19 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch();
+            FrmSearch search = new FrmSearch(_movieList, _portfolioService, loginForm, loggedUser);
             search.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(_portfolioService, LoggedUser, loginForm);
+            FrmHome home = new FrmHome(_portfolioService, loggedUser, _movieList, loginForm);
             home.Show();
         }
+        #endregion
+
+        //
+
     }
 }

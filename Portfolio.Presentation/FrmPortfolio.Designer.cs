@@ -139,7 +139,8 @@
             this.pnlMenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenuPanel.Controls.Add(this.pnlSubMenu);
             this.pnlMenuPanel.Controls.Add(this.btnLogo);
-            this.pnlMenuPanel.Location = new System.Drawing.Point(914, 1);
+            this.pnlMenuPanel.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.pnlMenuPanel.Location = new System.Drawing.Point(917, 3);
             this.pnlMenuPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlMenuPanel.Name = "pnlMenuPanel";
             this.pnlMenuPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -148,12 +149,12 @@
             // 
             // btnNewSearch
             // 
-            this.btnNewSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.btnNewSearch.BackColor = System.Drawing.Color.Transparent;
             this.btnNewSearch.FlatAppearance.BorderSize = 0;
             this.btnNewSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnNewSearch.ForeColor = System.Drawing.Color.Snow;
-            this.btnNewSearch.Location = new System.Drawing.Point(757, 5);
+            this.btnNewSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.btnNewSearch.Location = new System.Drawing.Point(757, 8);
             this.btnNewSearch.Name = "btnNewSearch";
             this.btnNewSearch.Size = new System.Drawing.Size(150, 45);
             this.btnNewSearch.TabIndex = 4;
@@ -163,12 +164,12 @@
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnHome.ForeColor = System.Drawing.Color.Snow;
-            this.btnHome.Location = new System.Drawing.Point(601, 5);
+            this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.btnHome.Location = new System.Drawing.Point(601, 8);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(150, 45);
             this.btnHome.TabIndex = 5;
@@ -191,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._3;
+            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1062, 673);
             this.Controls.Add(this.ptbLogo);
@@ -199,6 +200,7 @@
             this.Controls.Add(this.btnNewSearch);
             this.Controls.Add(this.pnlMenuPanel);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPortfolio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPortfolio";

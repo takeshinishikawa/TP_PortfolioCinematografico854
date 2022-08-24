@@ -13,7 +13,7 @@ namespace Portfolio.Domain
         public string Title { get; private set; }
         public ushort ReleaseYear { get; private set; } //1888 até ano atual
         public Category Category { get; private set; }
-        private Studio Studio { get; set; }
+        public Studio Studio { get; private set; }
 
         public Movie(string title, ushort releaseYear, Category category, Studio studio)
         {

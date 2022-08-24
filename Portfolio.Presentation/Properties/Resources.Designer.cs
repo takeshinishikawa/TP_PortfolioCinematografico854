@@ -83,6 +83,16 @@ namespace Portfolio.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4___Home___Portfolio {
+            get {
+                object obj = ResourceManager.GetObject("4 - Home + Portfolio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logotipo_do_filme_10250_3708_1_ {
             get {
                 object obj = ResourceManager.GetObject("logotipo-do-filme_10250-3708(1)", resourceCulture);
