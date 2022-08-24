@@ -20,6 +20,7 @@ namespace Portfolio.Domain
             Username = username;
             BirthDate = birthDate;
             Password = password;
+            Portfolio = new List<Score>();
         }
 
         public void ChangePassword(string password)
