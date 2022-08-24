@@ -23,9 +23,9 @@ namespace Portfolio.Presentation
         IUserRepository _userRepository;
         Form previousForm;
 
-        public FrmRegistration(IUserRepository usersR, Form previousForm)
+        public FrmRegistration(IUserRepository userRepository, Form previousForm)
         {
-            _userRepository = usersR;
+            _userRepository = userRepository;
             InitializeComponent();
             lblCadastroNameValidation.Text = "";
             lblCadastroBirthDateValidation.Text = "";
@@ -62,7 +62,7 @@ namespace Portfolio.Presentation
             if (input == string.Empty)
             {
                 lblCadastroNameValidation.Text = "";
-                txbCadastroName.ForeColor = Color.Black;
+                txbCadastroName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             }
             else if (input[0] == ' ' || input.Replace(" ", "") == "")
             {
@@ -94,7 +94,7 @@ namespace Portfolio.Presentation
             if (input == string.Empty || input.Length < 10)
             {
                 lblCadastroBirthDateValidation.Text = "";
-                mtxBirthDate.ForeColor = Color.Black;
+                mtxBirthDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             }
             else
             {
@@ -141,8 +141,13 @@ namespace Portfolio.Presentation
                     lblCadastroUserNameValidation.ForeColor = Color.Red;
                     txbCadastroUserName.ForeColor = Color.Red;
                 }
-                //else if (!Users.CheckUserName(input))
-                else if (!Users.CheckUserName(input))
+                else if (input.Length > 35)
+                {
+                    lblCadastroUserNameValidation.Text = "Um nome de usuário válido deve contar no máximo 35 caracteres.";
+                    lblCadastroUserNameValidation.ForeColor = Color.Red;
+                    txbCadastroUserName.ForeColor = Color.Red;
+                }
+                else if (!_userRepository.LookForUsername(input))
                 {
                     lblCadastroUserNameValidation.Text = "Nome válido";
                     lblCadastroUserNameValidation.ForeColor = Color.Green;
@@ -253,22 +258,6 @@ namespace Portfolio.Presentation
                 validBirthDate = false;
             }
         }
-        //string input = txbCadastroConfirmPassword.Text;
-        //lblCadastroPasswordConfirmValidation.Text = "";
-        //    validPassword = false;
-        //    if (input == string.Empty)
-        //    {
-        //        lblCadastroPasswordConfirmValidation.Text = "";
-        //        return;
-        //    }
-        //    else if (txbCadastroTypePassword == txbCadastroConfirmPassword)
-        //        validPassword = true;
-        //    else
-        //    {
-        //        lblCadastroPasswordConfirmValidation.Text = "As senhas não são iguais. Tente novamente.";
-        //        txbCadastroConfirmPassword.Text = "";
-        //        txbCadastroConfirmPassword.Focus();
-        //    }
         private void btnCadastroEnviar_Click(object sender, EventArgs e)
         {
             if (txbCadastroConfirmPassword.Text != txbCadastroTypePassword.Text)
@@ -290,10 +279,6 @@ namespace Portfolio.Presentation
                 _userRepository.AddNewUser(newUser);
                 Close();
                 previousForm.Show();
-
-                //retirar depois dos testes
-                //FrmAccount f = new FrmAccount(newUser);
-                //f.Show();
             }
             //abrir uma dialog box para informar que o usuário foi cadastrado com sucesso
             //fechar este form e abrir o form de login

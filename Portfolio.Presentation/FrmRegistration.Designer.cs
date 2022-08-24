@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistration));
             this.txbCadastroName = new System.Windows.Forms.TextBox();
             this.lblCadastroName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -185,6 +184,7 @@
             // 
             this.mtxBirthDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(215)))), ((int)(((byte)(181)))));
             this.mtxBirthDate.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mtxBirthDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.mtxBirthDate.Location = new System.Drawing.Point(596, 298);
             this.mtxBirthDate.Mask = "00/00/0000";
             this.mtxBirthDate.Name = "mtxBirthDate";
@@ -297,7 +297,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._2;
             this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chbCadastroMostrarSenha);
@@ -320,7 +320,7 @@
             this.Controls.Add(this.lblCadastroName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitleCadastro);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";

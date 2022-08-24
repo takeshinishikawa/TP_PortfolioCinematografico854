@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 using User = Portfolio.Domain.User;
 
 namespace Portfolio.Presentation
@@ -19,14 +20,22 @@ namespace Portfolio.Presentation
         bool CadastroMostrarSenha = false;
         bool validName = false;
         bool validPassword = false;
-        User user;
-        Form previousForm;
+        User _loggedUser;
+        Form _loginForm;
+        IPortfolioService _portfolioService;
+        IMovieRepository _movieList;
+        string _previousFormType;
         //public FrmAccount(User user)
-        public FrmAccount(User user, Form form)
+        public FrmAccount(User user, string type, Form loginForm, IPortfolioService portfolioService, IMovieRepository movieList)
         {
-            previousForm = form;
-            this.user = user;
+            _previousFormType = type;
+            _loginForm = loginForm;
+            _portfolioService = portfolioService;
+            _movieList = movieList;
+
+            this._loggedUser = user;
             InitializeComponent();
+            CustomizeDesign();
             lblContaNameValidation.Text = "";
             lblContaPasswordValidation.Text = "";
             lblContaTitle.Text = $"Bem vindo, {user.Name}!";
@@ -72,6 +81,8 @@ namespace Portfolio.Presentation
         private void txbContaName_Leave(object sender, EventArgs e)
         {
             string input = txbContaName.Text;
+            if (input == _loggedUser.Name)
+                return;
             lblContaNameValidation.Text = "";
             validName = false;
             if (input == string.Empty || input.Replace(" ", "") == "")
@@ -142,25 +153,24 @@ namespace Portfolio.Presentation
             {
                 if (!txbContaCurrentPassword.Text.Equals(txbContaNewPassword.Text))
                     validPassword = true;
-                else
+                else if (_loggedUser.CheckPassword(txbContaNewPassword.Text))
                 {
                     lblContaNewPasswordValidation.Text = "Sua nova senha deve ser diferente da senha atual.";
                     lblContaNewPasswordValidation.ForeColor = Color.Red;
                 }
             }
-
             EnableBtnSalvar();
         }
         private void EnableBtnSalvar()
         {
-            if (validName && validPassword &&
+            if (validName || (validPassword &&
                 (lblContaNewPasswordValidation.Text == "Aceitável" ||
                 lblContaNewPasswordValidation.Text == "Forte" ||
-                    lblContaNewPasswordValidation.Text == "Segura"))
+                    lblContaNewPasswordValidation.Text == "Segura")))
                 btnContaSalvar.Enabled = true;
             else
                 btnContaSalvar.Enabled = false;
-            if (txbContaCurrentPassword.Text != String.Empty && !user.CheckPassword(txbContaCurrentPassword.Text))
+            if (txbContaCurrentPassword.Text != String.Empty && !_loggedUser.CheckPassword(txbContaCurrentPassword.Text))
             {
                 lblContaPasswordValidation.Text = "Senha incorreta.";
                 lblContaPasswordValidation.ForeColor = Color.Red;
@@ -187,19 +197,103 @@ namespace Portfolio.Presentation
 
         private void btnContaVoltar_Click(object sender, EventArgs e)
         {
+            //vai ser necessário inserir aqui a validação para cada form que pode chamar o minhaconta
             this.Close();
-            previousForm.Show();
+            if (_previousFormType == "Portfolio.Presentation.FrmHome")
+            {
+                Form f = new FrmHome(_portfolioService, _loggedUser, _movieList, _loginForm);
+                f.Show();
+            }
+            
+            
+
         }
 
         private void btnContaSalvar_Click(object sender, EventArgs e)
         {
             //alterar o objeto na lista
-            if (user.Name != txbContaName.Text)
-                user.ChangeName(txbContaName.Text);
-            if (!user.CheckPassword(txbContaNewPassword.Text))
-                user.ChangePassword(txbContaNewPassword.Text);
+            if (_loggedUser.Name != txbContaName.Text)
+                _loggedUser.ChangeName(txbContaName.Text);
+            if (!_loggedUser.CheckPassword(txbContaNewPassword.Text))
+                _loggedUser.ChangePassword(txbContaNewPassword.Text);
             txbContaCurrentPassword.Text = "";
             txbContaNewPassword.Text = "";
+        }
+
+        private void btnLogo_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(pnlSubMenu);
+        }
+        private void ShowSubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                HideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+        private void HideSubMenu()
+        {
+            if (pnlSubMenu.Visible == true)
+                pnlSubMenu.Visible = false;
+        }
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            _loggedUser = null;
+            _loginForm.Show();
+        }
+        private void btnMyAccount_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmAccount account = new FrmAccount(_loggedUser, _previousFormType, _loginForm, _portfolioService, _movieList);
+            account.Show();
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            FrmAbout about = new FrmAbout(this);
+            this.Hide();
+            about.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            var answer = DialogResult;
+            answer = MessageBox.Show("Você tem certeza que deseja sair?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (answer == DialogResult.Yes)
+            {
+                _loginForm.Close();
+                Application.Exit();
+            }
+        }
+
+        private void btnNewSearch_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmSearch search = new FrmSearch();
+            search.Show();
+        }
+
+        private void btnPortfolio_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, previousForm, LoggedUser, _movieList);
+            //portfolio.Show();
+        }
+        private void CustomizeDesign()
+        {
+            pnlSubMenu.Visible = false;
+        }
+
+        private void btnContaDeletar_Click(object sender, EventArgs e)
+        {
+            //PRECISA ALTERAR A HOME PARA RECEBER O USERREPOSITORY, CASO CONTRÁRIO NÃO SERÁ POSSÍVEL DELETAR A CONTA
         }
     }
 }
