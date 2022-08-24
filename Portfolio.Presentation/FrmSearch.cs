@@ -15,16 +15,18 @@ namespace Portfolio.Presentation
     public partial class FrmSearch : Form
     {
         private User _loggedUser;
-        public Form _loginForm; 
+        public Form _loginForm;
+        private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmSearch(IMovieRepository movieList, IPortfolioService portfolioService, Form loginForm, User loggedUser)
+        public FrmSearch(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieList, Form loginForm, User loggedUser)
         {
-            _loggedUser = loggedUser;
-            _loginForm = loginForm;
+            _userRepository = userRepository;
             _portfolioService = portfolioService;
             _movieList = movieList;
+            _loggedUser = loggedUser;
+            _loginForm = loginForm;
 
             InitializeComponent();
             CustomizeDesign();
@@ -95,14 +97,14 @@ namespace Portfolio.Presentation
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, _loginForm, _loggedUser, _movieList);
+            FrmPortfolio portfolio = new FrmPortfolio(_userRepository, _portfolioService, _loginForm, _loggedUser, _movieList);
             portfolio.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(_portfolioService, _loggedUser, _movieList, _loginForm);
+            FrmHome home = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             home.Show();
         }
 

@@ -22,16 +22,18 @@ namespace Portfolio.Presentation
         bool validPassword = false;
         User _loggedUser;
         Form _loginForm;
+        private IUserRepository _userRepository;
         IPortfolioService _portfolioService;
         IMovieRepository _movieList;
         string _previousFormType;
         //public FrmAccount(User user)
-        public FrmAccount(User user, string type, Form loginForm, IPortfolioService portfolioService, IMovieRepository movieList)
+        public FrmAccount(User user, string type, Form loginForm, IPortfolioService portfolioService, IMovieRepository movieList, IUserRepository userRepository)
         {
             _previousFormType = type;
             _loginForm = loginForm;
             _portfolioService = portfolioService;
             _movieList = movieList;
+            _userRepository = userRepository;
 
             this._loggedUser = user;
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace Portfolio.Presentation
             mtxContaBirthDate.Text = user.BirthDate.ToString();
             txbContaUserName.Text = user.Username;
             btnContaSalvar.Enabled = false;
+            _userRepository = userRepository;
         }
 
         private void txbContaName_TextChanged(object sender, EventArgs e)
@@ -201,7 +204,7 @@ namespace Portfolio.Presentation
             this.Close();
             if (_previousFormType == "Portfolio.Presentation.FrmHome")
             {
-                Form f = new FrmHome(_portfolioService, _loggedUser, _movieList, _loginForm);
+                Form f = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
                 f.Show();
             }
             
@@ -250,7 +253,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(_loggedUser, _previousFormType, _loginForm, _portfolioService, _movieList);
+            FrmAccount account = new FrmAccount(_loggedUser, _previousFormType, _loginForm, _portfolioService, _movieList, _userRepository);
             account.Show();
         }
 
@@ -276,7 +279,7 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
             search.Show();
         }
 

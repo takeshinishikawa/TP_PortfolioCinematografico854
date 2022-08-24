@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbout));
             this.pnlAbout = new System.Windows.Forms.Panel();
             this.lblGitRobson = new System.Windows.Forms.Label();
             this.lblGitMarilia = new System.Windows.Forms.Label();
@@ -115,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources.Portfólio_Cinematográfico;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.pnlAbout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

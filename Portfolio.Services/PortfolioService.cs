@@ -15,14 +15,15 @@ namespace Portfolio.Services
             loggedUser.Portfolio.Add(newScore);
         }
 
-        public int CountTotalMovies(User loggedUser)
+        public int CountWatchedMovies(User loggedUser)
         {
             return loggedUser.Portfolio.Count;
         }
 
-        private void MoviesByCategory(User loggedUser)
+        private Dictionary<Category, int> MoviesByCategory(User loggedUser)
         {
             Dictionary<Category, int> categories = new Dictionary<Category, int>();
+
             foreach (Score score in loggedUser.Portfolio)
             {
                 Category currentCategory = score.Movie.Category;
@@ -36,18 +37,38 @@ namespace Portfolio.Services
                     categories[currentCategory] = 1;
                 }
             }
+
+            return categories;
         }
 
-        private void MostWatchedCategory(Dictionary<Category, int> categoriesCount)
+        public (Category category, int count) FindMostWatchedCategory(User loggedUser)
         {
-            
+            Dictionary<Category, int> categoriesCount = MoviesByCategory(loggedUser);
+
+            KeyValuePair<Category, int> mostWatchedCategory = categoriesCount.First();
             foreach (KeyValuePair<Category, int> item in categoriesCount)
             {
-
+                if (item.Value > item.Value)
+                {
+                    mostWatchedCategory = item;
+                }
             }
 
-
+            return (mostWatchedCategory.Key, mostWatchedCategory.Value);
         }
 
+        public List<Score> LastNReviews(User loggedUser, int num)
+        {
+            List<Score> review = new(loggedUser.Portfolio);
+
+            if (review.Count >= num)
+            {
+                review = review.TakeLast(num).ToList();
+            }
+
+            review.Reverse();
+
+            return review;            
+        }
     }
 }
