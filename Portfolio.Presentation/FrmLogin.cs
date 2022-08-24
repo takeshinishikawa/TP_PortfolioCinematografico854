@@ -38,7 +38,7 @@ namespace Portfolio.Presentation
             {
                 User loggedUser = _userRepository.GetUser(username);
                 await Login_Screen(loggedUser.Username);
-                FrmHome formHome = new FrmHome(_portfolioService, loggedUser, _movieList, this);
+                FrmHome formHome = new FrmHome(_userRepository, _portfolioService, _movieList, loggedUser, this);
                 Hide();
                 CleanLoginScreen();
                 formHome.Show();
@@ -102,7 +102,7 @@ namespace Portfolio.Presentation
         private int RandomLoadTime()
         {
             Random rnd = new Random();
-            return rnd.Next(2, 6);
+            return rnd.Next(2, 5);
         }
 
     }

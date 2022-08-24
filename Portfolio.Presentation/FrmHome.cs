@@ -19,14 +19,16 @@ namespace Portfolio.Presentation
     {
         private User _loggedUser;
         public Form _loginForm;
+        private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmHome(IPortfolioService portfolioService, User loggedUser, IMovieRepository movieList, Form loginForm)
+        public FrmHome(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieList, User loggedUser, Form loginForm)
         {
+            _userRepository = userRepository;
             _portfolioService = portfolioService;
-            _loggedUser = loggedUser;
             _movieList = movieList;
+            _loggedUser = loggedUser;            
             _loginForm = loginForm;
 
             InitializeComponent();
@@ -69,7 +71,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList);
+            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList, _userRepository);
             account.Show();
         }
 
@@ -100,14 +102,14 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
             search.Show();
         }
 
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, _loginForm, _loggedUser, _movieList);
+            FrmPortfolio portfolio = new FrmPortfolio(_userRepository, _portfolioService, _loginForm, _loggedUser, _movieList);
             portfolio.Show();
         }
         #endregion
@@ -188,7 +190,7 @@ namespace Portfolio.Presentation
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
             search.Show();
         }
 

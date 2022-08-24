@@ -23,6 +23,11 @@ namespace Portfolio.Services
 
         }
 
+        public static void NewScores(IUserRepository userRepository)
+        {
+
+        }
+
         public static void AddMovies(IMovieRepository movieRepository)
         {
             movieRepository.AddMovie(new Movie("Roundhay Garden Scene", 1888, Category.Documentário, Studio.RoundhayGardenScene));
