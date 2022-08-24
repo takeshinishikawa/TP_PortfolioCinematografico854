@@ -27,9 +27,9 @@ namespace Portfolio.Presentation
             loginForm = login;
             LoggedUser = loggedUser;
             _movieList = movieList;
+       
             InitializeComponent();
             CustomizeDesign();
-            _movieList = movieList;
         }
 
 

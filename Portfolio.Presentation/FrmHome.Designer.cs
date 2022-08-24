@@ -224,10 +224,12 @@
             this.lklSearchFilter.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
             this.lklSearchFilter.Location = new System.Drawing.Point(29, 183);
             this.lklSearchFilter.Name = "lklSearchFilter";
-            this.lklSearchFilter.Size = new System.Drawing.Size(22, 13);
+            this.lklSearchFilter.Size = new System.Drawing.Size(29, 17);
             this.lklSearchFilter.TabIndex = 5;
             this.lklSearchFilter.TabStop = true;
             this.lklSearchFilter.Text = "---";
+            this.lklSearchFilter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
+
             // 
             // lblResume
             // 
