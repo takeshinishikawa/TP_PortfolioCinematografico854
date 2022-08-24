@@ -276,7 +276,7 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmSearch search = new FrmSearch();
+            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
             search.Show();
         }
 
