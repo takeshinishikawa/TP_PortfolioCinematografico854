@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Portfolio.Presentation
 {
@@ -26,7 +27,7 @@ namespace Portfolio.Presentation
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txbUsername.Text;
             string password = txbPassword.Text;
@@ -36,16 +37,15 @@ namespace Portfolio.Presentation
             if (validLogin)
             {
                 User loggedUser = _userRepository.GetUser(username);
-
-
-
+                await Login_Screen(loggedUser.Username);
                 FrmHome formHome = new FrmHome(_portfolioService, loggedUser, _movieList, this);
                 Hide();
-                formHome.Show();                
+                CleanLoginScreen();
+                formHome.Show();
             }
-            else 
-            { 
-                MessageBox.Show("Não foi possível realizar seu login. Usuário ou senha inválidos.", "Erro no Login", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            else
+            {
+                MessageBox.Show("Não foi possível realizar seu login. Usuário ou senha inválida.", "Erro no Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -78,5 +78,32 @@ namespace Portfolio.Presentation
                 Application.Exit();
             }
         }
+
+        private async Task Login_Screen(string username)
+        {
+            lblUsernameGreeting.Text = $"{username}!";
+            pnlLogin.Enabled = false;
+            pnlLoad.Visible = true;
+
+            int time = RandomLoadTime();
+            await Task.Delay(TimeSpan.FromSeconds(time));
+
+            pnlLogin.Enabled = true;
+            pnlLoad.Visible = false;
+            return;
+        }
+
+        private void CleanLoginScreen()
+        {
+            txbUsername.Text = "";
+            txbPassword.Text = "";
+        }
+
+        private int RandomLoadTime()
+        {
+            Random rnd = new Random();
+            return rnd.Next(2, 6);
+        }
+
     }
 }
