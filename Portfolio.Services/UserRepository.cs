@@ -42,5 +42,11 @@ namespace Portfolio.Services
             return UserRegistry.SingleOrDefault(person => person.Username == username);
         }
 
+        public void DeleteUser(User userToRemove)
+        {
+            var itemToRemove = UserRegistry.SingleOrDefault(x => x == userToRemove);
+            if (itemToRemove != null)
+                UserRegistry.Remove(itemToRemove);
+        }
     }
 }

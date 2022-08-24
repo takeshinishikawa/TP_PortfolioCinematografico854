@@ -13,17 +13,17 @@ namespace Portfolio.Domain
         public Star Value { get; private set; }
         public string Comments { get; set; }
 
-        public Score(Movie movie, Star stars)
+        public Score(Movie movie, Star value)
         {
             Movie = movie;
-            Value = stars;
+            Value = value;
             Comments = "";
         }
 
-        public Score(Movie movie, Star stars, string comments)
+        public Score(Movie movie, Star value, string comments)
         {
             Movie = movie;
-            Value = stars;
+            Value = value;
             Comments = comments;
         }
 

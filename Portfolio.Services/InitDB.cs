@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
+
 
 namespace Portfolio.Services
 {
@@ -20,6 +22,31 @@ namespace Portfolio.Services
 
             User newUser3 = new("r", "r", DateTime.Parse("09/01/1960"), "1");
             userRepository.AddNewUser(newUser3);
+
+        }
+
+        public static void NewScores(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieRepository)
+        {
+
+            Score newScore1 = new(movieRepository.GetMovie("Roundhay Garden Scene"), Star.Three);
+            Score newScore2 = new(movieRepository.GetMovie("A Viagem de Chihiro"), Star.Four);
+            Score newScore3 = new(movieRepository.GetMovie("Star Wars: Episódio VIII – Os Últimos Jedi"), Star.Four, "Nem é tão ruim assim, a galera reclama muito");
+            
+            User user1 = userRepository.GetUser("luizacampello");
+            User user2 = userRepository.GetUser("halfBloodPrince");
+
+            portfolioService.AddScoreToPortfolio(user1, newScore1);
+            portfolioService.AddScoreToPortfolio(user1, newScore2);
+            portfolioService.AddScoreToPortfolio(user1, newScore3);
+            portfolioService.AddScoreToPortfolio(user1, newScore3);
+            portfolioService.AddScoreToPortfolio(user1, newScore1);
+            portfolioService.AddScoreToPortfolio(user1, newScore2);
+            portfolioService.AddScoreToPortfolio(user1, newScore3);
+            portfolioService.AddScoreToPortfolio(user1, newScore3);
+
+            portfolioService.AddScoreToPortfolio(user2, newScore1);
+            portfolioService.AddScoreToPortfolio(user2, newScore2);
+
 
         }
 

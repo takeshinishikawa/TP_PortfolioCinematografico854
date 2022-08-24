@@ -18,11 +18,13 @@ namespace Portfolio.Presentation
     {
         private User _loggedUser;
         private Form _loginForm;
+        private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmPortfolio(IPortfolioService portfolioService, Form loginForm, User loggedUser, IMovieRepository movieList)
+        public FrmPortfolio(IUserRepository userRepository, IPortfolioService portfolioService, Form loginForm, User loggedUser, IMovieRepository movieList)
         {
+            _userRepository = userRepository;
             _portfolioService = portfolioService;
             _loginForm = loginForm;
             _loggedUser = loggedUser;
@@ -65,7 +67,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList);
+            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList, _userRepository);
             account.Show();
         }
 
@@ -96,14 +98,14 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_movieList, _portfolioService, _loginForm, _loggedUser);
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
             search.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmHome home = new FrmHome(_portfolioService, _loggedUser, _movieList, _loginForm);
+            FrmHome home = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             home.Show();
         }
 
