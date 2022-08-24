@@ -16,7 +16,7 @@ namespace Portfolio.Presentation
 
     public partial class FrmPortfolio : Form
     {
-        private User LoggedUser { get; set; }
+        private User loggedUser;
         private Form loginForm;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
@@ -27,11 +27,13 @@ namespace Portfolio.Presentation
             loginForm = login;
             LoggedUser = loggedUser;
             _movieList = movieList;
+       
             InitializeComponent();
             CustomizeDesign();
-            _movieList = movieList;
         }
 
+
+        #region Header
         private void btnLogo_Click(object sender, EventArgs e)
         {
             ShowSubMenu(pnlSubMenu);
@@ -94,7 +96,7 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch();
+            FrmSearch search = new FrmSearch(loginForm, loggedUser);
             search.Show();
         }
 
@@ -104,5 +106,9 @@ namespace Portfolio.Presentation
             FrmHome home = new FrmHome(_portfolioService, LoggedUser, _movieList, loginForm);
             home.Show();
         }
+        #endregion
+
+        //
+
     }
 }
