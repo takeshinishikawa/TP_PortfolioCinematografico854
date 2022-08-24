@@ -16,11 +16,13 @@ namespace Portfolio.Presentation
     {
         private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
+        private IMovieRepository _movieList;
 
-        public FrmLogin(IUserRepository userRepository, IPortfolioService portfolioService)
+        public FrmLogin(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieList)
         {
             _userRepository = userRepository;
             _portfolioService = portfolioService;
+            _movieList = movieList;
             InitializeComponent();
         }
 
@@ -37,7 +39,7 @@ namespace Portfolio.Presentation
 
 
 
-                FrmHome formHome = new FrmHome(_portfolioService, loggedUser, this);
+                FrmHome formHome = new FrmHome(_portfolioService, loggedUser, _movieList, this);
                 Hide();
                 formHome.Show();                
             }

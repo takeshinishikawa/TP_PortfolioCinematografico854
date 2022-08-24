@@ -20,11 +20,13 @@ namespace Portfolio.Presentation
         private User LoggedUser { get; set; }
         public Form previousForm;
         private IPortfolioService _portfolioService;
+        private IMovieRepository _movieList;
 
-        public FrmHome(IPortfolioService portfolioService, User loggedUser, Form loginForm)
+        public FrmHome(IPortfolioService portfolioService, User loggedUser, IMovieRepository movieList, Form loginForm)
         {
             _portfolioService = portfolioService;
             LoggedUser = loggedUser;
+            _movieList = movieList;
             previousForm = loginForm;
 
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace Portfolio.Presentation
             string name = loggedUser.Name;
             lblNameOrUsername.Text = name;
 
-            decimal filmBank = MovieRegister.MovieList.Count();
+            decimal filmBank = _movieList.Count();
             decimal filmPort = 0m;
             decimal percentView = (filmPort/filmBank) * 100;
             percentView = Math.Round(percentView, 1);
@@ -105,9 +107,9 @@ namespace Portfolio.Presentation
 
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //FrmAccount account = new FrmAccount(username);
-            //account.Show();
+            this.Close();
+            FrmAccount account = new FrmAccount(LoggedUser, this.GetType().ToString(), previousForm, _portfolioService, _movieList);
+            account.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -144,9 +146,13 @@ namespace Portfolio.Presentation
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, previousForm, LoggedUser);
+            FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, previousForm, LoggedUser, _movieList);
             portfolio.Show();
         }
 
+        private void FrmHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
