@@ -33,7 +33,7 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
-            CrateResumeNewUser(loggedUser);
+            CreateResume(loggedUser);
             CreatePortfolioResumeNewUser(loggedUser);
         }
 
@@ -120,14 +120,17 @@ namespace Portfolio.Presentation
             lblNameOrUsername.Text = name;
 
             decimal movieBank = _movieList.Count();
-            decimal moviePort = 0m;
+            decimal moviePort = _portfolioService.CountWatchedMovies(loggedUser);
             decimal percentView = (moviePort / movieBank) * 100;
             percentView = Math.Round(percentView, 1);
 
-            int numberCategory = 0; //filme que a pessoa viu dessa categoria, esperando método
-            string watchedCategory = ""; //Esperando método de categoria mais vista
+            var favoriteCategory = _portfolioService.FindMostWatchedCategory(loggedUser);
 
-            decimal percentCategory = (numberCategory / moviePort) * 100;
+            int numberCategory = favoriteCategory.count; 
+            string watchedCategory = Extensions.GetEnumDescription(favoriteCategory.category); 
+
+
+            decimal percentCategory = (numberCategory / moviePort) * 100; // conferir se tem filme e visto
             percentCategory = Math.Round(percentCategory, 1);
 
 
@@ -155,7 +158,7 @@ namespace Portfolio.Presentation
 
         }
 
-        private void CrateResumeNewUser(User user)
+        private void CreateResumeNewUser(User user)
         {
             string name = user.Name;
             lblNameOrUsername.Text = name;

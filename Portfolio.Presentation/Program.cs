@@ -26,6 +26,7 @@ static class Program
 
         InitDB.NewUsers(bdUsers);
         InitDB.AddMovies(movieList);
+        InitDB.NewScores(bdUsers, portService, movieList);
 
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
