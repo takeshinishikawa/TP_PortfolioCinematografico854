@@ -285,9 +285,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
-            this.pictureBox1.Location = new System.Drawing.Point(975, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(768, 7);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(56, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(70, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
@@ -297,7 +297,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._2;
+            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources.loginScreen;
             this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chbCadastroMostrarSenha);

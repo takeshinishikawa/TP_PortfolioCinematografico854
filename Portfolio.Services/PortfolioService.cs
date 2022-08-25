@@ -10,9 +10,30 @@ namespace Portfolio.Services
 {
     public class PortfolioService : IPortfolioService
     {
-        public void AddScoreToPortfolio(User loggedUser, Score newScore)
+        public void AddReviewToPortfolio(User loggedUser, Review newReview)
         {
-            loggedUser.Portfolio.Add(newScore);
+            bool reviewedMovie = false;
+            int movieIndex = -1;
+            List<Review> portfolio = loggedUser.Portfolio;
+            Movie newMovieReview = newReview.Movie;
+
+            for (int i = 0; i < portfolio.Count; i++)
+            {
+                if (portfolio[i].Movie == newMovieReview)
+                {
+                    reviewedMovie = true;
+                    movieIndex = i;
+                    break;
+                }
+            }
+
+            if (reviewedMovie)
+            {
+                loggedUser.Portfolio.RemoveAt(movieIndex);
+            }
+            
+            loggedUser.Portfolio.Add(newReview);                   
+            
         }
 
         public int CountWatchedMovies(User loggedUser)
@@ -24,7 +45,7 @@ namespace Portfolio.Services
         {
             Dictionary<Category, int> categories = new Dictionary<Category, int>();
 
-            foreach (Score score in loggedUser.Portfolio)
+            foreach (Review score in loggedUser.Portfolio)
             {
                 Category currentCategory = score.Movie.Category;
 
@@ -57,9 +78,9 @@ namespace Portfolio.Services
             return (mostWatchedCategory.Key, mostWatchedCategory.Value);
         }
 
-        public List<Score> LastNReviews(User loggedUser, int num)
+        public List<Review> LastNReviews(User loggedUser, int num)
         {
-            List<Score> review = new(loggedUser.Portfolio);
+            List<Review> review = new(loggedUser.Portfolio);
 
             if (review.Count >= num)
             {
