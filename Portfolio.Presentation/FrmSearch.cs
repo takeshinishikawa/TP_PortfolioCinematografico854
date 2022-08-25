@@ -123,10 +123,13 @@ namespace Portfolio.Presentation
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            string movieName = lvwMovieBank.SelectedItems[0].SubItems[0].Text;
-            string movieYear = lvwMovieBank.SelectedItems[0].SubItems[1].Text;
-            FrmMovieDetail f = new FrmMovieDetail(_portfolioService, _loggedUser, _movieList.GetMovie(movieName, movieYear));
-            f.Show();
+            if (lvwMovieBank.SelectedItems.Count > 0)
+            {
+                string movieName = lvwMovieBank.SelectedItems[0].SubItems[0].Text;
+                string movieYear = lvwMovieBank.SelectedItems[0].SubItems[1].Text;
+                FrmMovieDetail f = new FrmMovieDetail(_portfolioService, _loggedUser, _movieList.GetMovie(movieName, movieYear));
+                f.Show();
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -202,7 +205,6 @@ namespace Portfolio.Presentation
                 item[1] = c.ReleaseYear.ToString();
                 lvwMovieBank.Items.Add(new ListViewItem(item));
             }
-
         }
 
         private void SearchStudio()
