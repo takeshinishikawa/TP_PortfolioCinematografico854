@@ -34,6 +34,7 @@ namespace Portfolio.Services
             
             User user1 = userRepository.GetUser("luizacampello");
             User user2 = userRepository.GetUser("halfBloodPrince");
+            User user3 = userRepository.GetUser("r");
 
             portfolioService.AddReviewToPortfolio(user1, newScore1);
             portfolioService.AddReviewToPortfolio(user1, newScore2);
@@ -47,6 +48,9 @@ namespace Portfolio.Services
             portfolioService.AddReviewToPortfolio(user2, newScore1);
             portfolioService.AddReviewToPortfolio(user2, newScore2);
 
+            portfolioService.AddReviewToPortfolio(user3, newScore1);
+            portfolioService.AddReviewToPortfolio(user3, newScore2);
+            portfolioService.AddReviewToPortfolio(user3, newScore3);
 
         }
 
