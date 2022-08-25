@@ -175,9 +175,9 @@ namespace Portfolio.Presentation
 
             if (answer == DialogResult.Yes)
             {
-                var movie = lvwPortfolio.SelectedItems[0].SubItems[0].Text;
-                //var review = (Review)_portfolio.Where(P => P.Movie.Title == movie);
-                //_portfolio.Remove(review);
+                string movie = lvwPortfolio.SelectedItems[0].SubItems[0].Text;
+                var review = _loggedUser.Portfolio.First(p => p.Movie.Title == movie);
+                _loggedUser.Portfolio.Remove(review);
                 lvwPortfolio.Items.RemoveAt(lvwPortfolio.SelectedIndices[0]);
             }
             
