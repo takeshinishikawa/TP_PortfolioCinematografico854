@@ -12,6 +12,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Portfolio.Domain;
 using User = Portfolio.Domain.User;
 using Portfolio.Services;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Portfolio.Presentation
 {
@@ -30,10 +31,11 @@ namespace Portfolio.Presentation
             _movieList = movieList;
             _loggedUser = loggedUser;            
             _loginForm = loginForm;
+            
 
             InitializeComponent();
             CustomizeDesign();
-            CreateResume(loggedUser);
+            CreateResumeNewUser(loggedUser);
             CreatePortfolioResumeNewUser(loggedUser);
         }
 
@@ -177,7 +179,7 @@ namespace Portfolio.Presentation
 
         private void CreatePortfolioResume(User user)
         {
-            //Esperando o método do port
+            
             lblLatestMoviesTitle.Text = ""; //Top 5 ultimos filmes vistos - titulo
             lblLatestMoviesScore.Text = ""; //Top 5 ultimos filmes vistos - score
         }
@@ -198,9 +200,6 @@ namespace Portfolio.Presentation
         }
 
 
-        private void FrmHome_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
