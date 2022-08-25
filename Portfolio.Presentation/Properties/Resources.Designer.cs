@@ -93,9 +93,9 @@ namespace Portfolio.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loginScreen {
+        internal static System.Drawing.Bitmap _5___Portfolio {
             get {
-                object obj = ResourceManager.GetObject("loginScreen", resourceCulture);
+                object obj = ResourceManager.GetObject("5 - Portfolio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

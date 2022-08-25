@@ -38,17 +38,30 @@
             this.btnMyAccount = new System.Windows.Forms.Button();
             this.btnLogo = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.cbbSearchOptions = new System.Windows.Forms.ComboBox();
+            this.txbSearchTitle = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.pnlSearch = new System.Windows.Forms.Panel();
+            this.lvwMovieBank = new System.Windows.Forms.ListView();
+            this.cnTitulo = new System.Windows.Forms.ColumnHeader();
+            this.cnYear = new System.Windows.Forms.ColumnHeader();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.ptbLogo = new System.Windows.Forms.PictureBox();
+            this.cbbCategory = new System.Windows.Forms.ComboBox();
+            this.cbbStudio = new System.Windows.Forms.ComboBox();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
+            this.pnlSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPortfolio
             // 
-            this.btnPortfolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.btnPortfolio.BackColor = System.Drawing.Color.Transparent;
             this.btnPortfolio.FlatAppearance.BorderSize = 0;
             this.btnPortfolio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPortfolio.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnPortfolio.ForeColor = System.Drawing.Color.Snow;
+            this.btnPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.btnPortfolio.Location = new System.Drawing.Point(757, 8);
             this.btnPortfolio.Name = "btnPortfolio";
             this.btnPortfolio.Size = new System.Drawing.Size(150, 45);
@@ -161,11 +174,11 @@
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnHome.ForeColor = System.Drawing.Color.Snow;
+            this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.btnHome.Location = new System.Drawing.Point(601, 8);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(150, 45);
@@ -174,21 +187,164 @@
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // cbbSearchOptions
+            // 
+            this.cbbSearchOptions.BackColor = System.Drawing.SystemColors.Window;
+            this.cbbSearchOptions.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbbSearchOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.cbbSearchOptions.FormattingEnabled = true;
+            this.cbbSearchOptions.Items.AddRange(new object[] {
+            "Título",
+            "Gênero",
+            "Estúdio"});
+            this.cbbSearchOptions.Location = new System.Drawing.Point(182, 166);
+            this.cbbSearchOptions.Name = "cbbSearchOptions";
+            this.cbbSearchOptions.Size = new System.Drawing.Size(170, 24);
+            this.cbbSearchOptions.TabIndex = 6;
+            this.cbbSearchOptions.Text = "Opções de Busca";
+            this.cbbSearchOptions.SelectedIndexChanged += new System.EventHandler(this.cbbSearchOptions_SelectedIndexChanged);
+            // 
+            // txbSearchTitle
+            // 
+            this.txbSearchTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbSearchTitle.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbSearchTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.txbSearchTitle.Location = new System.Drawing.Point(358, 166);
+            this.txbSearchTitle.Name = "txbSearchTitle";
+            this.txbSearchTitle.Size = new System.Drawing.Size(401, 24);
+            this.txbSearchTitle.TabIndex = 7;
+            this.txbSearchTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.ForeColor = System.Drawing.Color.Ivory;
+            this.btnSearch.Location = new System.Drawing.Point(765, 162);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(115, 29);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // pnlSearch
+            // 
+            this.pnlSearch.BackColor = System.Drawing.Color.White;
+            this.pnlSearch.Controls.Add(this.lvwMovieBank);
+            this.pnlSearch.Location = new System.Drawing.Point(182, 223);
+            this.pnlSearch.Name = "pnlSearch";
+            this.pnlSearch.Size = new System.Drawing.Size(698, 307);
+            this.pnlSearch.TabIndex = 9;
+            // 
+            // lvwMovieBank
+            // 
+            this.lvwMovieBank.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvwMovieBank.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cnTitulo,
+            this.cnYear});
+            this.lvwMovieBank.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lvwMovieBank.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lvwMovieBank.FullRowSelect = true;
+            this.lvwMovieBank.GridLines = true;
+            this.lvwMovieBank.Location = new System.Drawing.Point(14, 14);
+            this.lvwMovieBank.MultiSelect = false;
+            this.lvwMovieBank.Name = "lvwMovieBank";
+            this.lvwMovieBank.Size = new System.Drawing.Size(668, 278);
+            this.lvwMovieBank.TabIndex = 0;
+            this.lvwMovieBank.UseCompatibleStateImageBehavior = false;
+            this.lvwMovieBank.View = System.Windows.Forms.View.Details;
+            // 
+            // cnTitulo
+            // 
+            this.cnTitulo.Text = "Titulo";
+            this.cnTitulo.Width = 430;
+            // 
+            // cnYear
+            // 
+            this.cnYear.Text = "Ano";
+            this.cnYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnYear.Width = 120;
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
+            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpen.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnOpen.ForeColor = System.Drawing.Color.White;
+            this.btnOpen.Location = new System.Drawing.Point(758, 546);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(122, 43);
+            this.btnOpen.TabIndex = 15;
+            this.btnOpen.Text = "Abrir";
+            this.btnOpen.UseVisualStyleBackColor = false;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // ptbLogo
+            // 
+            this.ptbLogo.BackColor = System.Drawing.Color.Transparent;
+            this.ptbLogo.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
+            this.ptbLogo.Location = new System.Drawing.Point(12, 8);
+            this.ptbLogo.Name = "ptbLogo";
+            this.ptbLogo.Size = new System.Drawing.Size(43, 43);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbLogo.TabIndex = 17;
+            this.ptbLogo.TabStop = false;
+            // 
+            // cbbCategory
+            // 
+            this.cbbCategory.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.cbbCategory.FormattingEnabled = true;
+            this.cbbCategory.Location = new System.Drawing.Point(358, 166);
+            this.cbbCategory.Name = "cbbCategory";
+            this.cbbCategory.Size = new System.Drawing.Size(401, 24);
+            this.cbbCategory.TabIndex = 18;
+            this.cbbCategory.Text = "Selecione uma categoria";
+            this.cbbCategory.Visible = false;
+            // 
+            // cbbStudio
+            // 
+            this.cbbStudio.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbbStudio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.cbbStudio.FormattingEnabled = true;
+            this.cbbStudio.Location = new System.Drawing.Point(358, 165);
+            this.cbbStudio.Name = "cbbStudio";
+            this.cbbStudio.Size = new System.Drawing.Size(401, 24);
+            this.cbbStudio.TabIndex = 19;
+            this.cbbStudio.Text = "Selecione um estúdio";
+            this.cbbStudio.Visible = false;
+            // 
             // FrmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.cbbStudio);
+            this.Controls.Add(this.cbbCategory);
+            this.Controls.Add(this.ptbLogo);
+            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.pnlSearch);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txbSearchTitle);
+            this.Controls.Add(this.cbbSearchOptions);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnPortfolio);
             this.Controls.Add(this.pnlMenuPanel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmSearch";
             this.Text = "FrmSearch";
             this.pnlMenuPanel.ResumeLayout(false);
             this.pnlSubMenu.ResumeLayout(false);
+            this.pnlSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -202,5 +358,16 @@
         private Button btnMyAccount;
         private Button btnLogo;
         private Button btnHome;
+        private ComboBox cbbSearchOptions;
+        private TextBox txbSearchTitle;
+        private Button btnSearch;
+        private Panel pnlSearch;
+        private Button btnOpen;
+        private PictureBox ptbLogo;
+        private ListView lvwMovieBank;
+        private ColumnHeader cnTitulo;
+        private ColumnHeader cnYear;
+        private ComboBox cbbCategory;
+        private ComboBox cbbStudio;
     }
 }
