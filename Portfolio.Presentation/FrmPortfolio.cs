@@ -108,11 +108,12 @@ namespace Portfolio.Presentation
             FrmHome home = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             home.Show();
         }
+
         #endregion
 
         private void btnAZ_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnScore_Click(object sender, EventArgs e)

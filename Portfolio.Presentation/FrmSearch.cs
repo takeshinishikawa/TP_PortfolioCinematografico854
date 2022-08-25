@@ -1,7 +1,9 @@
 ﻿using Portfolio.Domain;
+using Portfolio.Domain.Enum;
 using Portfolio.Services;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Portfolio.Presentation
 {
@@ -16,6 +19,7 @@ namespace Portfolio.Presentation
     {
         private User _loggedUser;
         public Form _loginForm;
+        public Category _category;
         private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
@@ -30,6 +34,11 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
+            GetCategory();
+            GetStudio();
+
+
+
         }
 
         #region Header
@@ -65,9 +74,9 @@ namespace Portfolio.Presentation
 
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //FrmAccount account = new FrmAccount(username);
-            //account.Show();
+            this.Close();
+            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList, _userRepository);
+            account.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -108,9 +117,151 @@ namespace Portfolio.Presentation
             home.Show();
         }
 
+
         #endregion
 
-        //
 
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            string movieName = lvwMovieBank.SelectedItems[0].SubItems[0].Text;
+            string movieYear = lvwMovieBank.SelectedItems[0].SubItems[1].Text;
+            _movieList.SearchMovieByTitle(movieName);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            
+            var option = cbbSearchOptions.Text;
+            switch (option)
+            {
+                case "Título":
+                    lvwMovieBank.Items.Clear();
+                    SearchTitle();
+                    cbbCategory.Text = "";
+                    cbbStudio.Text = "";
+                    break;
+                case "Estúdio":
+                    lvwMovieBank.Items.Clear();
+                    SearchStudio();
+                    cbbCategory.Text = "";
+                    txbSearchTitle.Text = "";
+                    break;
+                case "Gênero":
+                    lvwMovieBank.Items.Clear();
+                    SearchCategory();
+                    cbbStudio.Text = "";
+                    txbSearchTitle.Text = "";
+                    break;
+                default:
+                    lvwMovieBank.Items.Clear();
+                    SearchAllMovies(_movieList);
+                    break;
+            }
+        }
+
+        private void SearchAllMovies(IMovieRepository movieList)
+        {
+            List<Movie> listadefilmes = movieList.GetMovieList();
+
+            foreach (var m in listadefilmes)
+            {
+                string[] item = new string[2];
+                item[0] = m.Title;
+                item[1] = m.ReleaseYear.ToString();
+
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
+   
+        }
+
+        private void SearchTitle()
+        {
+            var title = txbSearchTitle.Text;
+            title = title.Trim();
+            List<Movie> listByTitle = _movieList.SearchMovieByTitle(title);
+            foreach (var t in listByTitle)
+            {
+                string[] item = new string[2];
+                item[0] = t.Title;
+                item[1] = t.ReleaseYear.ToString();
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
+
+        }
+
+        private void SearchCategory()
+        {
+            var nameCategory = cbbCategory.Text;
+            Category category = (Category)Enum.Parse(typeof(Category), nameCategory);
+            List<Movie> listByCategory = _movieList.SearchMovieByCategory(category);
+            foreach (var c in listByCategory)
+            {
+                string[] item = new string[2];
+                item[0] = c.Title;
+                item[1] = c.ReleaseYear.ToString();
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
+
+        }
+
+        private void SearchStudio()
+        {
+            var nameStudio = cbbStudio.Text;
+            Studio studio = (Studio)Enum.Parse(typeof(Studio), nameStudio);
+            List<Movie> listByStudio = _movieList.SearchMovieByStudio(studio);
+            foreach (var s in listByStudio)
+            {
+                string[] item = new string[2];
+                item[0] = s.Title;
+                item[1] = s.ReleaseYear.ToString();
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
+
+        }
+
+        private void GetStudio()
+        {
+            var studios = Enum.GetValues(typeof(Studio)).Cast<Studio>().ToList();
+            foreach (var s in studios)
+            {
+                cbbStudio.Items.Add(s);
+            }
+
+        }
+        private void GetCategory()
+        {
+
+            var categories = Enum.GetValues(typeof(Category)).Cast<Category>().ToList();
+            foreach(var i in categories)
+            {
+                cbbCategory.Items.Add(i);
+            }
+
+        }
+
+        private void cbbSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string option = cbbSearchOptions.Text;
+
+            if (option == "Título")
+            {
+                cbbCategory.Visible = false;
+                cbbStudio.Visible = false;
+                txbSearchTitle.Visible = true;
+            }
+            else if (option == "Gênero")
+            {
+                txbSearchTitle.Visible = false;
+                cbbStudio.Visible = false;
+                cbbCategory.Visible = true;
+            }
+            else if (option == "Estúdio")
+            {
+                txbSearchTitle.Visible = false;
+                cbbCategory.Visible = false;
+                cbbStudio.Visible = true;
+            }
+        }
     }
+    
 }
