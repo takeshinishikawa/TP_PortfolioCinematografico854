@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Portfolio.Services.Extensions;
 using static System.Windows.Forms.DataFormats;
 using User = Portfolio.Domain.User;
 
@@ -296,7 +297,16 @@ namespace Portfolio.Presentation
 
         private void btnContaDeletar_Click(object sender, EventArgs e)
         {
-            //PRECISA ALTERAR A HOME PARA RECEBER O USERREPOSITORY, CASO CONTRÁRIO NÃO SERÁ POSSÍVEL DELETAR A CONTA
+            var answer = DialogResult;
+            answer = MessageBox.Show("Você tem certeza que deseja Deletar sua conta?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (answer == DialogResult.Yes)
+            {
+                _userRepository.DeleteUser(_loggedUser);
+                FrmLogin f = new FrmLogin(_userRepository, _portfolioService,_movieList);
+                this.Close();
+                f.Show();
+            }
         }
     }
 }

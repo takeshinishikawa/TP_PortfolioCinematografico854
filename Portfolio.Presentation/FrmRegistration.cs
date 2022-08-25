@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Portfolio.Domain;
 using Portfolio.Services;
+using static Portfolio.Services.Extensions;
 
 namespace Portfolio.Presentation
 {

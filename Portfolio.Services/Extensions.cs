@@ -25,91 +25,110 @@ namespace Portfolio.Services
 
             return value.ToString();
         }
-    }
-    public class CheckPasswordStrenght
-    {
 
-        public enum PasswordStrenght
+        public static T GetValueFromDescription<T>(string description) where T : Enum
         {
-            [Description("Inaceitável")] Inaceitavel,
-            [Description("Fraca")] Fraca,
-            [Description("Aceitável")] Aceitavel,
-            [Description("Forte")] Forte,
-            [Description("Segura")] Segura
-        }
-
-        public int generatePasswordPoints(string senha)
-        {
-            if (senha == null) return 0;
-            int pontosPorTamanho = GetPointsByLenght(senha);
-            int pontosPorMinusculas = GetPointsByLower(senha);
-            int pontosPorMaiusculas = GetPointsByUpper(senha);
-            int pontosPorDigitos = GetPointsByDigits(senha);
-            int pontosPorSimbolos = GetPointsBySymbols(senha);
-            int pontosPorRepeticao = GetPointsByRepetition(senha);
-            return pontosPorTamanho + pontosPorMinusculas + pontosPorMaiusculas + pontosPorDigitos + pontosPorSimbolos - pontosPorRepeticao;
-        }
-
-        private int GetPointsByLenght(string senha)
-        {
-            return Math.Min(10, senha.Length) * 7;
-        }
-
-        private int GetPointsByLower(string senha)
-        {
-            int rawplacar = senha.Length - Regex.Replace(senha, "[a-z]", "").Length;
-            return Math.Min(2, rawplacar) * 5;
-        }
-
-        private int GetPointsByUpper(string senha)
-        {
-            int rawplacar = senha.Length - Regex.Replace(senha, "[A-Z]", "").Length;
-            return Math.Min(2, rawplacar) * 5;
-        }
-
-        private int GetPointsByDigits(string senha)
-        {
-            int rawplacar = senha.Length - Regex.Replace(senha, "[0-9]", "").Length;
-            return Math.Min(2, rawplacar) * 6;
-        }
-
-        private int GetPointsBySymbols(string senha)
-        {
-            int rawplacar = Regex.Replace(senha, "[a-zA-Z0-9]", "").Length;
-            return Math.Min(2, rawplacar) * 5;
-        }
-
-        private int GetPointsByRepetition(string senha)
-        {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"(\w)*.*\1");
-            bool repete = regex.IsMatch(senha);
-            if (repete)
+            foreach (var field in typeof(T).GetFields())
             {
-                return 30;
+                if (Attribute.GetCustomAttribute(field,
+                typeof(DescriptionAttribute)) is DescriptionAttribute attribute)
+                {
+                    if (attribute.Description == description)
+                        return (T)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == description)
+                        return (T)field.GetValue(null);
+                }
             }
-            else
-            {
-                return 0;
-            }
+
+            throw new ArgumentException("Not found.", nameof(description));
         }
-
-
-        public PasswordStrenght GetPasswordStrenght(string senha)
+        public class CheckPasswordStrenght
         {
-            int placar = generatePasswordPoints(senha);
 
-            if (placar < 50)
-                return PasswordStrenght.Inaceitavel;
-            else if (placar < 60)
-                return PasswordStrenght.Fraca;
-            else if (placar < 80)
-                return PasswordStrenght.Aceitavel;
-            else if (placar < 100)
-                return PasswordStrenght.Forte;
-            else
-                return PasswordStrenght.Segura;
+            public enum PasswordStrenght
+            {
+                [Description("Inaceitável")] Inaceitavel,
+                [Description("Fraca")] Fraca,
+                [Description("Aceitável")] Aceitavel,
+                [Description("Forte")] Forte,
+                [Description("Segura")] Segura
+            }
+
+            public int generatePasswordPoints(string senha)
+            {
+                if (senha == null) return 0;
+                int pontosPorTamanho = GetPointsByLenght(senha);
+                int pontosPorMinusculas = GetPointsByLower(senha);
+                int pontosPorMaiusculas = GetPointsByUpper(senha);
+                int pontosPorDigitos = GetPointsByDigits(senha);
+                int pontosPorSimbolos = GetPointsBySymbols(senha);
+                int pontosPorRepeticao = GetPointsByRepetition(senha);
+                return pontosPorTamanho + pontosPorMinusculas + pontosPorMaiusculas + pontosPorDigitos + pontosPorSimbolos - pontosPorRepeticao;
+            }
+
+            private int GetPointsByLenght(string senha)
+            {
+                return Math.Min(10, senha.Length) * 7;
+            }
+
+            private int GetPointsByLower(string senha)
+            {
+                int rawplacar = senha.Length - Regex.Replace(senha, "[a-z]", "").Length;
+                return Math.Min(2, rawplacar) * 5;
+            }
+
+            private int GetPointsByUpper(string senha)
+            {
+                int rawplacar = senha.Length - Regex.Replace(senha, "[A-Z]", "").Length;
+                return Math.Min(2, rawplacar) * 5;
+            }
+
+            private int GetPointsByDigits(string senha)
+            {
+                int rawplacar = senha.Length - Regex.Replace(senha, "[0-9]", "").Length;
+                return Math.Min(2, rawplacar) * 6;
+            }
+
+            private int GetPointsBySymbols(string senha)
+            {
+                int rawplacar = Regex.Replace(senha, "[a-zA-Z0-9]", "").Length;
+                return Math.Min(2, rawplacar) * 5;
+            }
+
+            private int GetPointsByRepetition(string senha)
+            {
+                System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"(\w)*.*\1");
+                bool repete = regex.IsMatch(senha);
+                if (repete)
+                {
+                    return 30;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+
+
+            public PasswordStrenght GetPasswordStrenght(string senha)
+            {
+                int placar = generatePasswordPoints(senha);
+
+                if (placar < 50)
+                    return PasswordStrenght.Inaceitavel;
+                else if (placar < 60)
+                    return PasswordStrenght.Fraca;
+                else if (placar < 80)
+                    return PasswordStrenght.Aceitavel;
+                else if (placar < 100)
+                    return PasswordStrenght.Forte;
+                else
+                    return PasswordStrenght.Segura;
+            }
         }
+
     }
-
-
 }
