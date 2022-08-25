@@ -125,12 +125,13 @@ namespace Portfolio.Presentation
         {
             string movieName = lvwMovieBank.SelectedItems[0].SubItems[0].Text;
             string movieYear = lvwMovieBank.SelectedItems[0].SubItems[1].Text;
-            _movieList.SearchMovieByTitle(movieName);
+            FrmMovieDetail f = new FrmMovieDetail(_portfolioService, _loggedUser, _movieList.GetMovie(movieName, movieYear));
+            f.Show();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
+
             var option = cbbSearchOptions.Text;
             switch (option)
             {
@@ -171,7 +172,7 @@ namespace Portfolio.Presentation
 
                 lvwMovieBank.Items.Add(new ListViewItem(item));
             }
-   
+
         }
 
         private void SearchTitle()
@@ -232,7 +233,7 @@ namespace Portfolio.Presentation
         {
 
             var categories = Enum.GetValues(typeof(Category)).Cast<Category>().ToList();
-            foreach(var i in categories)
+            foreach (var i in categories)
             {
                 cbbCategory.Items.Add(i);
             }
@@ -263,5 +264,5 @@ namespace Portfolio.Presentation
             }
         }
     }
-    
+
 }
