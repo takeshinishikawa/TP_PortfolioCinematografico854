@@ -62,7 +62,7 @@ namespace Portfolio.Services
             return categories;
         }
 
-        public (Category category, int count) FindMostWatchedCategory(User loggedUser)
+        public (string category, int count) FindMostWatchedCategory(User loggedUser)
         {
             Dictionary<Category, int> categoriesCount = MoviesByCategory(loggedUser);
 
@@ -74,8 +74,8 @@ namespace Portfolio.Services
                     mostWatchedCategory = item;
                 }
             }
-
-            return (mostWatchedCategory.Key, mostWatchedCategory.Value);
+            string favoriteCategory = Extensions.GetEnumDescription(mostWatchedCategory.Key);
+            return (favoriteCategory, mostWatchedCategory.Value);
         }
 
         public List<Review> LastNReviews(User loggedUser, int num)
