@@ -17,5 +17,7 @@ namespace Portfolio.Services
         public List<Movie> SearchMovieByStudio(Studio studio);
         public Movie GetMovie(string title);
         public int Count();
+
+        public List<Movie> GetMovieList();
     }
 }

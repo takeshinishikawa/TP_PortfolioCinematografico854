@@ -49,5 +49,10 @@ namespace Portfolio.Services
         {
             return MovieList.Count();
         }
+
+        public List<Movie> GetMovieList()
+        {
+            return MovieList;
+        }
     }
 }
