@@ -110,7 +110,37 @@ namespace Portfolio.Presentation
         }
         #endregion
 
-        //
+        private void btnAZ_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var answer = DialogResult;
+            answer = MessageBox.Show("Você tem certeza que deseja excluir esse filmes do seu portfólio?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (answer == DialogResult.Yes)
+            {
+                lvwPortfolio.Items.RemoveAt(lvwPortfolio.SelectedIndices[0]);
+            }
+            
+        }
 
     }
 }
