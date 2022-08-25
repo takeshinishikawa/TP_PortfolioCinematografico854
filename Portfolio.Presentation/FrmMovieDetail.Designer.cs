@@ -50,6 +50,7 @@ namespace Portfolio.Presentation
             this.txbDetailReview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txbDetailReview.Size = new System.Drawing.Size(496, 154);
             this.txbDetailReview.TabIndex = 1;
+            this.txbDetailReview.TextChanged += new System.EventHandler(this.txbDetailReview_TextChanged);
             // 
             // lblDetailNote
             // 

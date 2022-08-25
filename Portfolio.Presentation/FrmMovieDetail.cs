@@ -1,4 +1,5 @@
-﻿using Portfolio.Domain;
+﻿using Microsoft.VisualBasic.Devices;
+using Portfolio.Domain;
 using Portfolio.Domain.Enum;
 using Portfolio.Services;
 using System;
@@ -44,8 +45,6 @@ namespace Portfolio.Presentation
             this.Close();
         }
 
-        
-
         private void cbbDetailStar_TextChanged(object sender, EventArgs e)
         {
             ChangeBtnSalvarStatus(cbbDetailStar.Text);
@@ -53,10 +52,18 @@ namespace Portfolio.Presentation
 
         private void ChangeBtnSalvarStatus(string star)
         {
-            if (star != "Nota")
+            if (star != "Nota" && 
+                _loggedUser.Portfolio.Where(r => r.Movie.Title == _movie.Title).FirstOrDefault() != null &&
+                cbbDetailStar.Text != Extensions.GetEnumDescription(_loggedUser.Portfolio.Where(r => r.Movie.Title == _movie.Title).FirstOrDefault().Value))
             {
                 btnDetailSalvar.Enabled = true;
-                btnDetailSalvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12))))); 
+                btnDetailSalvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+                return;
+            }
+            else if (_loggedUser.Portfolio.Where(r => r.Movie.Title == _movie.Title).FirstOrDefault() == null && star != "Nota")
+            {
+                btnDetailSalvar.Enabled = true;
+                btnDetailSalvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
                 return;
             }
             btnDetailSalvar.Enabled = false;
@@ -67,16 +74,26 @@ namespace Portfolio.Presentation
         {
             Review r = new Review(_movie, Extensions.GetValueFromDescription<Star>(cbbDetailStar.Text), txbDetailReview.Text);
             _portfolioService.AddReviewToPortfolio(_loggedUser, r);
-            //_portfolioService.CountWatchedMovies(_loggedUser);
             this.Close();
         }
 
-        //private void btnDetailSalvar_Click(object sender, EventArgs e)
-        //{
-        //    Review r = new Review(_movie, Extensions.GetValueFromDescription<Star>(cbbDetailStar.Text), txbDetailReview.Text);
-        //    _portfolioService.AddReviewToPortfolio(_loggedUser, r);
-        //    _portfolioService.CountWatchedMovies(_loggedUser);
-        //    this.Close();
-        //}
+        private void txbDetailReview_TextChanged(object sender, EventArgs e)
+        {
+            if (cbbDetailStar.Text == "Nota")
+                return;
+            else if (_loggedUser.Portfolio.Where(r => r.Movie.Title == _movie.Title).FirstOrDefault() != null &&
+                txbDetailReview.Text != _loggedUser.Portfolio.Where(r => r.Movie.Title == _movie.Title).FirstOrDefault().Comments)
+            {
+                btnDetailSalvar.Enabled = true;
+                btnDetailSalvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+                return;
+            }
+            else
+            {
+                btnDetailSalvar.Enabled = false;
+                btnDetailSalvar.ForeColor = Color.LightGray;
+                return;
+            }
+        }
     }
 }
