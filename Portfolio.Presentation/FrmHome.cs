@@ -35,8 +35,7 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
-            CreateResumeNewUser(loggedUser);
-            CreatePortfolioResume(loggedUser);
+            InitializeUserHomeScreen(loggedUser);
         }
 
         #region Header
@@ -116,91 +115,109 @@ namespace Portfolio.Presentation
         }
         #endregion
 
-        private void CreateResume(User loggedUser)
-        {
-            string name = loggedUser.Name;
-            lblNameOrUsername.Text = name;
-
-            decimal movieBank = _movieList.Count();
-            decimal moviePort = _portfolioService.CountWatchedMovies(loggedUser);
-            decimal percentView = (moviePort / movieBank) * 100;
-            percentView = Math.Round(percentView, 1);
-
-            var favoriteCategory = _portfolioService.FindMostWatchedCategory(loggedUser);
-
-            int numberCategory = favoriteCategory.count; 
-            string watchedCategory = Extensions.GetEnumDescription(favoriteCategory.category); 
-
-
-            decimal percentCategory = (numberCategory / moviePort) * 100; // conferir se tem filme e visto
-            percentCategory = Math.Round(percentCategory, 1);
-
-
-            var text1 = $"Até o presente momento você adicionou {moviePort} filmes no seu portfólio. A categoria mais assistida dentre os filmes é a {watchedCategory}. E uau, você já assistiu {numberCategory} filmes dela." +
-                $" Ou seja, {percentCategory}% do seu portfólio.";
-           
-            var text2 = $"{name}, dentre todos os filmes registrados aqui sabia que você já assistiu {percentView}% deles? Talvez uma olhadinha na nossa coleção te inspire a conhecer algum novo filme e" +
-                $" se encantar. O universo cinematografico está aqui para fazer os mais loucos sonhos se tornarem possíveis e reais.";
-            
-            var text3 = $"Parabéns {name}!!! Você parece conhecer tudo sobre filmes e ter um repertório bastante amplo, já viu {percentView} dos filmes disponíveis aqui.\n";
-            
-            var text4 = "Descubra quais filmes você ainda não viu clicando aqui.";
-
-
-            if (percentView < 100)
-            {
-                lblResume.Text = text1 + "\n\n" + text2;
-            }
-            else
-            {
-                lblResume.Text = text1 + "\n\n" + text3;
-            }
-
-            lklSearchFilter.Text = text4;
-
-        }
-
-        private void CreateResumeNewUser(User user)
-        {
-            string name = user.Name;
-            lblNameOrUsername.Text = name;
-
-            int numberOfMovies = _movieList.Count();
-
-            string welcome = $"Seja bem vindo ao maravilhoso universo que une cinema e organização. Aqui você vai conseguir criar e organizar" +
-                $" seu próprio portfólio de filmes que você já assistiu, atribuindo a eles notas e comentários." +
-                $" Atualmente possuimos em nosso banco de dados {numberOfMovies} filmes dos mais diversos gêneros." +
-                $" Sinta-se a vontade para explorar todos os nossos recursos e se divertir.";
-            lblResume.Text = welcome;
-
-            var search = "Descubra quais filmes você ainda não viu clicando aqui.";
-            lklSearchFilter.Text = search;
-        }
-
-        private void CreatePortfolioResume(User user)
-        {
-            List<Review> portfolio = _portfolioService.LastNReviews(_loggedUser, 5);
-            foreach (var p in portfolio)
-            {
-                lblLatestMoviesTitle.Text = p.Movie.Title;
-                lblLatestMoviesScore.Text = p.Value.ToString();
-            }
-        }
-
-        private void CreatePortfolioResumeNewUser(User user)
-        {
-            lblMovieTitlePor.Text = "Ainda não há filmes adicionados no seu portfólio.";
-            lblMovieScorePort.Text = "";
-            lblLatestMoviesTitle.Text = ""; 
-            lblLatestMoviesScore.Text = "";
-        }
-
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
             FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
             search.Show();
         }
+
+        private void InitializeUserHomeScreen(User loggedUser)
+        {
+            int watchedMoviesCount = _portfolioService.CountWatchedMovies(loggedUser);
+
+            if(watchedMoviesCount > 0)
+            {
+                UserHome(loggedUser);
+            }
+            else
+            {
+                EmptyUserHome(loggedUser);
+            }
+        }
+
+        private void UserHome(User loggedUser)
+        {
+            pnlHome.Visible = true;
+            pnlHome.Enabled = true;
+
+            UserResume(loggedUser);
+            UserPortfolioResume(loggedUser);
+        }
+                
+        private void UserResume(User loggedUser)
+        {
+            string name = loggedUser.Name;
+            lblNameOrUsername.Text = name;
+
+            decimal avaiableMoviesCount = _movieList.Count();
+            decimal watchedMoviesCount = _portfolioService.CountWatchedMovies(loggedUser);
+            decimal percentViewed = (watchedMoviesCount / avaiableMoviesCount) * 100;
+            percentViewed = Math.Round(percentViewed, 1);
+
+            var favoriteCategory = _portfolioService.FindMostWatchedCategory(loggedUser);
+
+            int numberCategory = favoriteCategory.count;
+            string watchedCategory = favoriteCategory.category;
+
+
+            decimal percentCategory = (numberCategory / watchedMoviesCount) * 100;
+            percentCategory = Math.Round(percentCategory, 1);
+
+
+            string standartResumeText = $"    Até agora você adicionou {watchedMoviesCount} filmes no seu portfólio. Sua categoria mais assistida foi {watchedCategory} e, UAU, você já assistiu {numberCategory} filme(s) dela. " +
+                $"Isso é {percentCategory}% do seu portfólio!";
+
+            string lowerPercentResumeText = $"    {name}, sabia que você já assistiu {percentViewed}% dos nossos filmes cadastrados !? Talvez uma olhadinha na nossa coleção te inspire a conhecer algum novo filme e " +
+                $"se encantar. O universo cinematografico está aqui para fazer os mais loucos sonhos se tornarem possíveis e reais.";
+
+            string higherPercentResumeText = $"    Parabéns {name}!!! Você parece conhecer tudo sobre filmes e tem um repertório beeeeeem amplo, já viu {percentViewed}% dos filmes disponíveis aqui.";
+
+            string linkToSearchText = "Vamos completar seu portfólio? Descubra quais filmes você ainda não viu clicando aqui.";
+
+            lblStandartResume.Text = standartResumeText;
+
+            if (percentViewed < 80)
+            {
+                 lblPercentResume.Text = lowerPercentResumeText;
+            }
+            else
+            {
+                lblPercentResume.Text = higherPercentResumeText;
+            }
+
+            lklSearchFilter.Text = linkToSearchText;
+
+        }
+
+        private void UserPortfolioResume(User user)
+        {
+
+            lblLatestMoviesTitle.Text = ""; //Top 5 ultimos filmes vistos - titulo
+            lblLatestMoviesScore.Text = ""; //Top 5 ultimos filmes vistos - score
+        }
+
+        private void EmptyUserHome(User loggedUser)
+        {
+            pnlEmptyUser.Visible = true;
+            pnlEmptyUser.Enabled = true;
+
+            lblEmptyUsername.Text = loggedUser.Name;
+            int avaiableMoviesCount = _movieList.Count();
+
+            string welcome = $"    Seja bem vindo ao maravilhoso universo que une cinema e organização." + 
+                " Aqui você vai conseguir criar e organizar" +
+                $" seu próprio portfólio de filmes, atribuindo a eles notas e comentários." +
+                $" Atualmente temos em nosso banco de dados {avaiableMoviesCount} filmes dos mais diversos gêneros." +
+                $" Sinta-se a vontade para explorar todos os nossos recursos e se divertir.";
+
+            lblEmptyResume.Text = welcome;
+
+            var search = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
+            lklLinkToReview.Text = search;
+        }
+
+        
 
 
 
