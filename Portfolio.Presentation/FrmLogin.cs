@@ -102,7 +102,7 @@ namespace Portfolio.Presentation
         private int RandomLoadTime()
         {
             Random rnd = new Random();
-            return rnd.Next(2, 5);
+            return rnd.Next(1, 4);
         }
 
     }

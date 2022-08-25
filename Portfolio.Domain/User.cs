@@ -12,7 +12,7 @@ namespace Portfolio.Domain
         public string Username { get; private set; }
         public DateTime BirthDate { get; private set; }
         private string Password { get; set; }
-        public List<Score> Portfolio { get; set; }
+        public List<Review> Portfolio { get; set; }
 
         public User(string name, string username, DateTime birthDate, string password)
         {
@@ -20,7 +20,7 @@ namespace Portfolio.Domain
             Username = username;
             BirthDate = birthDate;
             Password = password;
-            Portfolio = new List<Score>();
+            Portfolio = new List<Review>();
         }
 
         public void ChangePassword(string password)
