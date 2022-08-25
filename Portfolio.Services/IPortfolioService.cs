@@ -14,7 +14,6 @@ namespace Portfolio.Services
        
         public int CountWatchedMovies(User loggedUser);
 
-
         public (Category category, int count) FindMostWatchedCategory(User loggedUser);
 
         public List<Score> LastNReviews(User loggedUser, int num);

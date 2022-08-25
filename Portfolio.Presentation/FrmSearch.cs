@@ -1,4 +1,5 @@
 ﻿using Portfolio.Domain;
+using Portfolio.Domain.Enum;
 using Portfolio.Services;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Portfolio.Presentation
     {
         private User _loggedUser;
         public Form _loginForm;
+        public Category _category;
         private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
@@ -30,7 +32,7 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
-            BuscarLista(_movieList);
+            BuscarLista();
 
 
         }
@@ -129,25 +131,10 @@ namespace Portfolio.Presentation
             VerLista(_movieList);
         }
 
-        private void BuscarLista(IMovieRepository _movieList)
+        private void BuscarLista()
         {
-            string option = ccbSearchOptions.Text;
-            switch (option)
-            {
-                case "Titulo":
-                    if (txbSearchTitle.Visible == false)
-                    {
-                        txbSearchTitle.Visible = true;
-                    }
-                    break;
-                case "Gênero":
-                    cbbCategory.Visible = true;
-                    break;
-                case "Estúdio":
-                    break;
-
-            }
         }
+
 
         private void VerLista(IMovieRepository movieList)
         {
@@ -155,11 +142,9 @@ namespace Portfolio.Presentation
 
             foreach (var m in listadefilmes)
             {
-                string[] item = new string[4];
+                string[] item = new string[2];
                 item[0] = m.Title;
                 item[1] = m.ReleaseYear.ToString();
-                item[2] = m.Category.ToString();
-                item[3] = m.Studio.ToString();
 
                 lvwMovieBank.Items.Add(new ListViewItem(item));
             }
@@ -168,6 +153,15 @@ namespace Portfolio.Presentation
 
         private void SearchTitle()
         {
+            var title = txbSearchTitle.Text;
+            List<Movie> listByTitle = _movieList.SearchMovieByTitle(title);
+            foreach (var t in listByTitle)
+            {
+                string[] item = new string[2];
+                item[0] = t.Title;
+                item[1] = t.ReleaseYear.ToString();
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
 
         }
 
@@ -180,5 +174,35 @@ namespace Portfolio.Presentation
         {
 
         }
+
+        private void GetCategory()
+        {
+
+        }
+
+        private void cbbSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string option = cbbSearchOptions.Text;
+
+            if (option == "Título")
+            {
+                cbbCategory.Visible = false;
+                cbbStudio.Visible = false;
+                txbSearchTitle.Visible = true;
+            }
+            else if (option == "Gênero")
+            {
+                txbSearchTitle.Visible = false;
+                cbbStudio.Visible = false;
+                cbbCategory.Visible = true;
+            }
+            else if (option == "Estúdio")
+            {
+                txbSearchTitle.Visible = false;
+                cbbCategory.Visible = false;
+                cbbStudio.Visible = true;
+            }
+        }
     }
+    
 }

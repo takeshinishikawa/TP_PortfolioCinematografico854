@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSearch));
             this.btnPortfolio = new System.Windows.Forms.Button();
             this.pnlMenuPanel = new System.Windows.Forms.Panel();
@@ -39,25 +38,21 @@
             this.btnMyAccount = new System.Windows.Forms.Button();
             this.btnLogo = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.ccbSearchOptions = new System.Windows.Forms.ComboBox();
+            this.cbbSearchOptions = new System.Windows.Forms.ComboBox();
             this.txbSearchTitle = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.lvwMovieBank = new System.Windows.Forms.ListView();
             this.cnTitulo = new System.Windows.Forms.ColumnHeader();
             this.cnYear = new System.Windows.Forms.ColumnHeader();
-            this.cnCategory = new System.Windows.Forms.ColumnHeader();
-            this.cnStudio = new System.Windows.Forms.ColumnHeader();
             this.btnOpen = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.cbbCategory = new System.Windows.Forms.ComboBox();
-            this.movieRepositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbbStudio = new System.Windows.Forms.ComboBox();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieRepositoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPortfolio
@@ -192,33 +187,33 @@
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // ccbSearchOptions
+            // cbbSearchOptions
             // 
-            this.ccbSearchOptions.BackColor = System.Drawing.SystemColors.Window;
-            this.ccbSearchOptions.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ccbSearchOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.ccbSearchOptions.FormattingEnabled = true;
-            this.ccbSearchOptions.Items.AddRange(new object[] {
+            this.cbbSearchOptions.BackColor = System.Drawing.SystemColors.Window;
+            this.cbbSearchOptions.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbbSearchOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.cbbSearchOptions.FormattingEnabled = true;
+            this.cbbSearchOptions.Items.AddRange(new object[] {
             "Título",
             "Gênero",
             "Estúdio"});
-            this.ccbSearchOptions.Location = new System.Drawing.Point(182, 166);
-            this.ccbSearchOptions.Name = "ccbSearchOptions";
-            this.ccbSearchOptions.Size = new System.Drawing.Size(170, 24);
-            this.ccbSearchOptions.TabIndex = 6;
-            this.ccbSearchOptions.Text = "Opções de Busca";
+            this.cbbSearchOptions.Location = new System.Drawing.Point(182, 166);
+            this.cbbSearchOptions.Name = "cbbSearchOptions";
+            this.cbbSearchOptions.Size = new System.Drawing.Size(170, 24);
+            this.cbbSearchOptions.TabIndex = 6;
+            this.cbbSearchOptions.Text = "Opções de Busca";
+            this.cbbSearchOptions.SelectedIndexChanged += new System.EventHandler(this.cbbSearchOptions_SelectedIndexChanged);
             // 
             // txbSearchTitle
             // 
             this.txbSearchTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbSearchTitle.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbSearchTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.txbSearchTitle.Location = new System.Drawing.Point(358, 167);
+            this.txbSearchTitle.Location = new System.Drawing.Point(358, 166);
             this.txbSearchTitle.Name = "txbSearchTitle";
             this.txbSearchTitle.Size = new System.Drawing.Size(401, 24);
             this.txbSearchTitle.TabIndex = 7;
             this.txbSearchTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txbSearchTitle.Visible = false;
             // 
             // btnSearch
             // 
@@ -248,9 +243,7 @@
             this.lvwMovieBank.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvwMovieBank.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cnTitulo,
-            this.cnYear,
-            this.cnCategory,
-            this.cnStudio});
+            this.cnYear});
             this.lvwMovieBank.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lvwMovieBank.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.lvwMovieBank.FullRowSelect = true;
@@ -266,23 +259,13 @@
             // cnTitulo
             // 
             this.cnTitulo.Text = "Titulo";
-            this.cnTitulo.Width = 250;
+            this.cnTitulo.Width = 500;
             // 
             // cnYear
             // 
             this.cnYear.Text = "Ano";
             this.cnYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnYear.Width = 70;
-            // 
-            // cnCategory
-            // 
-            this.cnCategory.Text = "Categoria";
-            this.cnCategory.Width = 160;
-            // 
-            // cnStudio
-            // 
-            this.cnStudio.Text = "Estúdio";
-            this.cnStudio.Width = 180;
+            this.cnYear.Width = 120;
             // 
             // btnOpen
             // 
@@ -294,23 +277,9 @@
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(122, 43);
             this.btnOpen.TabIndex = 15;
-            this.btnOpen.Text = "Vizualizar";
+            this.btnOpen.Text = "Abrir";
             this.btnOpen.UseVisualStyleBackColor = false;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(616, 546);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(122, 43);
-            this.btnAdd.TabIndex = 16;
-            this.btnAdd.Text = "Adicionar";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // ptbLogo
             // 
@@ -327,7 +296,6 @@
             // 
             this.cbbCategory.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.cbbCategory.FormatString = "Category";
             this.cbbCategory.FormattingEnabled = true;
             this.cbbCategory.Location = new System.Drawing.Point(358, 166);
             this.cbbCategory.Name = "cbbCategory";
@@ -336,9 +304,17 @@
             this.cbbCategory.Text = "Selecione uma categoria";
             this.cbbCategory.Visible = false;
             // 
-            // movieRepositoryBindingSource
+            // cbbStudio
             // 
-            this.movieRepositoryBindingSource.DataSource = typeof(Portfolio.Services.MovieRepository);
+            this.cbbStudio.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbbStudio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.cbbStudio.FormattingEnabled = true;
+            this.cbbStudio.Location = new System.Drawing.Point(358, 165);
+            this.cbbStudio.Name = "cbbStudio";
+            this.cbbStudio.Size = new System.Drawing.Size(401, 24);
+            this.cbbStudio.TabIndex = 19;
+            this.cbbStudio.Text = "Selecione um estúdio";
+            this.cbbStudio.Visible = false;
             // 
             // FrmSearch
             // 
@@ -347,14 +323,14 @@
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.cbbStudio);
             this.Controls.Add(this.cbbCategory);
             this.Controls.Add(this.ptbLogo);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txbSearchTitle);
-            this.Controls.Add(this.ccbSearchOptions);
+            this.Controls.Add(this.cbbSearchOptions);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnPortfolio);
             this.Controls.Add(this.pnlMenuPanel);
@@ -367,7 +343,6 @@
             this.pnlSubMenu.ResumeLayout(false);
             this.pnlSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieRepositoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,19 +358,16 @@
         private Button btnMyAccount;
         private Button btnLogo;
         private Button btnHome;
-        private ComboBox ccbSearchOptions;
+        private ComboBox cbbSearchOptions;
         private TextBox txbSearchTitle;
         private Button btnSearch;
         private Panel pnlSearch;
         private Button btnOpen;
-        private Button btnAdd;
         private PictureBox ptbLogo;
         private ListView lvwMovieBank;
         private ColumnHeader cnTitulo;
         private ColumnHeader cnYear;
-        private ColumnHeader cnCategory;
-        private ColumnHeader cnStudio;
         private ComboBox cbbCategory;
-        private BindingSource movieRepositoryBindingSource;
+        private ComboBox cbbStudio;
     }
 }
