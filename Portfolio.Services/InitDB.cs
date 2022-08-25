@@ -1,11 +1,5 @@
 ﻿using Portfolio.Domain;
 using Portfolio.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Formats.Asn1.AsnWriter;
 
 
 namespace Portfolio.Services
@@ -22,6 +16,9 @@ namespace Portfolio.Services
 
             User newUser3 = new("r", "r", DateTime.Parse("09/01/1960"), "1");
             userRepository.AddNewUser(newUser3);
+
+            User newUser4 = new("m", "m", DateTime.Parse("09/01/1960"), "m");
+            userRepository.AddNewUser(newUser4);
 
         }
 

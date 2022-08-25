@@ -72,7 +72,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList, _userRepository);
+            FrmAccount account = new FrmAccount(_portfolioService, _userRepository, _movieList, _loginForm, _loggedUser, this.GetType().ToString());
             account.Show();
         }
 
@@ -103,14 +103,14 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             search.Show();
         }
 
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_userRepository, _portfolioService, _loginForm, _loggedUser, _movieList);
+            FrmPortfolio portfolio = new FrmPortfolio(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             portfolio.Show();
         }
         #endregion
@@ -118,7 +118,7 @@ namespace Portfolio.Presentation
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Close();
-            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             search.Show();
         }
 

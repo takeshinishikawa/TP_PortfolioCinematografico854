@@ -63,10 +63,11 @@
             this.btnLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogo.FlatAppearance.BorderSize = 0;
             this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogo.Location = new System.Drawing.Point(0, 13);
+            this.btnLogo.Location = new System.Drawing.Point(0, 10);
+            this.btnLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogo.Name = "btnLogo";
-            this.btnLogo.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnLogo.Size = new System.Drawing.Size(135, 35);
+            this.btnLogo.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnLogo.Size = new System.Drawing.Size(118, 26);
             this.btnLogo.TabIndex = 1;
             this.btnLogo.UseVisualStyleBackColor = false;
             this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
@@ -76,11 +77,10 @@
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnExit.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnExit.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnExit.Location = new System.Drawing.Point(0, 112);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExit.Location = new System.Drawing.Point(0, 85);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnExit.Size = new System.Drawing.Size(135, 33);
+            this.btnExit.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnExit.Size = new System.Drawing.Size(118, 25);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Sair";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -92,11 +92,10 @@
             this.btnAbout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAbout.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAbout.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnAbout.Location = new System.Drawing.Point(0, 79);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAbout.Location = new System.Drawing.Point(0, 60);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnAbout.Size = new System.Drawing.Size(135, 33);
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnAbout.Size = new System.Drawing.Size(118, 25);
             this.btnAbout.TabIndex = 3;
             this.btnAbout.Text = "Sobre";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,11 +107,10 @@
             this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogOut.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogOut.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnLogOut.Location = new System.Drawing.Point(0, 46);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 35);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(135, 33);
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(118, 25);
             this.btnLogOut.TabIndex = 2;
             this.btnLogOut.Text = "Desconectar";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -124,11 +122,10 @@
             this.btnMyAccount.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMyAccount.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMyAccount.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnMyAccount.Location = new System.Drawing.Point(0, 13);
-            this.btnMyAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMyAccount.Location = new System.Drawing.Point(0, 10);
             this.btnMyAccount.Name = "btnMyAccount";
-            this.btnMyAccount.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btnMyAccount.Size = new System.Drawing.Size(135, 33);
+            this.btnMyAccount.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnMyAccount.Size = new System.Drawing.Size(118, 25);
             this.btnMyAccount.TabIndex = 0;
             this.btnMyAccount.Text = "Minha Conta";
             this.btnMyAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,10 +140,11 @@
             this.pnlSubMenu.Controls.Add(this.btnLogOut);
             this.pnlSubMenu.Controls.Add(this.btnMyAccount);
             this.pnlSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenu.Location = new System.Drawing.Point(0, 48);
+            this.pnlSubMenu.Location = new System.Drawing.Point(0, 36);
+            this.pnlSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSubMenu.Name = "pnlSubMenu";
-            this.pnlSubMenu.Padding = new System.Windows.Forms.Padding(0, 13, 0, 0);
-            this.pnlSubMenu.Size = new System.Drawing.Size(135, 157);
+            this.pnlSubMenu.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pnlSubMenu.Size = new System.Drawing.Size(118, 118);
             this.pnlSubMenu.TabIndex = 2;
             // 
             // pnlMenuPanel
@@ -156,11 +154,11 @@
             this.pnlMenuPanel.Controls.Add(this.pnlSubMenu);
             this.pnlMenuPanel.Controls.Add(this.btnLogo);
             this.pnlMenuPanel.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pnlMenuPanel.Location = new System.Drawing.Point(917, 3);
-            this.pnlMenuPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pnlMenuPanel.Location = new System.Drawing.Point(933, 6);
+            this.pnlMenuPanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pnlMenuPanel.Name = "pnlMenuPanel";
-            this.pnlMenuPanel.Padding = new System.Windows.Forms.Padding(0, 13, 0, 0);
-            this.pnlMenuPanel.Size = new System.Drawing.Size(135, 229);
+            this.pnlMenuPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pnlMenuPanel.Size = new System.Drawing.Size(118, 172);
             this.pnlMenuPanel.TabIndex = 1;
             // 
             // btnNewSearch
@@ -170,9 +168,10 @@
             this.btnNewSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.btnNewSearch.Location = new System.Drawing.Point(757, 8);
+            this.btnNewSearch.Location = new System.Drawing.Point(775, 8);
+            this.btnNewSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewSearch.Name = "btnNewSearch";
-            this.btnNewSearch.Size = new System.Drawing.Size(150, 45);
+            this.btnNewSearch.Size = new System.Drawing.Size(131, 34);
             this.btnNewSearch.TabIndex = 4;
             this.btnNewSearch.Text = "Buscar";
             this.btnNewSearch.UseVisualStyleBackColor = false;
@@ -185,9 +184,10 @@
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.btnHome.Location = new System.Drawing.Point(629, 8);
+            this.btnHome.Location = new System.Drawing.Point(638, 8);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(150, 45);
+            this.btnHome.Size = new System.Drawing.Size(131, 34);
             this.btnHome.TabIndex = 5;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = false;
@@ -196,22 +196,24 @@
             // ptbLogo
             // 
             this.ptbLogo.BackColor = System.Drawing.Color.Transparent;
+            this.ptbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbLogo.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
-            this.ptbLogo.Location = new System.Drawing.Point(12, 8);
+            this.ptbLogo.Location = new System.Drawing.Point(12, 6);
+            this.ptbLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(43, 43);
-            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbLogo.Size = new System.Drawing.Size(60, 47);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 8;
             this.ptbLogo.TabStop = false;
             // 
             // lblPortfolioTitle
             // 
             this.lblPortfolioTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblPortfolioTitle.Font = new System.Drawing.Font("Georgia", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPortfolioTitle.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPortfolioTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.lblPortfolioTitle.Location = new System.Drawing.Point(334, 153);
+            this.lblPortfolioTitle.Location = new System.Drawing.Point(357, 161);
             this.lblPortfolioTitle.Name = "lblPortfolioTitle";
-            this.lblPortfolioTitle.Size = new System.Drawing.Size(402, 52);
+            this.lblPortfolioTitle.Size = new System.Drawing.Size(352, 39);
             this.lblPortfolioTitle.TabIndex = 9;
             this.lblPortfolioTitle.Text = "Portfólio Cinematográfico";
             this.lblPortfolioTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,9 +222,10 @@
             // 
             this.pnlPortfolioLV.BackColor = System.Drawing.Color.White;
             this.pnlPortfolioLV.Controls.Add(this.lvwPortfolio);
-            this.pnlPortfolioLV.Location = new System.Drawing.Point(201, 271);
+            this.pnlPortfolioLV.Location = new System.Drawing.Point(176, 263);
+            this.pnlPortfolioLV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPortfolioLV.Name = "pnlPortfolioLV";
-            this.pnlPortfolioLV.Size = new System.Drawing.Size(664, 260);
+            this.pnlPortfolioLV.Size = new System.Drawing.Size(706, 285);
             this.pnlPortfolioLV.TabIndex = 10;
             // 
             // lvwPortfolio
@@ -237,10 +240,11 @@
             this.lvwPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
             this.lvwPortfolio.FullRowSelect = true;
             this.lvwPortfolio.GridLines = true;
-            this.lvwPortfolio.Location = new System.Drawing.Point(11, 16);
+            this.lvwPortfolio.Location = new System.Drawing.Point(3, 12);
+            this.lvwPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvwPortfolio.MultiSelect = false;
             this.lvwPortfolio.Name = "lvwPortfolio";
-            this.lvwPortfolio.Size = new System.Drawing.Size(644, 234);
+            this.lvwPortfolio.Size = new System.Drawing.Size(700, 291);
             this.lvwPortfolio.TabIndex = 0;
             this.lvwPortfolio.UseCompatibleStateImageBehavior = false;
             this.lvwPortfolio.View = System.Windows.Forms.View.Details;
@@ -248,7 +252,7 @@
             // clnMovieTitle
             // 
             this.clnMovieTitle.Text = "Título do Filme";
-            this.clnMovieTitle.Width = 310;
+            this.clnMovieTitle.Width = 300;
             // 
             // clnScore
             // 
@@ -260,17 +264,18 @@
             // 
             this.clnComments.Text = "Comentários";
             this.clnComments.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clnComments.Width = 200;
+            this.clnComments.Width = 310;
             // 
             // btnAZ
             // 
             this.btnAZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(215)))), ((int)(((byte)(181)))));
             this.btnAZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAZ.Font = new System.Drawing.Font("Verdana", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAZ.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAZ.ForeColor = System.Drawing.Color.White;
-            this.btnAZ.Location = new System.Drawing.Point(201, 221);
+            this.btnAZ.Location = new System.Drawing.Point(176, 216);
+            this.btnAZ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAZ.Name = "btnAZ";
-            this.btnAZ.Size = new System.Drawing.Size(94, 33);
+            this.btnAZ.Size = new System.Drawing.Size(82, 30);
             this.btnAZ.TabIndex = 11;
             this.btnAZ.Text = "A - Z";
             this.btnAZ.UseVisualStyleBackColor = false;
@@ -280,11 +285,12 @@
             // 
             this.btnScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(215)))), ((int)(((byte)(181)))));
             this.btnScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScore.Font = new System.Drawing.Font("Verdana", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnScore.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnScore.ForeColor = System.Drawing.Color.White;
-            this.btnScore.Location = new System.Drawing.Point(302, 221);
+            this.btnScore.Location = new System.Drawing.Point(264, 216);
+            this.btnScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(170, 33);
+            this.btnScore.Size = new System.Drawing.Size(204, 30);
             this.btnScore.TabIndex = 12;
             this.btnScore.Text = "Melhores Avaliações";
             this.btnScore.UseVisualStyleBackColor = false;
@@ -294,11 +300,12 @@
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEdit.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(743, 546);
+            this.btnEdit.Location = new System.Drawing.Point(744, 563);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(122, 43);
+            this.btnEdit.Size = new System.Drawing.Size(131, 40);
             this.btnEdit.TabIndex = 14;
             this.btnEdit.Text = "Ver | Editar";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -308,11 +315,12 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(629, 546);
+            this.btnDelete.Location = new System.Drawing.Point(638, 563);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(107, 43);
+            this.btnDelete.Size = new System.Drawing.Size(100, 40);
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Excluir";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -320,11 +328,11 @@
             // 
             // FrmPortfolio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._5___Portfolio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnScore);
@@ -336,7 +344,8 @@
             this.Controls.Add(this.btnNewSearch);
             this.Controls.Add(this.pnlMenuPanel);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "FrmPortfolio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

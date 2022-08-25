@@ -10,9 +10,14 @@ namespace Portfolio.Services
     public interface IUserRepository
     {
         public void AddNewUser(User newUser);
+
         public void DeleteUser(User newUser);
+
         public bool LookForUsername(string entryUsername);
+
         public bool ValidateLogin(string entryUsername, string entryPassword);
+
         public User GetUser(string username);
+
     }
 }

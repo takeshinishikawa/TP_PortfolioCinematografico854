@@ -11,12 +11,19 @@ namespace Portfolio.Services
     public interface IMovieRepository
     {
         public void AddMovie(Movie movie);
+
         public List<Movie> SearchMovieByTitle(string movieName);
+
         public List<Movie> SearchMovieByReleaseYear(ushort releaseYear);
+
         public List<Movie> SearchMovieByCategory(Category category);
+
         public List<Movie> SearchMovieByStudio(Studio studio);
+
         public Movie GetMovie(string title);
+
         public Movie GetMovie(string title, string releaseYear);
+
         public int Count();
 
         public List<Movie> GetMovieList();
