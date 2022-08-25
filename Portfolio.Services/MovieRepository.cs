@@ -16,6 +16,7 @@ namespace Portfolio.Services
         {
             MovieList = new List<Movie>();
         }
+
         public void AddMovie(Movie movie)
         {
             MovieList.Add(movie);
@@ -25,6 +26,7 @@ namespace Portfolio.Services
         {
             return MovieList.Where(movie => movie.Title.ToLower().Contains(movieName.ToLower())).ToList();
         }
+
         public List<Movie> SearchMovieByReleaseYear(ushort releaseYear)
         {
             return MovieList.Where(movie => movie.ReleaseYear == releaseYear).ToList();
@@ -44,6 +46,7 @@ namespace Portfolio.Services
         {
             return MovieList.FirstOrDefault(movie => movie.Title == title);
         }
+
         public Movie GetMovie(string title, string releaseYear)
         {
             return MovieList.FirstOrDefault(movie => movie.Title == title && movie.ReleaseYear == ushort.Parse(releaseYear));

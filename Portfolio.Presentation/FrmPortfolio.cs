@@ -23,14 +23,13 @@ namespace Portfolio.Presentation
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
 
-        public FrmPortfolio(IUserRepository userRepository, IPortfolioService portfolioService, Form loginForm, User loggedUser, IMovieRepository movieList)
+        public FrmPortfolio(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieList, User loggedUser, Form loginForm)
         {
             _userRepository = userRepository;
             _portfolioService = portfolioService;
             _loginForm = loginForm;
             _loggedUser = loggedUser;
             _movieList = movieList;
-            List<Review> portfólio = _loggedUser.Portfolio;
 
             InitializeComponent();
             CustomizeDesign();
@@ -70,7 +69,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList, _userRepository);
+            FrmAccount account = new FrmAccount(_portfolioService, _userRepository, _movieList, _loginForm, _loggedUser, this.GetType().ToString());
             account.Show();
         }
 
@@ -82,15 +81,14 @@ namespace Portfolio.Presentation
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            FrmAbout about = new FrmAbout(this);
             this.Hide();
+            FrmAbout about = new FrmAbout(this);            
             about.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            var answer = DialogResult;
-            answer = MessageBox.Show("Você tem certeza que deseja sair?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult answer = MessageBox.Show("Você tem certeza que deseja sair?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (answer == DialogResult.Yes)
             {
@@ -101,7 +99,7 @@ namespace Portfolio.Presentation
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             search.Show();
         }
 
@@ -118,12 +116,12 @@ namespace Portfolio.Presentation
         {
             lvwPortfolio.Items.Clear();
             SetPortfolioListAZ();
-
         }
 
         private void SetPortfolioListAZ()
         {
             var portfolio = _loggedUser.Portfolio.OrderBy(m => m.Movie.Title);
+
             foreach (var m in portfolio)
             {
                 string description = Extensions.GetEnumDescription(m.Value);
@@ -140,6 +138,7 @@ namespace Portfolio.Presentation
             lvwPortfolio.Items.Clear();
             var portfolio = _loggedUser.Portfolio.OrderByDescending(m => m.Value)
                 .ThenBy(m => m.Movie.Title);
+
             foreach(var m in portfolio)
             {
                 string description = Extensions.GetEnumDescription(m.Value);
@@ -159,6 +158,7 @@ namespace Portfolio.Presentation
                 var movieName = lvwPortfolio.SelectedItems[0].SubItems[0].Text;
                 var movie = portfolio.Single(m => m.Movie.Title == movieName);
                 var movieYear = movie.Movie.ReleaseYear.ToString();
+
                 FrmMovieDetail f = new FrmMovieDetail(_portfolioService, _loggedUser, _movieList.GetMovie(movieName, movieYear));
                 f.Show();
             }

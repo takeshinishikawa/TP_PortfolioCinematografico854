@@ -281,8 +281,6 @@ namespace Portfolio.Presentation
                 Close();
                 previousForm.Show();
             }
-            //abrir uma dialog box para informar que o usuário foi cadastrado com sucesso
-            //fechar este form e abrir o form de login
 
         }
 
