@@ -74,9 +74,9 @@ namespace Portfolio.Presentation
 
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //FrmAccount account = new FrmAccount(username);
-            //account.Show();
+            this.Close();
+            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList, _userRepository);
+            account.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -120,14 +120,12 @@ namespace Portfolio.Presentation
 
         #endregion
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-
+            string movieName = lvwMovieBank.SelectedItems[0].SubItems[0].Text;
+            string movieYear = lvwMovieBank.SelectedItems[0].SubItems[1].Text;
+            _movieList.SearchMovieByTitle(movieName);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
