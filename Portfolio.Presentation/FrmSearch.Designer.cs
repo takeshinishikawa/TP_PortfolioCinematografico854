@@ -259,7 +259,7 @@
             // cnTitulo
             // 
             this.cnTitulo.Text = "Titulo";
-            this.cnTitulo.Width = 500;
+            this.cnTitulo.Width = 430;
             // 
             // cnYear
             // 

@@ -3,6 +3,7 @@ using Portfolio.Domain.Enum;
 using Portfolio.Services;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Portfolio.Presentation
 {
@@ -32,7 +34,9 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
-            BuscarLista();
+            GetCategory();
+            GetStudio();
+
 
 
         }
@@ -128,15 +132,30 @@ namespace Portfolio.Presentation
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            VerLista(_movieList);
+            
+            var option = cbbSearchOptions.Text;
+            switch (option)
+            {
+                case "Título":
+                    lvwMovieBank.Items.Clear();
+                    SearchTitle();
+                    break;
+                case "Estúdio":
+                    lvwMovieBank.Items.Clear();
+                    SearchStudio();
+                    break;
+                case "Gênero":
+                    lvwMovieBank.Items.Clear();
+                    SearchCategory();
+                    break;
+                default:
+                    lvwMovieBank.Items.Clear();
+                    SearchAllMovies(_movieList);
+                    break;
+            }
         }
 
-        private void BuscarLista()
-        {
-        }
-
-
-        private void VerLista(IMovieRepository movieList)
+        private void SearchAllMovies(IMovieRepository movieList)
         {
             List<Movie> listadefilmes = movieList.GetMovieList();
 
@@ -154,6 +173,7 @@ namespace Portfolio.Presentation
         private void SearchTitle()
         {
             var title = txbSearchTitle.Text;
+            title = title.Trim();
             List<Movie> listByTitle = _movieList.SearchMovieByTitle(title);
             foreach (var t in listByTitle)
             {
@@ -167,16 +187,51 @@ namespace Portfolio.Presentation
 
         private void SearchCategory()
         {
+            var nameCategory = cbbCategory.Text;
+            Category category = (Category)Enum.Parse(typeof(Category), nameCategory);
+            List<Movie> listByCategory = _movieList.SearchMovieByCategory(category);
+            foreach (var c in listByCategory)
+            {
+                string[] item = new string[2];
+                item[0] = c.Title;
+                item[1] = c.ReleaseYear.ToString();
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
 
         }
 
         private void SearchStudio()
         {
+            var nameStudio = cbbStudio.Text;
+            Studio studio = (Studio)Enum.Parse(typeof(Studio), nameStudio);
+            List<Movie> listByStudio = _movieList.SearchMovieByStudio(studio);
+            foreach (var s in listByStudio)
+            {
+                string[] item = new string[2];
+                item[0] = s.Title;
+                item[1] = s.ReleaseYear.ToString();
+                lvwMovieBank.Items.Add(new ListViewItem(item));
+            }
 
         }
 
+        private void GetStudio()
+        {
+            var studios = Enum.GetValues(typeof(Studio)).Cast<Studio>().ToList();
+            foreach (var s in studios)
+            {
+                cbbStudio.Items.Add(s);
+            }
+
+        }
         private void GetCategory()
         {
+
+            var categories = Enum.GetValues(typeof(Category)).Cast<Category>().ToList();
+            foreach(var i in categories)
+            {
+                cbbCategory.Items.Add(i);
+            }
 
         }
 
