@@ -22,7 +22,6 @@ namespace Portfolio.Presentation
         private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
-        private List<Review> _portfolio;
 
         public FrmPortfolio(IUserRepository userRepository, IPortfolioService portfolioService, Form loginForm, User loggedUser, IMovieRepository movieList)
         {
@@ -35,6 +34,7 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
+            SetPortfolioListAZ();
         }
 
 
@@ -117,6 +117,12 @@ namespace Portfolio.Presentation
         private void btnAZ_Click(object sender, EventArgs e)
         {
             lvwPortfolio.Items.Clear();
+            SetPortfolioListAZ();
+
+        }
+
+        private void SetPortfolioListAZ()
+        {
             var portfolio = _loggedUser.Portfolio.OrderBy(m => m.Movie.Title);
             foreach (var m in portfolio)
             {
@@ -127,7 +133,6 @@ namespace Portfolio.Presentation
                 item[2] = m.Comments;
                 lvwPortfolio.Items.Add(new ListViewItem(item));
             }
-
         }
 
         private void btnScore_Click(object sender, EventArgs e)

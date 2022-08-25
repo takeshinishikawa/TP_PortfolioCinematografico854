@@ -255,7 +255,7 @@
             // 
             this.clnScore.Text = "Nota";
             this.clnScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clnScore.Width = 120;
+            this.clnScore.Width = 80;
             // 
             // clnComments
             // 
