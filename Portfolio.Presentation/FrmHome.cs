@@ -190,7 +190,7 @@ namespace Portfolio.Presentation
 
         }
 
-        private void UserPortfolioResume(User user)
+        private void UserPortfolioResume(User loggedUser)
         {
 
             lblLatestMoviesTitle.Text = ""; //Top 5 ultimos filmes vistos - titulo
