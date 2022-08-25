@@ -139,14 +139,20 @@ namespace Portfolio.Presentation
                 case "Título":
                     lvwMovieBank.Items.Clear();
                     SearchTitle();
+                    cbbCategory.Text = "";
+                    cbbStudio.Text = "";
                     break;
                 case "Estúdio":
                     lvwMovieBank.Items.Clear();
                     SearchStudio();
+                    cbbCategory.Text = "";
+                    txbSearchTitle.Text = "";
                     break;
                 case "Gênero":
                     lvwMovieBank.Items.Clear();
                     SearchCategory();
+                    cbbStudio.Text = "";
+                    txbSearchTitle.Text = "";
                     break;
                 default:
                     lvwMovieBank.Items.Clear();
