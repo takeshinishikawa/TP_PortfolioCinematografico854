@@ -151,23 +151,6 @@ namespace Portfolio.Presentation
             }
         }
 
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-            lvwPortfolio.Items.Clear();
-            var portfolio = _loggedUser.Portfolio.OrderBy(m => m.Movie.Category)
-                .ThenBy(m => m.Movie.Title);
-            foreach (var m in portfolio)
-            {
-                string description = Extensions.GetEnumDescription(m.Value);
-                string[] item = new string[3];
-                item[0] = m.Movie.Title;
-                item[1] = description;
-                item[2] = m.Comments;
-                lvwPortfolio.Items.Add(new ListViewItem(item));
-            }
-
-        }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lvwPortfolio.SelectedItems.Count > 0)

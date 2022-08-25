@@ -165,7 +165,7 @@ namespace Portfolio.Presentation
             percentCategory = Math.Round(percentCategory, 1);
 
 
-            string standartResumeText = $"    Até agora você adicionou {watchedMoviesCount} filmes no seu portfólio. Sua categoria mais assistida foi {watchedCategory} e, UAU, você já assistiu {numberCategory} filme(s) dela. " +
+            string standartResumeText = $"    Até agora você adicionou {watchedMoviesCount} filme(s) no seu portfólio. Sua categoria mais assistida foi {watchedCategory} e, UAU, você já assistiu {numberCategory} filme(s) dela. " +
                 $"Isso é {percentCategory}% do seu portfólio!";
 
             string lowerPercentResumeText = $"    {name}, sabia que você já assistiu {percentViewed}% dos nossos filmes cadastrados !? Talvez uma olhadinha na nossa coleção te inspire a conhecer algum novo filme e " +
@@ -192,9 +192,15 @@ namespace Portfolio.Presentation
 
         private void UserPortfolioResume(User loggedUser)
         {
-
-            lblLatestMoviesTitle.Text = ""; //Top 5 ultimos filmes vistos - titulo
-            lblLatestMoviesScore.Text = ""; //Top 5 ultimos filmes vistos - score
+            var portfolio = _portfolioService.LastNReviews(loggedUser, 5);
+            foreach (var m in portfolio)
+            {
+                string description = Extensions.GetEnumDescription(m.Value);
+                string[] item = new string[2];
+                item[0] = m.Movie.Title;
+                item[1] = description;
+                lvwPortfolioTop.Items.Add(new ListViewItem(item));
+            }
         }
 
         private void EmptyUserHome(User loggedUser)
