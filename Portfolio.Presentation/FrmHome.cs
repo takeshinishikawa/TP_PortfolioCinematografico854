@@ -36,7 +36,7 @@ namespace Portfolio.Presentation
             InitializeComponent();
             CustomizeDesign();
             CreateResumeNewUser(loggedUser);
-            CreatePortfolioResumeNewUser(loggedUser);
+            CreatePortfolioResume(loggedUser);
         }
 
         #region Header
@@ -179,17 +179,20 @@ namespace Portfolio.Presentation
 
         private void CreatePortfolioResume(User user)
         {
-            
-            lblLatestMoviesTitle.Text = ""; //Top 5 ultimos filmes vistos - titulo
-            lblLatestMoviesScore.Text = ""; //Top 5 ultimos filmes vistos - score
+            List<Review> portfolio = _portfolioService.LastNReviews(_loggedUser, 5);
+            foreach (var p in portfolio)
+            {
+                lblLatestMoviesTitle.Text = p.Movie.Title;
+                lblLatestMoviesScore.Text = p.Value.ToString();
+            }
         }
 
         private void CreatePortfolioResumeNewUser(User user)
         {
             lblMovieTitlePor.Text = "Ainda não há filmes adicionados no seu portfólio.";
             lblMovieScorePort.Text = "";
-            lblLatestMoviesTitle.Text = ""; //Top 5 ultimos filmes vistos - titulo
-            lblLatestMoviesScore.Text = ""; //Top 5 ultimos filmes vistos - score
+            lblLatestMoviesTitle.Text = ""; 
+            lblLatestMoviesScore.Text = "";
         }
 
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

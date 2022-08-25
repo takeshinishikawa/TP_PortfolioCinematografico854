@@ -234,8 +234,8 @@
             this.clnMovieTitle,
             this.clnScore,
             this.clnComments});
-            this.lvwPortfolio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lvwPortfolio.ForeColor = System.Drawing.Color.DimGray;
+            this.lvwPortfolio.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lvwPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
             this.lvwPortfolio.FullRowSelect = true;
             this.lvwPortfolio.GridLines = true;
             this.lvwPortfolio.Location = new System.Drawing.Point(11, 16);

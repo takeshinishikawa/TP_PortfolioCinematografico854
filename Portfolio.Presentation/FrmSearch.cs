@@ -233,8 +233,6 @@ namespace Portfolio.Presentation
 
         }
 
-
-
         private Dictionary<string, Category> GetCategory()
         {
 

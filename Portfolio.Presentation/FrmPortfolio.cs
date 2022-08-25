@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using Portfolio.Domain;
+using Portfolio.Domain.Enum;
 using Portfolio.Services;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Portfolio.Presentation
         private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
+        private List<Review> _portfolio;
 
         public FrmPortfolio(IUserRepository userRepository, IPortfolioService portfolioService, Form loginForm, User loggedUser, IMovieRepository movieList)
         {
@@ -114,16 +116,50 @@ namespace Portfolio.Presentation
 
         private void btnAZ_Click(object sender, EventArgs e)
         {
+            lvwPortfolio.Items.Clear();
+            var portfolio = _loggedUser.Portfolio.OrderBy(m => m.Movie.Title);
+            foreach (var m in portfolio)
+            {
+                string description = Extensions.GetEnumDescription(m.Value);
+                string[] item = new string[3];
+                item[0] = m.Movie.Title;
+                item[1] = description;
+                item[2] = m.Comments;
+                lvwPortfolio.Items.Add(new ListViewItem(item));
+            }
 
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
-
+            lvwPortfolio.Items.Clear();
+            var portfolio = _loggedUser.Portfolio.OrderByDescending(m => m.Value)
+                .ThenBy(m => m.Movie.Title);
+            foreach(var m in portfolio)
+            {
+                string description = Extensions.GetEnumDescription(m.Value);
+                string[] item = new string[3];
+                item[0] = m.Movie.Title;
+                item[1] = description;
+                item[2] = m.Comments;
+                lvwPortfolio.Items.Add(new ListViewItem(item));
+            }
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
+            lvwPortfolio.Items.Clear();
+            var portfolio = _loggedUser.Portfolio.OrderBy(m => m.Movie.Category)
+                .ThenBy(m => m.Movie.Title);
+            foreach (var m in portfolio)
+            {
+                string description = Extensions.GetEnumDescription(m.Value);
+                string[] item = new string[3];
+                item[0] = m.Movie.Title;
+                item[1] = description;
+                item[2] = m.Comments;
+                lvwPortfolio.Items.Add(new ListViewItem(item));
+            }
 
         }
 
@@ -139,6 +175,9 @@ namespace Portfolio.Presentation
 
             if (answer == DialogResult.Yes)
             {
+                var movie = lvwPortfolio.SelectedItems[0].SubItems[0].Text;
+                //var review = (Review)_portfolio.Where(P => P.Movie.Title == movie);
+                //_portfolio.Remove(review);
                 lvwPortfolio.Items.RemoveAt(lvwPortfolio.SelectedIndices[0]);
             }
             
