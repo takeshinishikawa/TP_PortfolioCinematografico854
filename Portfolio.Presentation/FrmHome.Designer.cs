@@ -340,7 +340,6 @@
             this.Name = "FrmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHome";
-            this.Load += new System.EventHandler(this.FrmHome_Load);
             this.pnlMenuPanel.ResumeLayout(false);
             this.pnlSubMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
