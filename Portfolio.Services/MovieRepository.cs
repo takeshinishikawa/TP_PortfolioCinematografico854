@@ -23,7 +23,7 @@ namespace Portfolio.Services
 
         public List<Movie> SearchMovieByTitle(string movieName)
         {
-            return MovieList.Where(movie => movie.Title == movieName).ToList();
+            return MovieList.Where(movie => movie.Title == $"%{movieName}%").ToList();
         }
         public List<Movie> SearchMovieByReleaseYear(ushort releaseYear)
         {
