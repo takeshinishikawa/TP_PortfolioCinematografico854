@@ -104,7 +104,7 @@ namespace Portfolio.Presentation
         private int RandomLoadTime()
         {
             Random rnd = new Random();
-            return rnd.Next(1, 4);
+            return rnd.Next(1, 3);
         }
 
         private void txbPassword_KeyPress(object sender, KeyPressEventArgs e)

@@ -47,7 +47,6 @@ namespace Portfolio.Services
         }
         public class CheckPasswordStrenght
         {
-
             public enum PasswordStrenght
             {
                 [Description("Inaceitável")] Inaceitavel,
@@ -111,7 +110,6 @@ namespace Portfolio.Services
                     return 0;
                 }
             }
-
 
             public PasswordStrenght GetPasswordStrenght(string senha)
             {

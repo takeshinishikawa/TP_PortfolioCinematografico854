@@ -65,8 +65,8 @@ namespace Portfolio.Services
         public (string category, int count) FindMostWatchedCategory(User loggedUser)
         {
             Dictionary<Category, int> categoriesCount = MoviesByCategory(loggedUser);
-
             KeyValuePair<Category, int> mostWatchedCategory = categoriesCount.First();
+
             foreach (KeyValuePair<Category, int> item in categoriesCount)
             {
                 if (item.Value > item.Value)
@@ -74,7 +74,9 @@ namespace Portfolio.Services
                     mostWatchedCategory = item;
                 }
             }
+
             string favoriteCategory = Extensions.GetEnumDescription(mostWatchedCategory.Key);
+
             return (favoriteCategory, mostWatchedCategory.Value);
         }
 

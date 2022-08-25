@@ -26,7 +26,7 @@ namespace Portfolio.Presentation
         private Dictionary<string, Category> _descriptionCategory;
         private Dictionary<string, Studio> _descriptionStudio;
 
-        public FrmSearch(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieList, Form loginForm, User loggedUser)
+        public FrmSearch(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieList, User loggedUser, Form loginForm)
         {
             _userRepository = userRepository;
             _portfolioService = portfolioService;
@@ -75,7 +75,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(_loggedUser, this.GetType().ToString(), _loginForm, _portfolioService, _movieList, _userRepository);
+            FrmAccount account = new FrmAccount(_portfolioService, _userRepository, _movieList, _loginForm, _loggedUser, this.GetType().ToString());
             account.Show();
         }
 
@@ -87,15 +87,14 @@ namespace Portfolio.Presentation
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            FrmAbout about = new FrmAbout(this);
             this.Hide();
+            FrmAbout about = new FrmAbout(this);            
             about.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            var answer = DialogResult;
-            answer = MessageBox.Show("Você tem certeza que deseja sair?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult answer = MessageBox.Show("Você tem certeza que deseja sair?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (answer == DialogResult.Yes)
             {
@@ -106,7 +105,7 @@ namespace Portfolio.Presentation
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmPortfolio portfolio = new FrmPortfolio(_userRepository, _portfolioService, _loginForm, _loggedUser, _movieList);
+            FrmPortfolio portfolio = new FrmPortfolio(_userRepository, _portfolioService, _movieList,  _loggedUser, _loginForm);
             portfolio.Show();
         }
 
@@ -144,18 +143,21 @@ namespace Portfolio.Presentation
                     cbbCategory.Text = "";
                     cbbStudio.Text = "";
                     break;
+
                 case "Estúdio":
                     lvwMovieBank.Items.Clear();
                     SearchStudio();
                     cbbCategory.Text = "";
                     txbSearchTitle.Text = "";
                     break;
+
                 case "Gênero":
                     lvwMovieBank.Items.Clear();
                     SearchCategory();
                     cbbStudio.Text = "";
                     txbSearchTitle.Text = "";
                     break;
+
                 default:
                     lvwMovieBank.Items.Clear();
                     SearchAllMovies(_movieList);
@@ -183,6 +185,7 @@ namespace Portfolio.Presentation
             var title = txbSearchTitle.Text;
             title = title.Trim();
             List<Movie> listByTitle = _movieList.SearchMovieByTitle(title);
+
             foreach (var t in listByTitle)
             {
                 string[] item = new string[2];
@@ -198,6 +201,7 @@ namespace Portfolio.Presentation
             var nameCategory = cbbCategory.Text;
             Category category = _descriptionCategory[nameCategory];
             List<Movie> listByCategory = _movieList.SearchMovieByCategory(category);
+
             foreach (var c in listByCategory)
             {
                 string[] item = new string[2];
@@ -212,6 +216,7 @@ namespace Portfolio.Presentation
             var nameStudio = cbbStudio.Text;
             Studio studio = _descriptionStudio[nameStudio];
             List<Movie> listByStudio = _movieList.SearchMovieByStudio(studio);
+
             foreach (var s in listByStudio)
             {
                 string[] item = new string[2];
@@ -226,6 +231,7 @@ namespace Portfolio.Presentation
         {
             var studios = Enum.GetValues(typeof(Studio)).Cast<Studio>().ToList();
             Dictionary<string, Studio> descriptionStudio = new();
+
             foreach (var s in studios)
             {
                 string description = Extensions.GetEnumDescription(s);
@@ -238,9 +244,9 @@ namespace Portfolio.Presentation
 
         private Dictionary<string, Category> GetCategory()
         {
-
             var categories = Enum.GetValues(typeof(Category)).Cast<Category>().ToList();
             Dictionary<string, Category> descriptionCategory = new();
+
             foreach (var c in categories)
             {
                 string description = Extensions.GetEnumDescription(c);
@@ -274,6 +280,7 @@ namespace Portfolio.Presentation
                 cbbStudio.Visible = true;
             }
         }
+
     }
 
 }

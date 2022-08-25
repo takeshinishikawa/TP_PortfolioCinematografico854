@@ -27,25 +27,25 @@ namespace Portfolio.Presentation
         IPortfolioService _portfolioService;
         IMovieRepository _movieList;
         string _previousFormType;
-        //public FrmAccount(User user)
-        public FrmAccount(User user, string type, Form loginForm, IPortfolioService portfolioService, IMovieRepository movieList, IUserRepository userRepository)
+
+        public FrmAccount(IPortfolioService portfolioService, IUserRepository userRepository, IMovieRepository movieList, Form loginForm, User loggedUser, string type)
         {
             _previousFormType = type;
             _loginForm = loginForm;
             _portfolioService = portfolioService;
             _movieList = movieList;
             _userRepository = userRepository;
+            _loggedUser = loggedUser;
 
-            this._loggedUser = user;
             InitializeComponent();
             CustomizeDesign();
             lblContaNameValidation.Text = "";
             lblContaPasswordValidation.Text = "";
-            lblContaTitle.Text = $"Bem vindo, {user.Name}!";
+            lblContaTitle.Text = $"Bem vindo, {_loggedUser.Name}!";
             lblContaSubtitle.Text = "Gerencie aqui as informações da sua conta.";
-            txbContaName.Text = user.Name;
-            mtxContaBirthDate.Text = user.BirthDate.ToString();
-            txbContaUserName.Text = user.Username;
+            txbContaName.Text = _loggedUser.Name;
+            mtxContaBirthDate.Text = _loggedUser.BirthDate.ToString();
+            txbContaUserName.Text = _loggedUser.Username;
             btnContaSalvar.Enabled = false;
             _userRepository = userRepository;
         }
@@ -203,6 +203,25 @@ namespace Portfolio.Presentation
         {
             //vai ser necessário inserir aqui a validação para cada form que pode chamar o minhaconta
             this.Close();
+
+            switch (_previousFormType)
+            {
+                case "Portfolio.Presentation.FrmHome":
+                    Form f = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
+                    f.Show();
+                    return;
+                case "Portfolio.Presentation.FrmPortfolio":
+                    Form h = new FrmPortfolio(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
+                    h.Show();
+                    return;
+                case "Portfolio.Presentation.FrmSearch":
+                    Form s = new FrmSearch(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
+                    s.Show();
+                    return;
+
+
+            }
+
             if (_previousFormType == "Portfolio.Presentation.FrmHome")
             {
                 Form f = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
@@ -254,7 +273,7 @@ namespace Portfolio.Presentation
         private void btnMyAccount_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmAccount account = new FrmAccount(_loggedUser, _previousFormType, _loginForm, _portfolioService, _movieList, _userRepository);
+            FrmAccount account = new FrmAccount(_portfolioService, _userRepository, _movieList, _loginForm, _loggedUser, this.GetType().ToString());
             account.Show();
         }
 
@@ -279,16 +298,16 @@ namespace Portfolio.Presentation
 
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
+            this.Close();
+            FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
             search.Show();
         }
 
         private void btnPortfolio_Click(object sender, EventArgs e)
         {
             this.Close();
-            //FrmPortfolio portfolio = new FrmPortfolio(_portfolioService, previousForm, LoggedUser, _movieList);
-            //portfolio.Show();
+            FrmPortfolio portfolio = new FrmPortfolio(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
+            portfolio.Show();
         }
         private void CustomizeDesign()
         {
@@ -297,13 +316,12 @@ namespace Portfolio.Presentation
 
         private void btnContaDeletar_Click(object sender, EventArgs e)
         {
-            var answer = DialogResult;
-            answer = MessageBox.Show("Você tem certeza que deseja Deletar sua conta?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult answer = MessageBox.Show("Você tem certeza que deseja Deletar sua conta?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (answer == DialogResult.Yes)
             {
                 _userRepository.DeleteUser(_loggedUser);
-                FrmLogin f = new FrmLogin(_userRepository, _portfolioService,_movieList);
+                FrmLogin f = new FrmLogin(_userRepository, _portfolioService, _movieList);
                 this.Close();
                 f.Show();
             }

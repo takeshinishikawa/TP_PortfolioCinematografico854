@@ -200,7 +200,7 @@
             this.lblNameOrUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblNameOrUsername.Location = new System.Drawing.Point(34, 20);
             this.lblNameOrUsername.Name = "lblNameOrUsername";
-            this.lblNameOrUsername.Size = new System.Drawing.Size(237, 43);
+            this.lblNameOrUsername.Size = new System.Drawing.Size(192, 35);
             this.lblNameOrUsername.TabIndex = 3;
             this.lblNameOrUsername.Text = "Teatrologa,";
             this.lblNameOrUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -214,7 +214,7 @@
             this.lklSearchFilter.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
             this.lklSearchFilter.Location = new System.Drawing.Point(34, 217);
             this.lklSearchFilter.Name = "lklSearchFilter";
-            this.lklSearchFilter.Size = new System.Drawing.Size(628, 20);
+            this.lklSearchFilter.Size = new System.Drawing.Size(478, 16);
             this.lklSearchFilter.TabIndex = 5;
             this.lklSearchFilter.TabStop = true;
             this.lklSearchFilter.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
@@ -228,7 +228,7 @@
             this.lblStandartResume.Location = new System.Drawing.Point(34, 70);
             this.lblStandartResume.MaximumSize = new System.Drawing.Size(685, 60);
             this.lblStandartResume.Name = "lblStandartResume";
-            this.lblStandartResume.Size = new System.Drawing.Size(151, 23);
+            this.lblStandartResume.Size = new System.Drawing.Size(121, 18);
             this.lblStandartResume.TabIndex = 4;
             this.lblStandartResume.Text = "ResumoPadrao";
             // 
@@ -240,7 +240,7 @@
             this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblTitleMinPort.Location = new System.Drawing.Point(34, 262);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
-            this.lblTitleMinPort.Size = new System.Drawing.Size(308, 35);
+            this.lblTitleMinPort.Size = new System.Drawing.Size(245, 29);
             this.lblTitleMinPort.TabIndex = 6;
             this.lblTitleMinPort.Text = "Ultimas Avaliações";
             // 
@@ -308,7 +308,7 @@
             this.lblPercentResume.Location = new System.Drawing.Point(34, 130);
             this.lblPercentResume.MaximumSize = new System.Drawing.Size(685, 100);
             this.lblPercentResume.Name = "lblPercentResume";
-            this.lblPercentResume.Size = new System.Drawing.Size(382, 23);
+            this.lblPercentResume.Size = new System.Drawing.Size(297, 18);
             this.lblPercentResume.TabIndex = 12;
             this.lblPercentResume.Text = "Resumo dependendo do tanto de filme";
             // 
@@ -344,7 +344,7 @@
             this.lklLinkToReview.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
             this.lklLinkToReview.Location = new System.Drawing.Point(71, 288);
             this.lklLinkToReview.Name = "lklLinkToReview";
-            this.lklLinkToReview.Size = new System.Drawing.Size(731, 25);
+            this.lklLinkToReview.Size = new System.Drawing.Size(600, 18);
             this.lklLinkToReview.TabIndex = 8;
             this.lklLinkToReview.TabStop = true;
             this.lklLinkToReview.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
@@ -358,7 +358,7 @@
             this.lblEmptyUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblEmptyUsername.Location = new System.Drawing.Point(34, 47);
             this.lblEmptyUsername.Name = "lblEmptyUsername";
-            this.lblEmptyUsername.Size = new System.Drawing.Size(237, 43);
+            this.lblEmptyUsername.Size = new System.Drawing.Size(192, 35);
             this.lblEmptyUsername.TabIndex = 6;
             this.lblEmptyUsername.Text = "Teatrologa,";
             this.lblEmptyUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -371,18 +371,18 @@
             this.lblEmptyResume.Location = new System.Drawing.Point(34, 103);
             this.lblEmptyResume.MaximumSize = new System.Drawing.Size(687, 200);
             this.lblEmptyResume.Name = "lblEmptyResume";
-            this.lblEmptyResume.Size = new System.Drawing.Size(133, 23);
+            this.lblEmptyResume.Size = new System.Drawing.Size(102, 18);
             this.lblEmptyResume.TabIndex = 7;
             this.lblEmptyResume.Text = "Mini Resumo";
             // 
             // FrmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.pnlEmptyUser);
             this.Controls.Add(this.ptbLogo);
@@ -391,7 +391,7 @@
             this.Controls.Add(this.pnlMenuPanel);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.Name = "FrmHome";
