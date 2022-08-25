@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain
 {
-    public class Score
+    public class Review
     {
         public Movie Movie { get; private set; }
         public Star Value { get; private set; }
         public string Comments { get; set; }
 
-        public Score(Movie movie, Star value)
+        public Review(Movie movie, Star value)
         {
             Movie = movie;
             Value = value;
             Comments = "";
         }
 
-        public Score(Movie movie, Star value, string comments)
+        public Review(Movie movie, Star value, string comments)
         {
             Movie = movie;
             Value = value;
