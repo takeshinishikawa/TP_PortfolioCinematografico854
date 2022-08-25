@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using Portfolio.Domain;
+using Portfolio.Domain.Enum;
 using Portfolio.Services;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
+            SetPortfolioListAZ();
         }
 
 
@@ -114,21 +116,52 @@ namespace Portfolio.Presentation
 
         private void btnAZ_Click(object sender, EventArgs e)
         {
+            lvwPortfolio.Items.Clear();
+            SetPortfolioListAZ();
 
+        }
+
+        private void SetPortfolioListAZ()
+        {
+            var portfolio = _loggedUser.Portfolio.OrderBy(m => m.Movie.Title);
+            foreach (var m in portfolio)
+            {
+                string description = Extensions.GetEnumDescription(m.Value);
+                string[] item = new string[3];
+                item[0] = m.Movie.Title;
+                item[1] = description;
+                item[2] = m.Comments;
+                lvwPortfolio.Items.Add(new ListViewItem(item));
+            }
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-
+            lvwPortfolio.Items.Clear();
+            var portfolio = _loggedUser.Portfolio.OrderByDescending(m => m.Value)
+                .ThenBy(m => m.Movie.Title);
+            foreach(var m in portfolio)
+            {
+                string description = Extensions.GetEnumDescription(m.Value);
+                string[] item = new string[3];
+                item[0] = m.Movie.Title;
+                item[1] = description;
+                item[2] = m.Comments;
+                lvwPortfolio.Items.Add(new ListViewItem(item));
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (lvwPortfolio.SelectedItems.Count > 0)
+            {
+                var portfolio = _loggedUser.Portfolio;
+                var movieName = lvwPortfolio.SelectedItems[0].SubItems[0].Text;
+                var movie = portfolio.Single(m => m.Movie.Title == movieName);
+                var movieYear = movie.Movie.ReleaseYear.ToString();
+                FrmMovieDetail f = new FrmMovieDetail(_portfolioService, _loggedUser, _movieList.GetMovie(movieName, movieYear));
+                f.Show();
+            }
 
         }
 
@@ -139,7 +172,14 @@ namespace Portfolio.Presentation
 
             if (answer == DialogResult.Yes)
             {
-                lvwPortfolio.Items.RemoveAt(lvwPortfolio.SelectedIndices[0]);
+                if (lvwPortfolio.SelectedItems.Count > 0)
+                {
+                    string movie = lvwPortfolio.SelectedItems[0].SubItems[0].Text;
+                    var review = _loggedUser.Portfolio.First(p => p.Movie.Title == movie);
+                    _loggedUser.Portfolio.Remove(review);
+                    lvwPortfolio.Items.RemoveAt(lvwPortfolio.SelectedIndices[0]);
+                }
+
             }
             
         }

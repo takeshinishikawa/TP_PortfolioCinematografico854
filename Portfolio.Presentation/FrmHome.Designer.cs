@@ -41,13 +41,12 @@
             this.lblNameOrUsername = new System.Windows.Forms.Label();
             this.lklSearchFilter = new System.Windows.Forms.LinkLabel();
             this.lblStandartResume = new System.Windows.Forms.Label();
-            this.lblMovieScorePort = new System.Windows.Forms.Label();
-            this.lblLatestMoviesScore = new System.Windows.Forms.Label();
-            this.lblMovieTitlePor = new System.Windows.Forms.Label();
-            this.lblLatestMoviesTitle = new System.Windows.Forms.Label();
             this.lblTitleMinPort = new System.Windows.Forms.Label();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.pnlHome = new System.Windows.Forms.Panel();
+            this.lvwPortfolioTop = new System.Windows.Forms.ListView();
+            this.cnTitle = new System.Windows.Forms.ColumnHeader();
+            this.cnScore = new System.Windows.Forms.ColumnHeader();
             this.lblPercentResume = new System.Windows.Forms.Label();
             this.lblSpacer = new System.Windows.Forms.Label();
             this.pnlEmptyUser = new System.Windows.Forms.Panel();
@@ -201,7 +200,7 @@
             this.lblNameOrUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblNameOrUsername.Location = new System.Drawing.Point(34, 20);
             this.lblNameOrUsername.Name = "lblNameOrUsername";
-            this.lblNameOrUsername.Size = new System.Drawing.Size(192, 35);
+            this.lblNameOrUsername.Size = new System.Drawing.Size(237, 43);
             this.lblNameOrUsername.TabIndex = 3;
             this.lblNameOrUsername.Text = "Teatrologa,";
             this.lblNameOrUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,7 +214,7 @@
             this.lklSearchFilter.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
             this.lklSearchFilter.Location = new System.Drawing.Point(34, 217);
             this.lklSearchFilter.Name = "lklSearchFilter";
-            this.lklSearchFilter.Size = new System.Drawing.Size(478, 16);
+            this.lklSearchFilter.Size = new System.Drawing.Size(628, 20);
             this.lklSearchFilter.TabIndex = 5;
             this.lklSearchFilter.TabStop = true;
             this.lklSearchFilter.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
@@ -229,54 +228,9 @@
             this.lblStandartResume.Location = new System.Drawing.Point(34, 70);
             this.lblStandartResume.MaximumSize = new System.Drawing.Size(685, 60);
             this.lblStandartResume.Name = "lblStandartResume";
-            this.lblStandartResume.Size = new System.Drawing.Size(121, 18);
+            this.lblStandartResume.Size = new System.Drawing.Size(151, 23);
             this.lblStandartResume.TabIndex = 4;
             this.lblStandartResume.Text = "ResumoPadrao";
-            // 
-            // lblMovieScorePort
-            // 
-            this.lblMovieScorePort.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMovieScorePort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.lblMovieScorePort.Location = new System.Drawing.Point(557, 316);
-            this.lblMovieScorePort.Name = "lblMovieScorePort";
-            this.lblMovieScorePort.Size = new System.Drawing.Size(125, 27);
-            this.lblMovieScorePort.TabIndex = 10;
-            this.lblMovieScorePort.Text = "Nota";
-            this.lblMovieScorePort.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblLatestMoviesScore
-            // 
-            this.lblLatestMoviesScore.BackColor = System.Drawing.Color.Transparent;
-            this.lblLatestMoviesScore.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLatestMoviesScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
-            this.lblLatestMoviesScore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblLatestMoviesScore.Location = new System.Drawing.Point(557, 359);
-            this.lblLatestMoviesScore.Name = "lblLatestMoviesScore";
-            this.lblLatestMoviesScore.Size = new System.Drawing.Size(125, 121);
-            this.lblLatestMoviesScore.TabIndex = 8;
-            this.lblLatestMoviesScore.Text = "★★★☆☆\r\n★★★☆☆\r\n★★★☆☆\r\n★★★☆☆\r\n★★★☆☆";
-            this.lblLatestMoviesScore.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblMovieTitlePor
-            // 
-            this.lblMovieTitlePor.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMovieTitlePor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.lblMovieTitlePor.Location = new System.Drawing.Point(71, 316);
-            this.lblMovieTitlePor.Name = "lblMovieTitlePor";
-            this.lblMovieTitlePor.Size = new System.Drawing.Size(480, 27);
-            this.lblMovieTitlePor.TabIndex = 9;
-            this.lblMovieTitlePor.Text = "Título do filme";
-            // 
-            // lblLatestMoviesTitle
-            // 
-            this.lblLatestMoviesTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblLatestMoviesTitle.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLatestMoviesTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
-            this.lblLatestMoviesTitle.Location = new System.Drawing.Point(71, 359);
-            this.lblLatestMoviesTitle.Name = "lblLatestMoviesTitle";
-            this.lblLatestMoviesTitle.Size = new System.Drawing.Size(473, 121);
-            this.lblLatestMoviesTitle.TabIndex = 7;
-            this.lblLatestMoviesTitle.Text = "Titulo 1:\r\nTitulo 2:\r\nTitulo 3:\r\nTitulo 4:\r\nTitulo 5:";
             // 
             // lblTitleMinPort
             // 
@@ -286,7 +240,7 @@
             this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblTitleMinPort.Location = new System.Drawing.Point(34, 262);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
-            this.lblTitleMinPort.Size = new System.Drawing.Size(245, 29);
+            this.lblTitleMinPort.Size = new System.Drawing.Size(308, 35);
             this.lblTitleMinPort.TabIndex = 6;
             this.lblTitleMinPort.Text = "Ultimas Avaliações";
             // 
@@ -305,12 +259,9 @@
             // pnlHome
             // 
             this.pnlHome.BackColor = System.Drawing.Color.Transparent;
+            this.pnlHome.Controls.Add(this.lvwPortfolioTop);
             this.pnlHome.Controls.Add(this.lblPercentResume);
-            this.pnlHome.Controls.Add(this.lblMovieScorePort);
             this.pnlHome.Controls.Add(this.lklSearchFilter);
-            this.pnlHome.Controls.Add(this.lblLatestMoviesScore);
-            this.pnlHome.Controls.Add(this.lblMovieTitlePor);
-            this.pnlHome.Controls.Add(this.lblLatestMoviesTitle);
             this.pnlHome.Controls.Add(this.lblNameOrUsername);
             this.pnlHome.Controls.Add(this.lblStandartResume);
             this.pnlHome.Controls.Add(this.lblTitleMinPort);
@@ -322,6 +273,33 @@
             this.pnlHome.TabIndex = 8;
             this.pnlHome.Visible = false;
             // 
+            // lvwPortfolioTop
+            // 
+            this.lvwPortfolioTop.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvwPortfolioTop.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cnTitle,
+            this.cnScore});
+            this.lvwPortfolioTop.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lvwPortfolioTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lvwPortfolioTop.GridLines = true;
+            this.lvwPortfolioTop.Location = new System.Drawing.Point(45, 309);
+            this.lvwPortfolioTop.Name = "lvwPortfolioTop";
+            this.lvwPortfolioTop.Size = new System.Drawing.Size(663, 136);
+            this.lvwPortfolioTop.TabIndex = 13;
+            this.lvwPortfolioTop.UseCompatibleStateImageBehavior = false;
+            this.lvwPortfolioTop.View = System.Windows.Forms.View.Details;
+            // 
+            // cnTitle
+            // 
+            this.cnTitle.Text = "Título do Filme";
+            this.cnTitle.Width = 450;
+            // 
+            // cnScore
+            // 
+            this.cnScore.Text = "Nota";
+            this.cnScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnScore.Width = 150;
+            // 
             // lblPercentResume
             // 
             this.lblPercentResume.AutoSize = true;
@@ -330,7 +308,7 @@
             this.lblPercentResume.Location = new System.Drawing.Point(34, 130);
             this.lblPercentResume.MaximumSize = new System.Drawing.Size(685, 100);
             this.lblPercentResume.Name = "lblPercentResume";
-            this.lblPercentResume.Size = new System.Drawing.Size(297, 18);
+            this.lblPercentResume.Size = new System.Drawing.Size(382, 23);
             this.lblPercentResume.TabIndex = 12;
             this.lblPercentResume.Text = "Resumo dependendo do tanto de filme";
             // 
@@ -366,7 +344,7 @@
             this.lklLinkToReview.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
             this.lklLinkToReview.Location = new System.Drawing.Point(71, 288);
             this.lklLinkToReview.Name = "lklLinkToReview";
-            this.lklLinkToReview.Size = new System.Drawing.Size(600, 18);
+            this.lklLinkToReview.Size = new System.Drawing.Size(731, 25);
             this.lklLinkToReview.TabIndex = 8;
             this.lklLinkToReview.TabStop = true;
             this.lklLinkToReview.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
@@ -380,7 +358,7 @@
             this.lblEmptyUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblEmptyUsername.Location = new System.Drawing.Point(34, 47);
             this.lblEmptyUsername.Name = "lblEmptyUsername";
-            this.lblEmptyUsername.Size = new System.Drawing.Size(192, 35);
+            this.lblEmptyUsername.Size = new System.Drawing.Size(237, 43);
             this.lblEmptyUsername.TabIndex = 6;
             this.lblEmptyUsername.Text = "Teatrologa,";
             this.lblEmptyUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -393,20 +371,20 @@
             this.lblEmptyResume.Location = new System.Drawing.Point(34, 103);
             this.lblEmptyResume.MaximumSize = new System.Drawing.Size(687, 200);
             this.lblEmptyResume.Name = "lblEmptyResume";
-            this.lblEmptyResume.Size = new System.Drawing.Size(102, 18);
+            this.lblEmptyResume.Size = new System.Drawing.Size(133, 23);
             this.lblEmptyResume.TabIndex = 7;
             this.lblEmptyResume.Text = "Mini Resumo";
             // 
             // FrmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1062, 673);
-            this.Controls.Add(this.pnlEmptyUser);
             this.Controls.Add(this.pnlHome);
+            this.Controls.Add(this.pnlEmptyUser);
             this.Controls.Add(this.ptbLogo);
             this.Controls.Add(this.btnNewSearch);
             this.Controls.Add(this.btnPortfolio);
@@ -444,10 +422,6 @@
         private Label lblNameOrUsername;
         private Label lblTitleMinPort;
         private Label lblStandartResume;
-        private Label lblLatestMoviesScore;
-        private Label lblLatestMoviesTitle;
-        private Label lblMovieTitlePor;
-        private Label lblMovieScorePort;
         private PictureBox ptbLogo;
         private LinkLabel lklSearchFilter;
         private Panel pnlHome;
@@ -457,5 +431,8 @@
         private Label lblEmptyUsername;
         private Label lblEmptyResume;
         private Label lblPercentResume;
+        private ListView lvwPortfolioTop;
+        private ColumnHeader cnTitle;
+        private ColumnHeader cnScore;
     }
 }

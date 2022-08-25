@@ -47,7 +47,6 @@
             this.clnComments = new System.Windows.Forms.ColumnHeader();
             this.btnAZ = new System.Windows.Forms.Button();
             this.btnScore = new System.Windows.Forms.Button();
-            this.btnCategory = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.pnlSubMenu.SuspendLayout();
@@ -234,8 +233,8 @@
             this.clnMovieTitle,
             this.clnScore,
             this.clnComments});
-            this.lvwPortfolio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lvwPortfolio.ForeColor = System.Drawing.Color.DimGray;
+            this.lvwPortfolio.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lvwPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
             this.lvwPortfolio.FullRowSelect = true;
             this.lvwPortfolio.GridLines = true;
             this.lvwPortfolio.Location = new System.Drawing.Point(11, 16);
@@ -255,7 +254,7 @@
             // 
             this.clnScore.Text = "Nota";
             this.clnScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clnScore.Width = 120;
+            this.clnScore.Width = 80;
             // 
             // clnComments
             // 
@@ -290,20 +289,6 @@
             this.btnScore.Text = "Melhores Avaliações";
             this.btnScore.UseVisualStyleBackColor = false;
             this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
-            // 
-            // btnCategory
-            // 
-            this.btnCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(215)))), ((int)(((byte)(181)))));
-            this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategory.Font = new System.Drawing.Font("Verdana", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCategory.ForeColor = System.Drawing.Color.White;
-            this.btnCategory.Location = new System.Drawing.Point(479, 221);
-            this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(101, 33);
-            this.btnCategory.TabIndex = 13;
-            this.btnCategory.Text = "Gênero";
-            this.btnCategory.UseVisualStyleBackColor = false;
-            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // btnEdit
             // 
@@ -342,7 +327,6 @@
             this.ClientSize = new System.Drawing.Size(1062, 673);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.btnScore);
             this.Controls.Add(this.btnAZ);
             this.Controls.Add(this.pnlPortfolioLV);
@@ -385,7 +369,6 @@
         private ColumnHeader clnComments;
         private Button btnAZ;
         private Button btnScore;
-        private Button btnCategory;
         private Button btnEdit;
         private Button btnDelete;
     }
