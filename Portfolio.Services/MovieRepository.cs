@@ -23,7 +23,7 @@ namespace Portfolio.Services
 
         public List<Movie> SearchMovieByTitle(string movieName)
         {
-            return MovieList.Where(movie => movie.Title == $"%{movieName}%").ToList();
+            return MovieList.Where(movie => movie.Title.ToLower().Contains(movieName.ToLower())).ToList();
         }
         public List<Movie> SearchMovieByReleaseYear(ushort releaseYear)
         {
@@ -43,6 +43,10 @@ namespace Portfolio.Services
         public Movie GetMovie(string title)
         {
             return MovieList.FirstOrDefault(movie => movie.Title == title);
+        }
+        public Movie GetMovie(string title, string releaseYear)
+        {
+            return MovieList.FirstOrDefault(movie => movie.Title == title && movie.ReleaseYear == ushort.Parse(releaseYear));
         }
 
         public int Count()

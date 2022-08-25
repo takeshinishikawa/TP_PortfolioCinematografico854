@@ -83,12 +83,14 @@ namespace Portfolio.Presentation
         {
             lblUsernameGreeting.Text = $"{username}!";
             pnlLogin.Enabled = false;
+            pnlLogin.Visible = false;
             pnlLoad.Visible = true;
 
             int time = RandomLoadTime();
             await Task.Delay(TimeSpan.FromSeconds(time));
 
             pnlLogin.Enabled = true;
+            pnlLogin.Visible = true;
             pnlLoad.Visible = false;
             return;
         }
@@ -105,5 +107,12 @@ namespace Portfolio.Presentation
             return rnd.Next(1, 4);
         }
 
+        private void txbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
     }
 }
