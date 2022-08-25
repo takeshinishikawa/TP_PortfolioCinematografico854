@@ -48,12 +48,12 @@
             this.lblTitleMinPort = new System.Windows.Forms.Label();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.pnlHome = new System.Windows.Forms.Panel();
+            this.lblPercentResume = new System.Windows.Forms.Label();
+            this.lblSpacer = new System.Windows.Forms.Label();
             this.pnlEmptyUser = new System.Windows.Forms.Panel();
             this.lklLinkToReview = new System.Windows.Forms.LinkLabel();
             this.lblEmptyUsername = new System.Windows.Forms.Label();
             this.lblEmptyResume = new System.Windows.Forms.Label();
-            this.lblPercentResume = new System.Windows.Forms.Label();
-            this.lblSpacer = new System.Windows.Forms.Label();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
@@ -293,18 +293,18 @@
             // ptbLogo
             // 
             this.ptbLogo.BackColor = System.Drawing.Color.Transparent;
+            this.ptbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbLogo.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
-            this.ptbLogo.Location = new System.Drawing.Point(12, 8);
+            this.ptbLogo.Location = new System.Drawing.Point(12, 3);
             this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(43, 43);
-            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbLogo.Size = new System.Drawing.Size(66, 50);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 7;
             this.ptbLogo.TabStop = false;
             // 
             // pnlHome
             // 
             this.pnlHome.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHome.Controls.Add(this.pnlEmptyUser);
             this.pnlHome.Controls.Add(this.lblPercentResume);
             this.pnlHome.Controls.Add(this.lblMovieScorePort);
             this.pnlHome.Controls.Add(this.lklSearchFilter);
@@ -322,6 +322,28 @@
             this.pnlHome.TabIndex = 8;
             this.pnlHome.Visible = false;
             // 
+            // lblPercentResume
+            // 
+            this.lblPercentResume.AutoSize = true;
+            this.lblPercentResume.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPercentResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lblPercentResume.Location = new System.Drawing.Point(34, 130);
+            this.lblPercentResume.MaximumSize = new System.Drawing.Size(685, 100);
+            this.lblPercentResume.Name = "lblPercentResume";
+            this.lblPercentResume.Size = new System.Drawing.Size(297, 18);
+            this.lblPercentResume.TabIndex = 12;
+            this.lblPercentResume.Text = "Resumo dependendo do tanto de filme";
+            // 
+            // lblSpacer
+            // 
+            this.lblSpacer.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSpacer.Location = new System.Drawing.Point(43, 233);
+            this.lblSpacer.Name = "lblSpacer";
+            this.lblSpacer.Size = new System.Drawing.Size(666, 25);
+            this.lblSpacer.TabIndex = 11;
+            this.lblSpacer.Text = "___________________________________________________________________\r\n";
+            this.lblSpacer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // pnlEmptyUser
             // 
             this.pnlEmptyUser.BackColor = System.Drawing.Color.Transparent;
@@ -329,7 +351,7 @@
             this.pnlEmptyUser.Controls.Add(this.lblEmptyUsername);
             this.pnlEmptyUser.Controls.Add(this.lblEmptyResume);
             this.pnlEmptyUser.Enabled = false;
-            this.pnlEmptyUser.Location = new System.Drawing.Point(0, 77);
+            this.pnlEmptyUser.Location = new System.Drawing.Point(155, 169);
             this.pnlEmptyUser.Name = "pnlEmptyUser";
             this.pnlEmptyUser.Size = new System.Drawing.Size(752, 334);
             this.pnlEmptyUser.TabIndex = 9;
@@ -348,6 +370,7 @@
             this.lklLinkToReview.TabIndex = 8;
             this.lklLinkToReview.TabStop = true;
             this.lklLinkToReview.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
+            this.lklLinkToReview.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
             // 
             // lblEmptyUsername
             // 
@@ -374,28 +397,6 @@
             this.lblEmptyResume.TabIndex = 7;
             this.lblEmptyResume.Text = "Mini Resumo";
             // 
-            // lblPercentResume
-            // 
-            this.lblPercentResume.AutoSize = true;
-            this.lblPercentResume.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPercentResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.lblPercentResume.Location = new System.Drawing.Point(34, 130);
-            this.lblPercentResume.MaximumSize = new System.Drawing.Size(685, 100);
-            this.lblPercentResume.Name = "lblPercentResume";
-            this.lblPercentResume.Size = new System.Drawing.Size(297, 18);
-            this.lblPercentResume.TabIndex = 12;
-            this.lblPercentResume.Text = "Resumo dependendo do tanto de filme";
-            // 
-            // lblSpacer
-            // 
-            this.lblSpacer.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSpacer.Location = new System.Drawing.Point(43, 233);
-            this.lblSpacer.Name = "lblSpacer";
-            this.lblSpacer.Size = new System.Drawing.Size(666, 25);
-            this.lblSpacer.TabIndex = 11;
-            this.lblSpacer.Text = "___________________________________________________________________\r\n";
-            this.lblSpacer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -404,6 +405,7 @@
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.pnlEmptyUser);
             this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.ptbLogo);
             this.Controls.Add(this.btnNewSearch);

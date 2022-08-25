@@ -117,7 +117,7 @@ namespace Portfolio.Presentation
 
         private void lklSearchFilter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            Close();
             FrmSearch search = new FrmSearch(_userRepository, _portfolioService, _movieList, _loginForm, _loggedUser);
             search.Show();
         }
@@ -216,10 +216,6 @@ namespace Portfolio.Presentation
             var search = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
             lklLinkToReview.Text = search;
         }
-
-        
-
-
 
     }
 }
