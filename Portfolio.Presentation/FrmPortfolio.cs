@@ -29,7 +29,8 @@ namespace Portfolio.Presentation
             _loginForm = loginForm;
             _loggedUser = loggedUser;
             _movieList = movieList;
-       
+            List<Review> portfólio = _loggedUser.Portfolio;
+
             InitializeComponent();
             CustomizeDesign();
         }
@@ -134,7 +135,7 @@ namespace Portfolio.Presentation
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var answer = DialogResult;
-            answer = MessageBox.Show("Você tem certeza que deseja excluir esse filmes do seu portfólio?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            answer = MessageBox.Show("Você tem certeza que deseja excluir esse filme do seu portfólio?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (answer == DialogResult.Yes)
             {

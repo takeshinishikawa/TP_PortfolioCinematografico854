@@ -23,6 +23,8 @@ namespace Portfolio.Presentation
         private IUserRepository _userRepository;
         private IPortfolioService _portfolioService;
         private IMovieRepository _movieList;
+        private Dictionary<string, Category> _descriptionCategory;
+        private Dictionary<string, Studio> _descriptionStudio;
 
         public FrmSearch(IUserRepository userRepository, IPortfolioService portfolioService, IMovieRepository movieList, Form loginForm, User loggedUser)
         {
@@ -34,10 +36,8 @@ namespace Portfolio.Presentation
 
             InitializeComponent();
             CustomizeDesign();
-            GetCategory();
-            GetStudio();
-
-
+            _descriptionCategory = GetCategory();
+            _descriptionStudio = GetStudio();
 
         }
 
@@ -193,7 +193,7 @@ namespace Portfolio.Presentation
         private void SearchCategory()
         {
             var nameCategory = cbbCategory.Text;
-            Category category = (Category)Enum.Parse(typeof(Category), nameCategory);
+            Category category = _descriptionCategory[nameCategory];
             List<Movie> listByCategory = _movieList.SearchMovieByCategory(category);
             foreach (var c in listByCategory)
             {
@@ -208,7 +208,7 @@ namespace Portfolio.Presentation
         private void SearchStudio()
         {
             var nameStudio = cbbStudio.Text;
-            Studio studio = (Studio)Enum.Parse(typeof(Studio), nameStudio);
+            Studio studio = _descriptionStudio[nameStudio];
             List<Movie> listByStudio = _movieList.SearchMovieByStudio(studio);
             foreach (var s in listByStudio)
             {
@@ -220,23 +220,34 @@ namespace Portfolio.Presentation
 
         }
 
-        private void GetStudio()
+        private Dictionary<string, Studio> GetStudio()
         {
             var studios = Enum.GetValues(typeof(Studio)).Cast<Studio>().ToList();
+            Dictionary<string, Studio> descriptionStudio = new();
             foreach (var s in studios)
             {
-                cbbStudio.Items.Add(s);
+                string description = Extensions.GetEnumDescription(s);
+                descriptionStudio.Add(description, s);
+                cbbStudio.Items.Add(description);
             }
+            return descriptionStudio;
 
         }
-        private void GetCategory()
+
+
+
+        private Dictionary<string, Category> GetCategory()
         {
 
             var categories = Enum.GetValues(typeof(Category)).Cast<Category>().ToList();
-            foreach (var i in categories)
+            Dictionary<string, Category> descriptionCategory = new();
+            foreach (var c in categories)
             {
-                cbbCategory.Items.Add(i);
+                string description = Extensions.GetEnumDescription(c);
+                descriptionCategory.Add(description, c);
+                cbbCategory.Items.Add(description);
             }
+            return descriptionCategory;
 
         }
 

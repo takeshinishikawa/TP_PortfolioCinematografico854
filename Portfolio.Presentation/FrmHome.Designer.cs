@@ -40,7 +40,7 @@
             this.btnNewSearch = new System.Windows.Forms.Button();
             this.lblNameOrUsername = new System.Windows.Forms.Label();
             this.lklSearchFilter = new System.Windows.Forms.LinkLabel();
-            this.lblResume = new System.Windows.Forms.Label();
+            this.lblStandartResume = new System.Windows.Forms.Label();
             this.lblMovieScorePort = new System.Windows.Forms.Label();
             this.lblLatestMoviesScore = new System.Windows.Forms.Label();
             this.lblMovieTitlePor = new System.Windows.Forms.Label();
@@ -48,11 +48,17 @@
             this.lblTitleMinPort = new System.Windows.Forms.Label();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.pnlHome = new System.Windows.Forms.Panel();
+            this.pnlEmptyUser = new System.Windows.Forms.Panel();
+            this.lklLinkToReview = new System.Windows.Forms.LinkLabel();
+            this.lblEmptyUsername = new System.Windows.Forms.Label();
+            this.lblEmptyResume = new System.Windows.Forms.Label();
+            this.lblPercentResume = new System.Windows.Forms.Label();
             this.lblSpacer = new System.Windows.Forms.Label();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.pnlHome.SuspendLayout();
+            this.pnlEmptyUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuPanel
@@ -193,36 +199,39 @@
             this.lblNameOrUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblNameOrUsername.Font = new System.Drawing.Font("Georgia", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNameOrUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.lblNameOrUsername.Location = new System.Drawing.Point(34, 26);
+            this.lblNameOrUsername.Location = new System.Drawing.Point(34, 20);
             this.lblNameOrUsername.Name = "lblNameOrUsername";
-            this.lblNameOrUsername.Size = new System.Drawing.Size(237, 43);
+            this.lblNameOrUsername.Size = new System.Drawing.Size(192, 35);
             this.lblNameOrUsername.TabIndex = 3;
             this.lblNameOrUsername.Text = "Teatrologa,";
+            this.lblNameOrUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lklSearchFilter
             // 
             this.lklSearchFilter.AutoSize = true;
             this.lklSearchFilter.DisabledLinkColor = System.Drawing.Color.OrangeRed;
-            this.lklSearchFilter.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lklSearchFilter.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lklSearchFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
             this.lklSearchFilter.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
-            this.lklSearchFilter.Location = new System.Drawing.Point(29, 183);
+            this.lklSearchFilter.Location = new System.Drawing.Point(34, 217);
             this.lklSearchFilter.Name = "lklSearchFilter";
-            this.lklSearchFilter.Size = new System.Drawing.Size(29, 17);
+            this.lklSearchFilter.Size = new System.Drawing.Size(478, 16);
             this.lklSearchFilter.TabIndex = 5;
             this.lklSearchFilter.TabStop = true;
-            this.lklSearchFilter.Text = "---";
+            this.lklSearchFilter.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
             this.lklSearchFilter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
             // 
-            // lblResume
+            // lblStandartResume
             // 
-            this.lblResume.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.lblResume.Location = new System.Drawing.Point(34, 86);
-            this.lblResume.Name = "lblResume";
-            this.lblResume.Size = new System.Drawing.Size(685, 98);
-            this.lblResume.TabIndex = 4;
-            this.lblResume.Text = "Mini Resumo";
+            this.lblStandartResume.AutoSize = true;
+            this.lblStandartResume.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblStandartResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lblStandartResume.Location = new System.Drawing.Point(34, 70);
+            this.lblStandartResume.MaximumSize = new System.Drawing.Size(685, 60);
+            this.lblStandartResume.Name = "lblStandartResume";
+            this.lblStandartResume.Size = new System.Drawing.Size(121, 18);
+            this.lblStandartResume.TabIndex = 4;
+            this.lblStandartResume.Text = "ResumoPadrao";
             // 
             // lblMovieScorePort
             // 
@@ -277,7 +286,7 @@
             this.lblTitleMinPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
             this.lblTitleMinPort.Location = new System.Drawing.Point(34, 262);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
-            this.lblTitleMinPort.Size = new System.Drawing.Size(308, 35);
+            this.lblTitleMinPort.Size = new System.Drawing.Size(245, 29);
             this.lblTitleMinPort.TabIndex = 6;
             this.lblTitleMinPort.Text = "Ultimas Avaliações";
             // 
@@ -295,24 +304,92 @@
             // pnlHome
             // 
             this.pnlHome.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHome.Controls.Add(this.lblSpacer);
+            this.pnlHome.Controls.Add(this.pnlEmptyUser);
+            this.pnlHome.Controls.Add(this.lblPercentResume);
             this.pnlHome.Controls.Add(this.lblMovieScorePort);
             this.pnlHome.Controls.Add(this.lklSearchFilter);
             this.pnlHome.Controls.Add(this.lblLatestMoviesScore);
             this.pnlHome.Controls.Add(this.lblMovieTitlePor);
             this.pnlHome.Controls.Add(this.lblLatestMoviesTitle);
             this.pnlHome.Controls.Add(this.lblNameOrUsername);
-            this.pnlHome.Controls.Add(this.lblResume);
+            this.pnlHome.Controls.Add(this.lblStandartResume);
             this.pnlHome.Controls.Add(this.lblTitleMinPort);
+            this.pnlHome.Controls.Add(this.lblSpacer);
+            this.pnlHome.Enabled = false;
             this.pnlHome.Location = new System.Drawing.Point(155, 136);
             this.pnlHome.Name = "pnlHome";
             this.pnlHome.Size = new System.Drawing.Size(752, 488);
             this.pnlHome.TabIndex = 8;
+            this.pnlHome.Visible = false;
+            // 
+            // pnlEmptyUser
+            // 
+            this.pnlEmptyUser.BackColor = System.Drawing.Color.Transparent;
+            this.pnlEmptyUser.Controls.Add(this.lklLinkToReview);
+            this.pnlEmptyUser.Controls.Add(this.lblEmptyUsername);
+            this.pnlEmptyUser.Controls.Add(this.lblEmptyResume);
+            this.pnlEmptyUser.Enabled = false;
+            this.pnlEmptyUser.Location = new System.Drawing.Point(0, 77);
+            this.pnlEmptyUser.Name = "pnlEmptyUser";
+            this.pnlEmptyUser.Size = new System.Drawing.Size(752, 334);
+            this.pnlEmptyUser.TabIndex = 9;
+            this.pnlEmptyUser.Visible = false;
+            // 
+            // lklLinkToReview
+            // 
+            this.lklLinkToReview.AutoSize = true;
+            this.lklLinkToReview.DisabledLinkColor = System.Drawing.Color.OrangeRed;
+            this.lklLinkToReview.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lklLinkToReview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(183)))), ((int)(((byte)(125)))));
+            this.lklLinkToReview.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(129)))), ((int)(((byte)(134)))));
+            this.lklLinkToReview.Location = new System.Drawing.Point(71, 288);
+            this.lklLinkToReview.Name = "lklLinkToReview";
+            this.lklLinkToReview.Size = new System.Drawing.Size(600, 18);
+            this.lklLinkToReview.TabIndex = 8;
+            this.lklLinkToReview.TabStop = true;
+            this.lklLinkToReview.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
+            // 
+            // lblEmptyUsername
+            // 
+            this.lblEmptyUsername.AutoSize = true;
+            this.lblEmptyUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmptyUsername.Font = new System.Drawing.Font("Georgia", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEmptyUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
+            this.lblEmptyUsername.Location = new System.Drawing.Point(34, 47);
+            this.lblEmptyUsername.Name = "lblEmptyUsername";
+            this.lblEmptyUsername.Size = new System.Drawing.Size(192, 35);
+            this.lblEmptyUsername.TabIndex = 6;
+            this.lblEmptyUsername.Text = "Teatrologa,";
+            this.lblEmptyUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblEmptyResume
+            // 
+            this.lblEmptyResume.AutoSize = true;
+            this.lblEmptyResume.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEmptyResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lblEmptyResume.Location = new System.Drawing.Point(34, 103);
+            this.lblEmptyResume.MaximumSize = new System.Drawing.Size(687, 200);
+            this.lblEmptyResume.Name = "lblEmptyResume";
+            this.lblEmptyResume.Size = new System.Drawing.Size(102, 18);
+            this.lblEmptyResume.TabIndex = 7;
+            this.lblEmptyResume.Text = "Mini Resumo";
+            // 
+            // lblPercentResume
+            // 
+            this.lblPercentResume.AutoSize = true;
+            this.lblPercentResume.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPercentResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
+            this.lblPercentResume.Location = new System.Drawing.Point(34, 130);
+            this.lblPercentResume.MaximumSize = new System.Drawing.Size(685, 100);
+            this.lblPercentResume.Name = "lblPercentResume";
+            this.lblPercentResume.Size = new System.Drawing.Size(297, 18);
+            this.lblPercentResume.TabIndex = 12;
+            this.lblPercentResume.Text = "Resumo dependendo do tanto de filme";
             // 
             // lblSpacer
             // 
             this.lblSpacer.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSpacer.Location = new System.Drawing.Point(43, 217);
+            this.lblSpacer.Location = new System.Drawing.Point(43, 233);
             this.lblSpacer.Name = "lblSpacer";
             this.lblSpacer.Size = new System.Drawing.Size(666, 25);
             this.lblSpacer.TabIndex = 11;
@@ -321,7 +398,7 @@
             // 
             // FrmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
@@ -340,12 +417,13 @@
             this.Name = "FrmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHome";
-            this.Load += new System.EventHandler(this.FrmHome_Load);
             this.pnlMenuPanel.ResumeLayout(false);
             this.pnlSubMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.pnlHome.ResumeLayout(false);
             this.pnlHome.PerformLayout();
+            this.pnlEmptyUser.ResumeLayout(false);
+            this.pnlEmptyUser.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -363,7 +441,7 @@
         private Button btnNewSearch;
         private Label lblNameOrUsername;
         private Label lblTitleMinPort;
-        private Label lblResume;
+        private Label lblStandartResume;
         private Label lblLatestMoviesScore;
         private Label lblLatestMoviesTitle;
         private Label lblMovieTitlePor;
@@ -372,5 +450,10 @@
         private LinkLabel lklSearchFilter;
         private Panel pnlHome;
         private Label lblSpacer;
+        private Panel pnlEmptyUser;
+        private LinkLabel lklLinkToReview;
+        private Label lblEmptyUsername;
+        private Label lblEmptyResume;
+        private Label lblPercentResume;
     }
 }
