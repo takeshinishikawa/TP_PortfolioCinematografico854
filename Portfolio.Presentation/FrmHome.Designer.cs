@@ -71,7 +71,7 @@
             this.pnlMenuPanel.Name = "pnlMenuPanel";
             this.pnlMenuPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.pnlMenuPanel.Size = new System.Drawing.Size(135, 229);
-            this.pnlMenuPanel.TabIndex = 0;
+            this.pnlMenuPanel.TabIndex = 2;
             // 
             // pnlSubMenu
             // 
@@ -85,7 +85,7 @@
             this.pnlSubMenu.Name = "pnlSubMenu";
             this.pnlSubMenu.Padding = new System.Windows.Forms.Padding(0, 13, 0, 0);
             this.pnlSubMenu.Size = new System.Drawing.Size(135, 157);
-            this.pnlSubMenu.TabIndex = 2;
+            this.pnlSubMenu.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -96,7 +96,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnExit.Size = new System.Drawing.Size(135, 33);
-            this.btnExit.TabIndex = 4;
+            this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Sair";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnAbout.Size = new System.Drawing.Size(135, 33);
-            this.btnAbout.TabIndex = 3;
+            this.btnAbout.TabIndex = 2;
             this.btnAbout.Text = "Sobre";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbout.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnLogOut.Size = new System.Drawing.Size(135, 33);
-            this.btnLogOut.TabIndex = 2;
+            this.btnLogOut.TabIndex = 1;
             this.btnLogOut.Text = "Desconectar";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             this.btnLogo.Location = new System.Drawing.Point(0, 10);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(135, 35);
-            this.btnLogo.TabIndex = 1;
+            this.btnLogo.TabIndex = 0;
             this.btnLogo.UseVisualStyleBackColor = false;
             this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
             // 
@@ -184,10 +184,10 @@
             this.btnNewSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.btnNewSearch.Location = new System.Drawing.Point(601, 8);
+            this.btnNewSearch.Location = new System.Drawing.Point(618, 8);
             this.btnNewSearch.Name = "btnNewSearch";
-            this.btnNewSearch.Size = new System.Drawing.Size(150, 45);
-            this.btnNewSearch.TabIndex = 2;
+            this.btnNewSearch.Size = new System.Drawing.Size(133, 45);
+            this.btnNewSearch.TabIndex = 0;
             this.btnNewSearch.Text = "Buscar";
             this.btnNewSearch.UseVisualStyleBackColor = false;
             this.btnNewSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
@@ -201,7 +201,7 @@
             this.lblNameOrUsername.Location = new System.Drawing.Point(34, 20);
             this.lblNameOrUsername.Name = "lblNameOrUsername";
             this.lblNameOrUsername.Size = new System.Drawing.Size(192, 35);
-            this.lblNameOrUsername.TabIndex = 3;
+            this.lblNameOrUsername.TabIndex = 0;
             this.lblNameOrUsername.Text = "Teatrologa,";
             this.lblNameOrUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -215,7 +215,7 @@
             this.lklSearchFilter.Location = new System.Drawing.Point(34, 217);
             this.lklSearchFilter.Name = "lklSearchFilter";
             this.lklSearchFilter.Size = new System.Drawing.Size(478, 16);
-            this.lklSearchFilter.TabIndex = 5;
+            this.lklSearchFilter.TabIndex = 3;
             this.lklSearchFilter.TabStop = true;
             this.lklSearchFilter.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
             this.lklSearchFilter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
@@ -229,7 +229,7 @@
             this.lblStandartResume.MaximumSize = new System.Drawing.Size(685, 60);
             this.lblStandartResume.Name = "lblStandartResume";
             this.lblStandartResume.Size = new System.Drawing.Size(121, 18);
-            this.lblStandartResume.TabIndex = 4;
+            this.lblStandartResume.TabIndex = 1;
             this.lblStandartResume.Text = "ResumoPadrao";
             // 
             // lblTitleMinPort
@@ -241,7 +241,7 @@
             this.lblTitleMinPort.Location = new System.Drawing.Point(34, 262);
             this.lblTitleMinPort.Name = "lblTitleMinPort";
             this.lblTitleMinPort.Size = new System.Drawing.Size(245, 29);
-            this.lblTitleMinPort.TabIndex = 6;
+            this.lblTitleMinPort.TabIndex = 4;
             this.lblTitleMinPort.Text = "Ultimas Avaliações";
             // 
             // ptbLogo
@@ -249,9 +249,9 @@
             this.ptbLogo.BackColor = System.Drawing.Color.Transparent;
             this.ptbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbLogo.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
-            this.ptbLogo.Location = new System.Drawing.Point(12, 3);
+            this.ptbLogo.Location = new System.Drawing.Point(12, 8);
             this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(66, 50);
+            this.ptbLogo.Size = new System.Drawing.Size(52, 45);
             this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 7;
             this.ptbLogo.TabStop = false;
@@ -270,7 +270,7 @@
             this.pnlHome.Location = new System.Drawing.Point(155, 136);
             this.pnlHome.Name = "pnlHome";
             this.pnlHome.Size = new System.Drawing.Size(752, 488);
-            this.pnlHome.TabIndex = 8;
+            this.pnlHome.TabIndex = 4;
             this.pnlHome.Visible = false;
             // 
             // lvwPortfolioTop
@@ -285,7 +285,7 @@
             this.lvwPortfolioTop.Location = new System.Drawing.Point(45, 309);
             this.lvwPortfolioTop.Name = "lvwPortfolioTop";
             this.lvwPortfolioTop.Size = new System.Drawing.Size(663, 136);
-            this.lvwPortfolioTop.TabIndex = 13;
+            this.lvwPortfolioTop.TabIndex = 1;
             this.lvwPortfolioTop.UseCompatibleStateImageBehavior = false;
             this.lvwPortfolioTop.View = System.Windows.Forms.View.Details;
             // 
@@ -309,7 +309,7 @@
             this.lblPercentResume.MaximumSize = new System.Drawing.Size(685, 100);
             this.lblPercentResume.Name = "lblPercentResume";
             this.lblPercentResume.Size = new System.Drawing.Size(297, 18);
-            this.lblPercentResume.TabIndex = 12;
+            this.lblPercentResume.TabIndex = 5;
             this.lblPercentResume.Text = "Resumo dependendo do tanto de filme";
             // 
             // lblSpacer
@@ -318,7 +318,7 @@
             this.lblSpacer.Location = new System.Drawing.Point(43, 233);
             this.lblSpacer.Name = "lblSpacer";
             this.lblSpacer.Size = new System.Drawing.Size(666, 25);
-            this.lblSpacer.TabIndex = 11;
+            this.lblSpacer.TabIndex = 6;
             this.lblSpacer.Text = "___________________________________________________________________\r\n";
             this.lblSpacer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -332,7 +332,7 @@
             this.pnlEmptyUser.Location = new System.Drawing.Point(155, 169);
             this.pnlEmptyUser.Name = "pnlEmptyUser";
             this.pnlEmptyUser.Size = new System.Drawing.Size(752, 334);
-            this.pnlEmptyUser.TabIndex = 9;
+            this.pnlEmptyUser.TabIndex = 0;
             this.pnlEmptyUser.Visible = false;
             // 
             // lklLinkToReview
@@ -345,7 +345,7 @@
             this.lklLinkToReview.Location = new System.Drawing.Point(71, 288);
             this.lklLinkToReview.Name = "lklLinkToReview";
             this.lklLinkToReview.Size = new System.Drawing.Size(600, 18);
-            this.lklLinkToReview.TabIndex = 8;
+            this.lklLinkToReview.TabIndex = 0;
             this.lklLinkToReview.TabStop = true;
             this.lklLinkToReview.Text = "Vamos começar? Descubra quais filmes estão disponíveis clicando aqui.";
             this.lklLinkToReview.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklSearchFilter_LinkClicked);
