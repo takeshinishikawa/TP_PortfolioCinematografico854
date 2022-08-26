@@ -62,10 +62,11 @@
             this.btnPortfolio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPortfolio.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.btnPortfolio.Location = new System.Drawing.Point(887, 8);
+            this.btnPortfolio.Location = new System.Drawing.Point(757, 8);
+            this.btnPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPortfolio.Name = "btnPortfolio";
             this.btnPortfolio.Size = new System.Drawing.Size(150, 45);
-            this.btnPortfolio.TabIndex = 4;
+            this.btnPortfolio.TabIndex = 7;
             this.btnPortfolio.Text = "Portfólio";
             this.btnPortfolio.UseVisualStyleBackColor = false;
             this.btnPortfolio.Click += new System.EventHandler(this.btnPortfolio_Click);
@@ -76,12 +77,12 @@
             this.pnlMenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenuPanel.Controls.Add(this.pnlSubMenu);
             this.pnlMenuPanel.Controls.Add(this.btnLogo);
-            this.pnlMenuPanel.Location = new System.Drawing.Point(1066, 8);
-            this.pnlMenuPanel.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.pnlMenuPanel.Location = new System.Drawing.Point(917, 3);
+            this.pnlMenuPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlMenuPanel.Name = "pnlMenuPanel";
-            this.pnlMenuPanel.Padding = new System.Windows.Forms.Padding(0, 11, 0, 0);
+            this.pnlMenuPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.pnlMenuPanel.Size = new System.Drawing.Size(135, 229);
-            this.pnlMenuPanel.TabIndex = 3;
+            this.pnlMenuPanel.TabIndex = 8;
             // 
             // pnlSubMenu
             // 
@@ -91,11 +92,11 @@
             this.pnlSubMenu.Controls.Add(this.btnLogOut);
             this.pnlSubMenu.Controls.Add(this.btnMyAccount);
             this.pnlSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenu.Location = new System.Drawing.Point(0, 46);
+            this.pnlSubMenu.Location = new System.Drawing.Point(0, 45);
             this.pnlSubMenu.Name = "pnlSubMenu";
             this.pnlSubMenu.Padding = new System.Windows.Forms.Padding(0, 13, 0, 0);
             this.pnlSubMenu.Size = new System.Drawing.Size(135, 157);
-            this.pnlSubMenu.TabIndex = 2;
+            this.pnlSubMenu.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -106,7 +107,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnExit.Size = new System.Drawing.Size(135, 33);
-            this.btnExit.TabIndex = 4;
+            this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Sair";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.UseVisualStyleBackColor = true;
@@ -121,7 +122,7 @@
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnAbout.Size = new System.Drawing.Size(135, 33);
-            this.btnAbout.TabIndex = 3;
+            this.btnAbout.TabIndex = 2;
             this.btnAbout.Text = "Sobre";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbout.UseVisualStyleBackColor = true;
@@ -136,7 +137,7 @@
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnLogOut.Size = new System.Drawing.Size(135, 33);
-            this.btnLogOut.TabIndex = 2;
+            this.btnLogOut.TabIndex = 1;
             this.btnLogOut.Text = "Desconectar";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.UseVisualStyleBackColor = true;
@@ -165,10 +166,11 @@
             this.btnLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogo.FlatAppearance.BorderSize = 0;
             this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogo.Location = new System.Drawing.Point(0, 11);
+            this.btnLogo.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogo.Location = new System.Drawing.Point(0, 10);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(135, 35);
-            this.btnLogo.TabIndex = 1;
+            this.btnLogo.TabIndex = 0;
             this.btnLogo.UseVisualStyleBackColor = false;
             this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
             // 
@@ -176,13 +178,16 @@
             // 
             this.btnHome.BackColor = System.Drawing.Color.Transparent;
             this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(66)))), ((int)(((byte)(16)))));
-            this.btnHome.Location = new System.Drawing.Point(730, 8);
+            this.btnHome.Location = new System.Drawing.Point(621, 8);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(150, 45);
-            this.btnHome.TabIndex = 5;
+            this.btnHome.Size = new System.Drawing.Size(130, 45);
+            this.btnHome.TabIndex = 6;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -197,10 +202,11 @@
             "Título",
             "Gênero",
             "Estúdio"});
-            this.cbbSearchOptions.Location = new System.Drawing.Point(213, 240);
+            this.cbbSearchOptions.Location = new System.Drawing.Point(188, 172);
+            this.cbbSearchOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbSearchOptions.Name = "cbbSearchOptions";
-            this.cbbSearchOptions.Size = new System.Drawing.Size(170, 24);
-            this.cbbSearchOptions.TabIndex = 6;
+            this.cbbSearchOptions.Size = new System.Drawing.Size(149, 21);
+            this.cbbSearchOptions.TabIndex = 0;
             this.cbbSearchOptions.Text = "Opções de Busca";
             this.cbbSearchOptions.SelectedIndexChanged += new System.EventHandler(this.cbbSearchOptions_SelectedIndexChanged);
             // 
@@ -209,10 +215,11 @@
             this.txbSearchTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbSearchTitle.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbSearchTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
-            this.txbSearchTitle.Location = new System.Drawing.Point(401, 241);
+            this.txbSearchTitle.Location = new System.Drawing.Point(343, 173);
+            this.txbSearchTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbSearchTitle.Name = "txbSearchTitle";
-            this.txbSearchTitle.Size = new System.Drawing.Size(450, 24);
-            this.txbSearchTitle.TabIndex = 7;
+            this.txbSearchTitle.Size = new System.Drawing.Size(410, 20);
+            this.txbSearchTitle.TabIndex = 1;
             this.txbSearchTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnSearch
@@ -221,10 +228,11 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSearch.ForeColor = System.Drawing.Color.Ivory;
-            this.btnSearch.Location = new System.Drawing.Point(870, 231);
+            this.btnSearch.Location = new System.Drawing.Point(759, 172);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(134, 47);
-            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Size = new System.Drawing.Size(117, 23);
+            this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -233,10 +241,11 @@
             // 
             this.pnlSearch.BackColor = System.Drawing.Color.White;
             this.pnlSearch.Controls.Add(this.lvwMovieBank);
-            this.pnlSearch.Location = new System.Drawing.Point(213, 293);
+            this.pnlSearch.Location = new System.Drawing.Point(186, 205);
+            this.pnlSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(791, 429);
-            this.pnlSearch.TabIndex = 9;
+            this.pnlSearch.Size = new System.Drawing.Size(692, 332);
+            this.pnlSearch.TabIndex = 5;
             // 
             // lvwMovieBank
             // 
@@ -248,10 +257,11 @@
             this.lvwMovieBank.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.lvwMovieBank.FullRowSelect = true;
             this.lvwMovieBank.GridLines = true;
-            this.lvwMovieBank.Location = new System.Drawing.Point(15, 13);
+            this.lvwMovieBank.Location = new System.Drawing.Point(20, 15);
+            this.lvwMovieBank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvwMovieBank.MultiSelect = false;
             this.lvwMovieBank.Name = "lvwMovieBank";
-            this.lvwMovieBank.Size = new System.Drawing.Size(765, 397);
+            this.lvwMovieBank.Size = new System.Drawing.Size(652, 301);
             this.lvwMovieBank.TabIndex = 0;
             this.lvwMovieBank.UseCompatibleStateImageBehavior = false;
             this.lvwMovieBank.View = System.Windows.Forms.View.Details;
@@ -259,7 +269,7 @@
             // cnTitulo
             // 
             this.cnTitulo.Text = "Titulo";
-            this.cnTitulo.Width = 520;
+            this.cnTitulo.Width = 500;
             // 
             // cnYear
             // 
@@ -273,9 +283,10 @@
             this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpen.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnOpen.ForeColor = System.Drawing.Color.White;
-            this.btnOpen.Location = new System.Drawing.Point(870, 748);
+            this.btnOpen.Location = new System.Drawing.Point(761, 550);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(134, 47);
+            this.btnOpen.Size = new System.Drawing.Size(117, 35);
             this.btnOpen.TabIndex = 15;
             this.btnOpen.Text = "Abrir";
             this.btnOpen.UseVisualStyleBackColor = false;
@@ -286,9 +297,10 @@
             this.ptbLogo.BackColor = System.Drawing.Color.Transparent;
             this.ptbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ptbLogo.Image = global::Portfolio.Presentation.Properties.Resources.logotipo_do_filme_10250_3708_1_;
-            this.ptbLogo.Location = new System.Drawing.Point(14, 8);
+            this.ptbLogo.Location = new System.Drawing.Point(12, 8);
+            this.ptbLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(69, 63);
+            this.ptbLogo.Size = new System.Drawing.Size(52, 45);
             this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 17;
             this.ptbLogo.TabStop = false;
@@ -299,10 +311,11 @@
             this.cbbCategory.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.cbbCategory.FormattingEnabled = true;
-            this.cbbCategory.Location = new System.Drawing.Point(401, 241);
+            this.cbbCategory.Location = new System.Drawing.Point(343, 172);
+            this.cbbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbCategory.Name = "cbbCategory";
-            this.cbbCategory.Size = new System.Drawing.Size(450, 24);
-            this.cbbCategory.TabIndex = 18;
+            this.cbbCategory.Size = new System.Drawing.Size(410, 21);
+            this.cbbCategory.TabIndex = 2;
             this.cbbCategory.Visible = false;
             // 
             // cbbStudio
@@ -311,19 +324,20 @@
             this.cbbStudio.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbbStudio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(100)))), ((int)(((byte)(12)))));
             this.cbbStudio.FormattingEnabled = true;
-            this.cbbStudio.Location = new System.Drawing.Point(401, 243);
+            this.cbbStudio.Location = new System.Drawing.Point(343, 172);
+            this.cbbStudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbStudio.Name = "cbbStudio";
-            this.cbbStudio.Size = new System.Drawing.Size(450, 24);
-            this.cbbStudio.TabIndex = 19;
+            this.cbbStudio.Size = new System.Drawing.Size(410, 21);
+            this.cbbStudio.TabIndex = 3;
             this.cbbStudio.Visible = false;
             // 
             // FrmSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._4___Home___Portfolio;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1216, 908);
+            this.ClientSize = new System.Drawing.Size(1064, 663);
             this.Controls.Add(this.cbbStudio);
             this.Controls.Add(this.cbbCategory);
             this.Controls.Add(this.ptbLogo);
@@ -337,6 +351,7 @@
             this.Controls.Add(this.pnlMenuPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "FrmSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
