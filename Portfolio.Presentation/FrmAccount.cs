@@ -1,17 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using Portfolio.Domain;
-using Portfolio.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Portfolio.Services;
 using static Portfolio.Services.Extensions;
-using static System.Windows.Forms.DataFormats;
 using User = Portfolio.Domain.User;
 
 namespace Portfolio.Presentation
@@ -201,9 +189,7 @@ namespace Portfolio.Presentation
 
         private void btnContaVoltar_Click(object sender, EventArgs e)
         {
-            //vai ser necessário inserir aqui a validação para cada form que pode chamar o minhaconta
             this.Close();
-
             switch (_previousFormType)
             {
                 case "Portfolio.Presentation.FrmHome":
@@ -218,29 +204,40 @@ namespace Portfolio.Presentation
                     Form s = new FrmSearch(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
                     s.Show();
                     return;
-
-
             }
-
             if (_previousFormType == "Portfolio.Presentation.FrmHome")
             {
                 Form f = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
                 f.Show();
             }
-            
-            
-
         }
 
         private void btnContaSalvar_Click(object sender, EventArgs e)
         {
-            //alterar o objeto na lista
-            if (_loggedUser.Name != txbContaName.Text)
+            string message = "";
+
+            if (_loggedUser.Name != txbContaName.Text && !_loggedUser.CheckPassword(txbContaNewPassword.Text) && txbContaNewPassword.Text != string.Empty)
+            {
                 _loggedUser.ChangeName(txbContaName.Text);
-            if (!_loggedUser.CheckPassword(txbContaNewPassword.Text))
                 _loggedUser.ChangePassword(txbContaNewPassword.Text);
+                message = $"O seu nome de usuário e senha foram atualizados com sucesso!";
+            }
+            else if (_loggedUser.Name != txbContaName.Text && txbContaNewPassword.Text == string.Empty)
+            {
+                _loggedUser.ChangeName(txbContaName.Text);
+                message = $"O seu nome de usuário foi atualizado com sucesso!";
+            }
+            else if (!_loggedUser.CheckPassword(txbContaNewPassword.Text) && txbContaNewPassword.Text != string.Empty)
+            {
+                _loggedUser.ChangePassword(txbContaNewPassword.Text);
+                message = $"A sua senha foi atualizada com sucesso!";
+            }
             txbContaCurrentPassword.Text = "";
             txbContaNewPassword.Text = "";
+            btnContaSalvar.Enabled = false;
+            DialogResult answer = MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (answer == DialogResult.OK)
+                return;
         }
 
         private void btnLogo_Click(object sender, EventArgs e)
@@ -255,9 +252,7 @@ namespace Portfolio.Presentation
                 subMenu.Visible = true;
             }
             else
-            {
                 subMenu.Visible = false;
-            }
         }
         private void HideSubMenu()
         {
@@ -295,7 +290,6 @@ namespace Portfolio.Presentation
                 Application.Exit();
             }
         }
-
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -325,6 +319,13 @@ namespace Portfolio.Presentation
                 this.Close();
                 f.Show();
             }
+        }
+
+        private void btnAccountHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmHome home = new FrmHome(_userRepository, _portfolioService, _movieList, _loggedUser, _loginForm);
+            home.Show();
         }
     }
 }

@@ -58,6 +58,7 @@
             this.btnMyAccount = new System.Windows.Forms.Button();
             this.btnLogo = new System.Windows.Forms.Button();
             this.btnContaDeletar = new System.Windows.Forms.Button();
+            this.btnAccountHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.pnlMenuPanel.SuspendLayout();
             this.pnlSubMenu.SuspendLayout();
@@ -421,12 +422,31 @@
             this.btnContaDeletar.UseVisualStyleBackColor = true;
             this.btnContaDeletar.Click += new System.EventHandler(this.btnContaDeletar_Click);
             // 
+            // btnAccountHome
+            // 
+            this.btnAccountHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnAccountHome.FlatAppearance.BorderSize = 0;
+            this.btnAccountHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAccountHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAccountHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountHome.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAccountHome.ForeColor = System.Drawing.Color.White;
+            this.btnAccountHome.Location = new System.Drawing.Point(477, 10);
+            this.btnAccountHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAccountHome.Name = "btnAccountHome";
+            this.btnAccountHome.Size = new System.Drawing.Size(130, 45);
+            this.btnAccountHome.TabIndex = 57;
+            this.btnAccountHome.Text = "Home";
+            this.btnAccountHome.UseVisualStyleBackColor = false;
+            this.btnAccountHome.Click += new System.EventHandler(this.btnAccountHome_Click);
+            // 
             // FrmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Portfolio.Presentation.Properties.Resources._3;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.btnAccountHome);
             this.Controls.Add(this.btnContaDeletar);
             this.Controls.Add(this.ptbLogo);
             this.Controls.Add(this.btnNewSearch);
@@ -492,5 +512,6 @@
         private Button btnMyAccount;
         private Button btnLogo;
         private Button btnContaDeletar;
+        private Button btnAccountHome;
     }
 }
