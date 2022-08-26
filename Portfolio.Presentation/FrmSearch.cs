@@ -160,7 +160,14 @@ namespace Portfolio.Presentation
 
                 default:
                     lvwMovieBank.Items.Clear();
-                    SearchAllMovies(_movieList);
+                    if (txbSearchTitle.Text == "")
+                    {
+                        SearchAllMovies(_movieList);
+                    } else
+                    {
+                        SearchTitle();
+                    }
+                    
                     break;
             }
         }
@@ -199,31 +206,39 @@ namespace Portfolio.Presentation
         private void SearchCategory()
         {
             var nameCategory = cbbCategory.Text;
-            Category category = _descriptionCategory[nameCategory];
-            List<Movie> listByCategory = _movieList.SearchMovieByCategory(category);
-
-            foreach (var c in listByCategory)
+            if (nameCategory != "")
             {
-                string[] item = new string[2];
-                item[0] = c.Title;
-                item[1] = c.ReleaseYear.ToString();
-                lvwMovieBank.Items.Add(new ListViewItem(item));
-            }
+                Category category = _descriptionCategory[nameCategory];
+                List<Movie> listByCategory = _movieList.SearchMovieByCategory(category);
+
+                foreach (var c in listByCategory)
+                {
+                    string[] item = new string[2];
+                    item[0] = c.Title;
+                    item[1] = c.ReleaseYear.ToString();
+                    lvwMovieBank.Items.Add(new ListViewItem(item));
+                }
+            } else { SearchAllMovies(_movieList); }
+
         }
 
         private void SearchStudio()
         {
             var nameStudio = cbbStudio.Text;
-            Studio studio = _descriptionStudio[nameStudio];
-            List<Movie> listByStudio = _movieList.SearchMovieByStudio(studio);
-
-            foreach (var s in listByStudio)
+            if (nameStudio != "")
             {
-                string[] item = new string[2];
-                item[0] = s.Title;
-                item[1] = s.ReleaseYear.ToString();
-                lvwMovieBank.Items.Add(new ListViewItem(item));
-            }
+                Studio studio = _descriptionStudio[nameStudio];
+                List<Movie> listByStudio = _movieList.SearchMovieByStudio(studio);
+
+                foreach (var s in listByStudio)
+                {
+                    string[] item = new string[2];
+                    item[0] = s.Title;
+                    item[1] = s.ReleaseYear.ToString();
+                    lvwMovieBank.Items.Add(new ListViewItem(item));
+                }
+            } else { SearchAllMovies(_movieList); }
+
 
         }
 
